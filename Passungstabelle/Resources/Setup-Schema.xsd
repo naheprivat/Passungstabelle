@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<xs:schema id="Data" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="Data" msdata:IsDataSet="true" msdata:Locale="en-US">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Sprachen">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sprache" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="Kürzel" type="xs:string" />
+                  <xs:attribute name="Sprache" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Sprachkombinationen">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sprachkombination" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="Name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Linienarten">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Linienart" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="Name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Generell">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GenerelleAttribute" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="RundenAuf" type="xs:string" />
+                  <xs:attribute name="PlusZeichen" type="xs:string" />
+                  <xs:attribute name="ReaktionAufLeerePassung" type="xs:string" />
+                  <xs:attribute name="NeuPositionieren" type="xs:string" />
+                  <xs:attribute name="NurAufErstemBlatt" type="xs:string" />
+                  <xs:attribute name="AnsichtsTypSkizzen" type="xs:string" />
+                  <xs:attribute name="AnsichtsTypTeile" type="xs:string" />
+                  <xs:attribute name="AnsichtsTypBaugruppen" type="xs:string" />
+                  <xs:attribute name="LogDatei" type="xs:string" />
+                  <xs:attribute name="SchichtStärke" type="xs:string" />
+                  <xs:attribute name="SchichtStärkeAbfragen" type="xs:string" />
+		  <xs:attribute name="SchichtStärkeKeine" type="xs:string" />
+		  <xs:attribute name="SchichtStärkeFix" type="xs:string" />
+                  <xs:attribute name="Fehlermeldung" type="xs:string" />
+                  <xs:attribute name="LöschenAufRestlichenBlättern" type="xs:string" />
+                  <xs:attribute name="Eventgesteuert" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Übersetzungen">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Übersetzung" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="Kürzel" type="xs:string" />
+                  <xs:attribute name="Maß" type="xs:string" />
+                  <xs:attribute name="Passung" type="xs:string" />
+                  <xs:attribute name="MaßePassung" type="xs:string" />
+                  <xs:attribute name="Toleranz" type="xs:string" />
+                  <xs:attribute name="Abmaß" type="xs:string" />
+		  <xs:attribute name="AbmaßToleranzMitte" type="xs:string" />
+                  <xs:attribute name="VorbearbeitungsAbmaße" type="xs:string" /> 		  
+                  <xs:attribute name="VorbearbeitungsToleranzMitte" type="xs:string" />		  
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Formate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Format" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="FormatAttribute" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="Breite" type="xs:string" />
+                        <xs:attribute name="Höhe" type="xs:string" />
+                        <xs:attribute name="EinfügepunktLO" type="xs:string" />
+			<xs:attribute name="EinfügepunktRO" type="xs:string" />
+			<xs:attribute name="EinfügepunktLU" type="xs:string" />
+			<xs:attribute name="EinfügepunktRU" type="xs:string" />
+                        <xs:attribute name="Offset_X" type="xs:string" />
+                        <xs:attribute name="Offset_Y" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Tabelle" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TabellenAttribute" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="HeaderOben" type="xs:string" />
+                              <xs:attribute name="HeaderUnten" type="xs:string" />
+                              <xs:attribute name="HeaderLanguage" type="xs:string" />
+                              <xs:attribute name="SchriftartZeile" type="xs:string" />
+                              <xs:attribute name="SchriftstilZeile" type="xs:string" />
+                              <xs:attribute name="UnterstrichenZeile" type="xs:string" />
+                              <xs:attribute name="DurchgestrichenZeile" type="xs:string" />
+                              <xs:attribute name="FettZeile" type="xs:string" />
+                              <xs:attribute name="TexthöheZeile" type="xs:string" />
+                              <xs:attribute name="FarbeZeile" type="xs:string" />
+                              <xs:attribute name="KursivZeile" type="xs:string" />
+                              <xs:attribute name="SchriftartKopfZeile" type="xs:string" />
+                              <xs:attribute name="SchriftstilKopfZeile" type="xs:string" />
+                              <xs:attribute name="UnterstrichenKopfZeile" type="xs:string" />
+                              <xs:attribute name="DurchgestrichenKopfZeile" type="xs:string" />
+                              <xs:attribute name="FettKopfZeile" type="xs:string" />
+                              <xs:attribute name="TexthöheKopfZeile" type="xs:string" />
+                              <xs:attribute name="FarbeKopfZeile" type="xs:string" />
+                              <xs:attribute name="KursivKopfZeile" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteMaß" type="xs:string" />
+                              <xs:attribute name="BreiteSpaltePassung" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteMaßePassung" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteToleranz" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteAbmaß" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteAbmaßToleranzMitte" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteVorbearbeitungsAbmaße" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteVorbearbeitungsToleranzMitte" type="xs:string" />
+                              <xs:attribute name="RasterStrichStärke" type="xs:string" />
+                              <xs:attribute name="RahmenStrichStärke" type="xs:string" />
+                              <xs:attribute name="SpaltenBreiteAutomatisch" type="xs:string" />
+			      <xs:attribute name="TabSpalteMaß" type="xs:string" />
+                              <xs:attribute name="TabSpaltePassung" type="xs:string" />
+                              <xs:attribute name="TabSpalteMaßePassung" type="xs:string" />
+                              <xs:attribute name="TabSpalteToleranz" type="xs:string" />
+                              <xs:attribute name="TabSpalteAbmaß" type="xs:string" />
+                              <xs:attribute name="TabSpalteAbmaßToleranzMitte" type="xs:string" />
+                              <xs:attribute name="TabSpalteVorbearbeitungsAbmaße" type="xs:string" />
+                              <xs:attribute name="TabSpalteVorbearbeitungsToleranzMitte" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Formatname" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
