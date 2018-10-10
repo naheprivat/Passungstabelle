@@ -81,6 +81,37 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        '''&lt;Data&gt;
+        '''   &lt;Sprachen&gt;
+        '''      &lt;Sprache
+        '''         Kürzel=&quot;AA&quot;
+        '''         Sprache=&quot;Afar&quot; /&gt;
+        '''      &lt;Sprache
+        '''         Kürzel=&quot;AB&quot;
+        '''         Sprache=&quot;Abchasisch&quot; /&gt;
+        '''      &lt;Sprache
+        '''         Kürzel=&quot;AF&quot;
+        '''         Sprache=&quot;Afrikaans&quot; /&gt;
+        '''      &lt;Sprache
+        '''         Kürzel=&quot;AM&quot;
+        '''         Sprache=&quot;Amharisch&quot; /&gt;
+        '''      &lt;Sprache
+        '''         Kürzel=&quot;AR&quot;
+        '''         Sprache=&quot;Arabisch&quot; /&gt;
+        '''      &lt;Sprache
+        '''         Kürzel=&quot;AS&quot;
+        '''         Sprache=&quot;Assamesisch&quot; /&gt;
+        '''      &lt;Sprache
+        '''         K [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        '''</summary>
+        Friend ReadOnly Property Setup() As String
+            Get
+                Return ResourceManager.GetString("Setup", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Sucht eine lokalisierte Zeichenfolge, die &lt;?xml version=&quot;1.0&quot; standalone=&quot;yes&quot;?&gt;
         '''&lt;xs:schema id=&quot;Data&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;
         '''  &lt;xs:element name=&quot;Data&quot; msdata:IsDataSet=&quot;true&quot; msdata:Locale=&quot;en-US&quot;&gt;

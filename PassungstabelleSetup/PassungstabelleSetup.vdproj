@@ -2532,11 +2532,6 @@
             "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.sldworks, Version=26.2.0.63, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_95396822EB04F0B8C2BA31E1D44232DC"
-                    {
-                    "Name" = "8:SolidWorks.Interop.sldworks.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SolidWorks.Interop.sldworks.dll"
             "TargetName" = "8:"
@@ -2563,11 +2558,6 @@
             "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swpublished, Version=26.2.0.63, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_955D6C3153A122742352AA0DBE160565"
-                    {
-                    "Name" = "8:SolidWorks.Interop.swpublished.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SolidWorks.Interop.swpublished.dll"
             "TargetName" = "8:"
@@ -2794,11 +2784,6 @@
             "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swconst, Version=26.2.0.63, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B1B84008B81CE504D362DCF6659354D0"
-                    {
-                    "Name" = "8:SolidWorks.Interop.swconst.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SolidWorks.Interop.swconst.dll"
             "TargetName" = "8:"
@@ -4017,7 +4002,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Passungstabelle"
         "ProductCode" = "8:{0F653CCF-2457-4059-979E-F9A78F969950}"
-        "PackageCode" = "8:{EA0C47B3-CCA5-4B4C-AE1E-B208F92EA70A}"
+        "PackageCode" = "8:{3A1F93DE-6FA2-44CB-9AFD-9023E769428F}"
         "UpgradeCode" = "8:{42F62349-E964-4FBC-AD54-29AA4C202A1E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -4087,7 +4072,7 @@
                                                 {
                                                     "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_88724F5D43074157B54FF8FF5184889C"
                                                     {
-                                                    "Name" = "8:09a29164-06dc-4670-bfb9-3243404d59ca"
+                                                    "Name" = "8:{09a29164-06dc-4670-bfb9-3243404d59ca}"
                                                     "Condition" = "8:"
                                                     "AlwaysCreate" = "11:TRUE"
                                                     "DeleteAtUninstall" = "11:TRUE"
@@ -4141,20 +4126,6 @@
             {
                 "Keys"
                 {
-                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_81C90CC1ABB2466C893C05AB850BF9F4"
-                    {
-                    "Name" = "8:Software"
-                    "Condition" = "8:"
-                    "AlwaysCreate" = "11:FALSE"
-                    "DeleteAtUninstall" = "11:FALSE"
-                    "Transitive" = "11:FALSE"
-                        "Keys"
-                        {
-                        }
-                        "Values"
-                        {
-                        }
-                    }
                 }
             }
             "HKCR"
@@ -4167,7 +4138,7 @@
             {
                 "Keys"
                 {
-                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_61CB28E945864910A637E1A3D4F13525"
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_B346A05580C84B8994A56A6DDC16264B"
                     {
                     "Name" = "8:.DEFAULT"
                     "Condition" = "8:"
@@ -4176,7 +4147,7 @@
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
-                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_97774455714247E9B4D72A579C7EAFAC"
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_AEB47927C94F4DB0AB47A58ED334E085"
                             {
                             "Name" = "8:Software"
                             "Condition" = "8:"
@@ -4185,7 +4156,7 @@
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
-                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_4E9FDD512C9C49989674D4F300A06658"
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_491537103C344839B1674EF5778687A2"
                                     {
                                     "Name" = "8:SolidWorks"
                                     "Condition" = "8:"
@@ -4194,49 +4165,35 @@
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
-                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_663704C4AAFF4B939258B7F33D066CE9"
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_6FD986DC24774CC4B9F0B367D50CC02B"
                                             {
-                                            "Name" = "8:SolidWorks 2018"
+                                            "Name" = "8:AddInsStartup"
                                             "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
+                                            "AlwaysCreate" = "11:TRUE"
                                             "DeleteAtUninstall" = "11:FALSE"
                                             "Transitive" = "11:FALSE"
                                                 "Keys"
                                                 {
-                                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_88CEB12E15AE4F92B65092FAC817616D"
+                                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_814E3C69BB764C05A917E2C12BA26B4C"
                                                     {
-                                                    "Name" = "8:AddInsStartup"
+                                                    "Name" = "8:{09a29164-06dc-4670-bfb9-3243404d59ca}"
                                                     "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
+                                                    "AlwaysCreate" = "11:TRUE"
+                                                    "DeleteAtUninstall" = "11:TRUE"
                                                     "Transitive" = "11:FALSE"
                                                         "Keys"
                                                         {
-                                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_F13EC819487F410E8EACFCE274F3770D"
-                                                            {
-                                                            "Name" = "8:09a29164-06dc-4670-bfb9-3243404d59ca"
-                                                            "Condition" = "8:"
-                                                            "AlwaysCreate" = "11:TRUE"
-                                                            "DeleteAtUninstall" = "11:TRUE"
-                                                            "Transitive" = "11:FALSE"
-                                                                "Keys"
-                                                                {
-                                                                }
-                                                                "Values"
-                                                                {
-                                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_8CCFF3307BDC4DCAA7CBE0182BBFB978"
-                                                                    {
-                                                                    "Name" = "8:(Standard)"
-                                                                    "Condition" = "8:"
-                                                                    "Transitive" = "11:FALSE"
-                                                                    "ValueTypes" = "3:3"
-                                                                    "Value" = "3:1"
-                                                                    }
-                                                                }
-                                                            }
                                                         }
                                                         "Values"
                                                         {
+                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E019B92DE24A486A901A7FCF14B1B354"
+                                                            {
+                                                            "Name" = "8:(Standard)"
+                                                            "Condition" = "8:"
+                                                            "Transitive" = "11:FALSE"
+                                                            "ValueTypes" = "3:3"
+                                                            "Value" = "3:1"
+                                                            }
                                                         }
                                                     }
                                                 }

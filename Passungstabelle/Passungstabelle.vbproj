@@ -424,6 +424,9 @@
     <Content Include="Help\HtmlHelp\_translations.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Setup.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Help\HtmlHelp\vendors\" />

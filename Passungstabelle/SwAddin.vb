@@ -513,44 +513,7 @@ Public Class SwAddin
     'Sub FlyoutCommandItem1()
     '    ISwApp.SendMsgToUser("Flyout command 1")
 
-    '    Dim swmodel As ModelDoc2
-    '    Dim swdraw As DrawingDoc
-    '    Dim swview As View
-    '    Dim dispdim As DisplayDimension
-    '    Dim dimm As Dimension
-    '    Dim arr As Object
-    '    Dim j As Integer
-    '    Dim s As Date
-    '    Dim e As Date
-    '    Dim i As Long
-    '    Dim k As Long
 
-    '    k = 0
-    '    i = 0
-
-    '    swmodel = SwApp.ActiveDoc
-    '    swdraw = swmodel
-
-    '    s = Now
-
-    '    swview = swdraw.GetFirstView
-
-    '    Do While Not swview Is Nothing
-    '        k = k + 1
-    '        arr = swview.GetDisplayDimensions
-    '        If Not arr Is Nothing Then
-    '            For j = 0 To UBound(arr)
-    '                dispdim = arr(j)
-    '                dimm = dispdim.GetDimension2(0)
-    '                i = i + 1
-    '            Next j
-    '        End If
-    '        swview = swview.GetNextView
-    '    Loop
-
-    '    e = Now
-
-    '    MsgBox("Zeit: " & e.Subtract(s).ToString & " Ansichten: " & k & " Maﬂe: " & i, vbOKOnly, "Meldung")
 
     'End Sub
 

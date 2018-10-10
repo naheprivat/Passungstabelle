@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+   <Sprachen>
+      <Sprache
+         Kürzel="AA"
+         Sprache="Afar" />
+      <Sprache
+         Kürzel="AB"
+         Sprache="Abchasisch" />
+      <Sprache
+         Kürzel="AF"
+         Sprache="Afrikaans" />
+      <Sprache
+         Kürzel="AM"
+         Sprache="Amharisch" />
+      <Sprache
+         Kürzel="AR"
+         Sprache="Arabisch" />
+      <Sprache
+         Kürzel="AS"
+         Sprache="Assamesisch" />
+      <Sprache
+         Kürzel="AY"
+         Sprache="Aymara" />
+      <Sprache
+         Kürzel="AZ"
+         Sprache="Aserbaidschanisch" />
+      <Sprache
+         Kürzel="BA"
+         Sprache="Baschkirisch" />
+      <Sprache
+         Kürzel="BE"
+         Sprache="Belorussisch" />
+      <Sprache
+         Kürzel="BG"
+         Sprache="Bulgarisch" />
+      <Sprache
+         Kürzel="BH"
+         Sprache="Biharisch" />
+      <Sprache
+         Kürzel="BI"
+         Sprache="Bislamisch" />
+      <Sprache
+         Kürzel="BN"
+         Sprache="Bengalisch" />
+      <Sprache
+         Kürzel="BO"
+         Sprache="Tibetanisch" />
+      <Sprache
+         Kürzel="BR"
+         Sprache="Bretonisch" />
+      <Sprache
+         Kürzel="CA"
+         Sprache="Katalanisch" />
+      <Sprache
+         Kürzel="CO"
+         Sprache="Korsisch" />
+      <Sprache
+         Kürzel="CS"
+         Sprache="Tschechisch" />
+      <Sprache
+         Kürzel="CY"
+         Sprache="Walisisch" />
+      <Sprache
+         Kürzel="DA"
+         Sprache="Dänisch" />
+      <Sprache
+         Kürzel="DE"
+         Sprache="Deutsch" />
+      <Sprache
+         Kürzel="DZ"
+         Sprache="Dzongkha/ Bhutani" />
+      <Sprache
+         Kürzel="EL"
+         Sprache="Griechisch" />
+      <Sprache
+         Kürzel="EN"
+         Sprache="Englisch" />
+      <Sprache
+         Kürzel="EO"
+         Sprache="Esperanto" />
+      <Sprache
+         Kürzel="ES"
+         Sprache="Spanisch" />
+      <Sprache
+         Kürzel="ET"
+         Sprache="Estnisch" />
+      <Sprache
+         Kürzel="EU"
+         Sprache="Baskisch" />
+      <Sprache
+         Kürzel="FA"
+         Sprache="Persisch" />
+      <Sprache
+         Kürzel="FI"
+         Sprache="Finnisch" />
+      <Sprache
+         Kürzel="FJ"
+         Sprache="Fiji" />
+      <Sprache
+         Kürzel="FO"
+         Sprache="Färöisch" />
+      <Sprache
+         Kürzel="FR"
+         Sprache="Französisch" />
+      <Sprache
+         Kürzel="FY"
+         Sprache="Friesisch" />
+      <Sprache
+         Kürzel="GA"
+         Sprache="Irisch" />
+      <Sprache
+         Kürzel="GD"
+         Sprache="Schottisches Gälisch" />
+      <Sprache
+         Kürzel="GL"
+         Sprache="Galizisch" />
+      <Sprache
+         Kürzel="GN"
+         Sprache="Guarani" />
+      <Sprache
+         Kürzel="GU"
+         Sprache="Gujaratisch" />
+      <Sprache
+         Kürzel="HA"
+         Sprache="Haussa" />
+      <Sprache
+         Kürzel="HE"
+         Sprache="Hebräisch" />
+      <Sprache
+         Kürzel="HI"
+         Sprache="Hindi" />
+      <Sprache
+         Kürzel="HR"
+         Sprache="Kroatisch" />
+      <Sprache
+         Kürzel="HU"
+         Sprache="Ungarisch" />
+      <Sprache
+         Kürzel="HY"
+         Sprache="Armenisch" />
+      <Sprache
+         Kürzel="IA"
+         Sprache="Interlingua" />
+      <Sprache
+         Kürzel="ID"
+         Sprache="Indonesisch" />
+      <Sprache
+         Kürzel="IE"
+         Sprache="Interlingue" />
+      <Sprache
+         Kürzel="IK"
+         Sprache="Inupiak" />
+      <Sprache
+         Kürzel="IS"
+         Sprache="Isländisch" />
+      <Sprache
+         Kürzel="IT"
+         Sprache="Italienisch" />
+      <Sprache
+         Kürzel="IU"
+         Sprache="Inuktitut (Eskimo)" />
+      <Sprache
+         Kürzel="IW"
+         Sprache="Hebräisch (aktualisiert: HE)" />
+      <Sprache
+         Kürzel="JA"
+         Sprache="Japanisch" />
+      <Sprache
+         Kürzel="JI"
+         Sprache="Jiddish (aktualisiert: YI)" />
+      <Sprache
+         Kürzel="JV"
+         Sprache="Javanisch" />
+      <Sprache
+         Kürzel="KA"
+         Sprache="Georgisch" />
+      <Sprache
+         Kürzel="KK"
+         Sprache="Kasachisch" />
+      <Sprache
+         Kürzel="KL"
+         Sprache="Kalaallisut" />
+      <Sprache
+         Kürzel="KM"
+         Sprache="Kambodschanisch" />
+      <Sprache
+         Kürzel="KN"
+         Sprache="Kannada" />
+      <Sprache
+         Kürzel="KO"
+         Sprache="Koreanisch" />
+      <Sprache
+         Kürzel="KS"
+         Sprache="Kaschmirisch" />
+      <Sprache
+         Kürzel="KU"
+         Sprache="Kurdisch" />
+      <Sprache
+         Kürzel="KY"
+         Sprache="Kirgisisch" />
+      <Sprache
+         Kürzel="LA"
+         Sprache="Lateinisch" />
+      <Sprache
+         Kürzel="LN"
+         Sprache="Lingala" />
+      <Sprache
+         Kürzel="LO"
+         Sprache="Laotisch" />
+      <Sprache
+         Kürzel="LT"
+         Sprache="Litauisch" />
+      <Sprache
+         Kürzel="LV"
+         Sprache="Lettisch" />
+      <Sprache
+         Kürzel="MG"
+         Sprache="Malagasisch" />
+      <Sprache
+         Kürzel="MI"
+         Sprache="Maorisch" />
+      <Sprache
+         Kürzel="MK"
+         Sprache="Mazedonisch" />
+      <Sprache
+         Kürzel="ML"
+         Sprache="Malajalam" />
+      <Sprache
+         Kürzel="MN"
+         Sprache="Mongolisch" />
+      <Sprache
+         Kürzel="MO"
+         Sprache="Moldavisch" />
+      <Sprache
+         Kürzel="MR"
+         Sprache="Marathi" />
+      <Sprache
+         Kürzel="MS"
+         Sprache="Malaysisch" />
+      <Sprache
+         Kürzel="MT"
+         Sprache="Maltesisch" />
+      <Sprache
+         Kürzel="MY"
+         Sprache="Burmesisch" />
+      <Sprache
+         Kürzel="NA"
+         Sprache="Nauruisch" />
+      <Sprache
+         Kürzel="NE"
+         Sprache="Nepalesisch" />
+      <Sprache
+         Kürzel="NL"
+         Sprache="Holländisch" />
+      <Sprache
+         Kürzel="NO"
+         Sprache="Norwegisch" />
+      <Sprache
+         Kürzel="OC"
+         Sprache="Okzitanisch" />
+      <Sprache
+         Kürzel="OM"
+         Sprache="Oromo" />
+      <Sprache
+         Kürzel="OR"
+         Sprache="Oriya" />
+      <Sprache
+         Kürzel="PA"
+         Sprache="Pundjabisch" />
+      <Sprache
+         Kürzel="PL"
+         Sprache="Polnisch" />
+      <Sprache
+         Kürzel="PS"
+         Sprache="Paschtu" />
+      <Sprache
+         Kürzel="PT"
+         Sprache="Portugiesisch" />
+      <Sprache
+         Kürzel="QU"
+         Sprache="Quechua" />
+      <Sprache
+         Kürzel="RM"
+         Sprache="Rätoromanisch" />
+      <Sprache
+         Kürzel="RN"
+         Sprache="Kirundisch" />
+      <Sprache
+         Kürzel="RO"
+         Sprache="Rumänisch" />
+      <Sprache
+         Kürzel="RU"
+         Sprache="Russisch" />
+      <Sprache
+         Kürzel="RW"
+         Sprache="Kijarwanda" />
+      <Sprache
+         Kürzel="SA"
+         Sprache="Sanskrit" />
+      <Sprache
+         Kürzel="SD"
+         Sprache="Zinti" />
+      <Sprache
+         Kürzel="SG"
+         Sprache="Sango" />
+      <Sprache
+         Kürzel="SH"
+         Sprache="Serbokroatisch" />
+      <Sprache
+         Kürzel="SI"
+         Sprache="Singhalesisch" />
+      <Sprache
+         Kürzel="SK"
+         Sprache="Slowakisch" />
+      <Sprache
+         Kürzel="SL"
+         Sprache="Slowenisch" />
+      <Sprache
+         Kürzel="SM"
+         Sprache="Samoanisch" />
+      <Sprache
+         Kürzel="SN"
+         Sprache="Schonisch" />
+      <Sprache
+         Kürzel="SO"
+         Sprache="Somalisch" />
+      <Sprache
+         Kürzel="SQ"
+         Sprache="Albanisch" />
+      <Sprache
+         Kürzel="SR"
+         Sprache="Serbisch" />
+      <Sprache
+         Kürzel="SS"
+         Sprache="Swasiländisch" />
+      <Sprache
+         Kürzel="ST"
+         Sprache="Sesothisch" />
+      <Sprache
+         Kürzel="SU"
+         Sprache="Sudanesisch" />
+      <Sprache
+         Kürzel="SV"
+         Sprache="Schwedisch" />
+      <Sprache
+         Kürzel="SW"
+         Sprache="Suaheli" />
+      <Sprache
+         Kürzel="TA"
+         Sprache="Tamilisch" />
+      <Sprache
+         Kürzel="TE"
+         Sprache="Tegulu" />
+      <Sprache
+         Kürzel="TG"
+         Sprache="Tadschikisch" />
+      <Sprache
+         Kürzel="TH"
+         Sprache="Thai" />
+      <Sprache
+         Kürzel="TI"
+         Sprache="Tigrinja" />
+      <Sprache
+         Kürzel="TK"
+         Sprache="Turkmenisch" />
+      <Sprache
+         Kürzel="TL"
+         Sprache="Tagalog" />
+      <Sprache
+         Kürzel="TN"
+         Sprache="Sezuan" />
+      <Sprache
+         Kürzel="TO"
+         Sprache="Tongaisch" />
+      <Sprache
+         Kürzel="TR"
+         Sprache="Türkisch" />
+      <Sprache
+         Kürzel="TS"
+         Sprache="Tsongaisch" />
+      <Sprache
+         Kürzel="TT"
+         Sprache="Tatarisch" />
+      <Sprache
+         Kürzel="TW"
+         Sprache="Twi" />
+      <Sprache
+         Kürzel="UG"
+         Sprache="Uigur" />
+      <Sprache
+         Kürzel="UK"
+         Sprache="Ukrainisch" />
+      <Sprache
+         Kürzel="UR"
+         Sprache="Urdu" />
+      <Sprache
+         Kürzel="UZ"
+         Sprache="Usbekisch" />
+      <Sprache
+         Kürzel="VI"
+         Sprache="Vietnamesisch" />
+      <Sprache
+         Kürzel="VO"
+         Sprache="Volapük" />
+      <Sprache
+         Kürzel="WO"
+         Sprache="Wolof" />
+      <Sprache
+         Kürzel="XH"
+         Sprache="Xhosa" />
+      <Sprache
+         Kürzel="YI"
+         Sprache="Jiddish" />
+      <Sprache
+         Kürzel="YO"
+         Sprache="Joruba" />
+      <Sprache
+         Kürzel="ZA"
+         Sprache="Zhuang" />
+      <Sprache
+         Kürzel="ZH"
+         Sprache="Chinesisch" />
+      <Sprache
+         Kürzel="ZU"
+         Sprache="Zulu" />
+   </Sprachen>
+   <Sprachkombinationen>
+      <Sprachkombination
+         Name="DE" />
+      <Sprachkombination
+         Name="EN" />
+      <Sprachkombination
+         Name="DE/EN" />
+      <Sprachkombination
+         Name="EN/DE" />
+   </Sprachkombinationen>
+   <Linienarten>
+      <Linienart
+         Name="Dünn" />
+      <Linienart
+         Name="Normal" />
+      <Linienart
+         Name="Dick" />
+      <Linienart
+         Name="Dick(2)" />
+      <Linienart
+         Name="Dick(3)" />
+      <Linienart
+         Name="Dick(4)" />
+      <Linienart
+         Name="Dick(5)" />
+      <Linienart
+         Name="Dick(6)" />
+   </Linienarten>
+   <Generell>
+      <GenerelleAttribute
+         RundenAuf="8"
+         PlusZeichen="True"
+         ReaktionAufLeerePassung="False"
+         NeuPositionieren="True"
+         NurAufErstemBlatt="False"
+         AnsichtsTypSkizzen="True"
+         AnsichtsTypTeile="True"
+         AnsichtsTypBaugruppen="True"
+         LogDatei="False"
+         SchichtStärke="0"
+         SchichtStärkeAbfragen="False"
+         SchichtStärkeKeine="True"
+         SchichtStärkeFix="False"
+         Fehlermeldung="True"
+         LöschenAufRestlichenBlättern="False"
+         Eventgesteuert="False" />
+   </Generell>
+   <Übersetzungen>
+      <Übersetzung
+         Kürzel="DE"
+         Maß="Maß"
+         Passung="Passung"
+         MaßePassung="Maß+Passung"
+         Toleranz="Toleranz"
+         Abmaß="Abmaß"
+         AbmaßToleranzMitte="Toleranzmitte"
+         VorbearbeitungsAbmaße="Vorbearbeitung"
+         VorbearbeitungsToleranzMitte="Vorbearbeitung-Toleranzmitte" />
+      <Übersetzung
+         Kürzel="EN"
+         Maß="dimension"
+         Passung="fit"
+         MaßePassung="dimension+fit"
+         Toleranz="tolerance"
+         Abmaß="limits"
+         AbmaßToleranzMitte="mid tolerance"
+         VorbearbeitungsAbmaße="rough dimension"
+         VorbearbeitungsToleranzMitte="rough dim mid tolerance" />
+   </Übersetzungen>
+   <Formate>
+      <Format
+         Formatname="a4 - iso">
+         <FormatAttribute
+            Breite="210"
+            Höhe="297"
+            EinfügepunktLO="False"
+            EinfügepunktRO="True"
+            EinfügepunktLU="False"
+            EinfügepunktRU="False"
+            Offset_X="-10"
+            Offset_Y="-10" />
+         <Tabelle>
+            <TabellenAttribute
+               HeaderOben="True"
+               HeaderUnten="False"
+               HeaderLanguage="DE"
+               SchriftartZeile="Arial"
+               SchriftstilZeile="Standard"
+               UnterstrichenZeile="False"
+               DurchgestrichenZeile="False"
+               FettZeile="False"
+               TexthöheZeile="2,5"
+               FarbeZeile="0"
+               KursivZeile="False"
+               SchriftartKopfZeile="Arial"
+               SchriftstilKopfZeile="Standard"
+               UnterstrichenKopfZeile="False"
+               DurchgestrichenKopfZeile="False"
+               FettKopfZeile="False"
+               TexthöheKopfZeile="2,5"
+               FarbeKopfZeile="0"
+               KursivKopfZeile="False"
+               BreiteSpalteMaß="15"
+               BreiteSpaltePassung="15"
+               BreiteSpalteMaßePassung="20"
+               BreiteSpalteToleranz="20"
+               BreiteSpalteAbmaß="20"
+               BreiteSpalteAbmaßToleranzMitte="20"
+               BreiteSpalteVorbearbeitungsAbmaße="20"
+               BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               RasterStrichStärke="Dünn"
+               RahmenStrichStärke="Dick"
+               SpaltenBreiteAutomatisch="True"
+               TabSpalteMaß="False"
+               TabSpaltePassung="False"
+               TabSpalteMaßePassung="True"
+               TabSpalteToleranz="True"
+               TabSpalteAbmaß="True"
+               TabSpalteAbmaßToleranzMitte="False"
+               TabSpalteVorbearbeitungsAbmaße="False"
+               TabSpalteVorbearbeitungsToleranzMitte="False" />
+         </Tabelle>
+      </Format>
+      <Format
+         Formatname="a3 - iso">
+         <FormatAttribute
+            Breite="420"
+            Höhe="297"
+            EinfügepunktLO="False"
+            EinfügepunktRO="True"
+            EinfügepunktLU="False"
+            EinfügepunktRU="False"
+            Offset_X="-10"
+            Offset_Y="-10" />
+         <Tabelle>
+            <TabellenAttribute
+               HeaderOben="True"
+               HeaderUnten="False"
+               HeaderLanguage="DE"
+               SchriftartZeile="Arial"
+               SchriftstilZeile="Standard"
+               UnterstrichenZeile="False"
+               DurchgestrichenZeile="False"
+               FettZeile="False"
+               TexthöheZeile="2,5"
+               FarbeZeile="0"
+               KursivZeile="False"
+               SchriftartKopfZeile="Arial"
+               SchriftstilKopfZeile="Standard"
+               UnterstrichenKopfZeile="False"
+               DurchgestrichenKopfZeile="False"
+               FettKopfZeile="False"
+               TexthöheKopfZeile="2,5"
+               FarbeKopfZeile="0"
+               KursivKopfZeile="False"
+               BreiteSpalteMaß="15"
+               BreiteSpaltePassung="15"
+               BreiteSpalteMaßePassung="20"
+               BreiteSpalteToleranz="20"
+               BreiteSpalteAbmaß="20"
+               BreiteSpalteAbmaßToleranzMitte="20"
+               BreiteSpalteVorbearbeitungsAbmaße="20"
+               BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               RasterStrichStärke="Dünn"
+               RahmenStrichStärke="Dick"
+               SpaltenBreiteAutomatisch="True"
+               TabSpalteMaß="False"
+               TabSpaltePassung="False"
+               TabSpalteMaßePassung="True"
+               TabSpalteToleranz="True"
+               TabSpalteAbmaß="True"
+               TabSpalteAbmaßToleranzMitte="False"
+               TabSpalteVorbearbeitungsAbmaße="False"
+               TabSpalteVorbearbeitungsToleranzMitte="False" />
+         </Tabelle>
+      </Format>
+      <Format
+         Formatname="a2 - iso">
+         <FormatAttribute
+            Breite="594"
+            Höhe="420"
+            EinfügepunktLO="False"
+            EinfügepunktRO="True"
+            EinfügepunktLU="False"
+            EinfügepunktRU="False"
+            Offset_X="-10"
+            Offset_Y="-10" />
+         <Tabelle>
+            <TabellenAttribute
+               HeaderOben="True"
+               HeaderUnten="False"
+               HeaderLanguage="DE"
+               SchriftartZeile="Arial"
+               SchriftstilZeile="Standard"
+               UnterstrichenZeile="False"
+               DurchgestrichenZeile="False"
+               FettZeile="False"
+               TexthöheZeile="2,5"
+               FarbeZeile="0"
+               KursivZeile="False"
+               SchriftartKopfZeile="Arial"
+               SchriftstilKopfZeile="Standard"
+               UnterstrichenKopfZeile="False"
+               DurchgestrichenKopfZeile="False"
+               FettKopfZeile="False"
+               TexthöheKopfZeile="2,5"
+               FarbeKopfZeile="0"
+               KursivKopfZeile="False"
+               BreiteSpalteMaß="15"
+               BreiteSpaltePassung="15"
+               BreiteSpalteMaßePassung="20"
+               BreiteSpalteToleranz="20"
+               BreiteSpalteAbmaß="20"
+               BreiteSpalteAbmaßToleranzMitte="20"
+               BreiteSpalteVorbearbeitungsAbmaße="20"
+               BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               RasterStrichStärke="Dünn"
+               RahmenStrichStärke="Dick"
+               SpaltenBreiteAutomatisch="True"
+               TabSpalteMaß="False"
+               TabSpaltePassung="False"
+               TabSpalteMaßePassung="True"
+               TabSpalteToleranz="True"
+               TabSpalteAbmaß="True"
+               TabSpalteAbmaßToleranzMitte="False"
+               TabSpalteVorbearbeitungsAbmaße="False"
+               TabSpalteVorbearbeitungsToleranzMitte="False" />
+         </Tabelle>
+      </Format>
+      <Format
+         Formatname="a1 - iso">
+         <FormatAttribute
+            Breite="841"
+            Höhe="594"
+            EinfügepunktLO="False"
+            EinfügepunktRO="True"
+            EinfügepunktLU="False"
+            EinfügepunktRU="False"
+            Offset_X="-10"
+            Offset_Y="-10" />
+         <Tabelle>
+            <TabellenAttribute
+               HeaderOben="True"
+               HeaderUnten="False"
+               HeaderLanguage="DE"
+               SchriftartZeile="Arial"
+               SchriftstilZeile="Standard"
+               UnterstrichenZeile="False"
+               DurchgestrichenZeile="False"
+               FettZeile="False"
+               TexthöheZeile="2,5"
+               FarbeZeile="0"
+               KursivZeile="False"
+               SchriftartKopfZeile="Arial"
+               SchriftstilKopfZeile="Standard"
+               UnterstrichenKopfZeile="False"
+               DurchgestrichenKopfZeile="False"
+               FettKopfZeile="False"
+               TexthöheKopfZeile="2,5"
+               FarbeKopfZeile="0"
+               KursivKopfZeile="False"
+               BreiteSpalteMaß="15"
+               BreiteSpaltePassung="15"
+               BreiteSpalteMaßePassung="20"
+               BreiteSpalteToleranz="20"
+               BreiteSpalteAbmaß="20"
+               BreiteSpalteAbmaßToleranzMitte="20"
+               BreiteSpalteVorbearbeitungsAbmaße="20"
+               BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               RasterStrichStärke="Dünn"
+               RahmenStrichStärke="Dick"
+               SpaltenBreiteAutomatisch="True"
+               TabSpalteMaß="False"
+               TabSpaltePassung="False"
+               TabSpalteMaßePassung="True"
+               TabSpalteToleranz="True"
+               TabSpalteAbmaß="True"
+               TabSpalteAbmaßToleranzMitte="False"
+               TabSpalteVorbearbeitungsAbmaße="False"
+               TabSpalteVorbearbeitungsToleranzMitte="False" />
+         </Tabelle>
+      </Format>
+      <Format
+         Formatname="a0 - iso">
+         <FormatAttribute
+            Breite="1189"
+            Höhe="841"
+            EinfügepunktLO="False"
+            EinfügepunktRO="True"
+            EinfügepunktLU="False"
+            EinfügepunktRU="False"
+            Offset_X="-10"
+            Offset_Y="-10" />
+         <Tabelle>
+            <TabellenAttribute
+               HeaderOben="True"
+               HeaderUnten="False"
+               HeaderLanguage="DE"
+               SchriftartZeile="Arial"
+               SchriftstilZeile="Standard"
+               UnterstrichenZeile="False"
+               DurchgestrichenZeile="False"
+               FettZeile="False"
+               TexthöheZeile="2,5"
+               FarbeZeile="0"
+               KursivZeile="False"
+               SchriftartKopfZeile="Arial"
+               SchriftstilKopfZeile="Standard"
+               UnterstrichenKopfZeile="False"
+               DurchgestrichenKopfZeile="False"
+               FettKopfZeile="False"
+               TexthöheKopfZeile="2,5"
+               FarbeKopfZeile="0"
+               KursivKopfZeile="False"
+               BreiteSpalteMaß="15"
+               BreiteSpaltePassung="15"
+               BreiteSpalteMaßePassung="20"
+               BreiteSpalteToleranz="20"
+               BreiteSpalteAbmaß="20"
+               BreiteSpalteAbmaßToleranzMitte="20"
+               BreiteSpalteVorbearbeitungsAbmaße="20"
+               BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               RasterStrichStärke="Dünn"
+               RahmenStrichStärke="Dick"
+               SpaltenBreiteAutomatisch="True"
+               TabSpalteMaß="False"
+               TabSpaltePassung="False"
+               TabSpalteMaßePassung="True"
+               TabSpalteToleranz="True"
+               TabSpalteAbmaß="True"
+               TabSpalteAbmaßToleranzMitte="False"
+               TabSpalteVorbearbeitungsAbmaße="False"
+               TabSpalteVorbearbeitungsToleranzMitte="False" />
+         </Tabelle>
+      </Format>
+   </Formate>
+</Data>
