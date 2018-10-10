@@ -63,7 +63,7 @@
     <DefineTrace>true</DefineTrace>
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningLevel>1</WarningLevel>
@@ -83,7 +83,7 @@
     <DefineTrace>true</DefineTrace>
     <DebugSymbols>false</DebugSymbols>
     <Optimize>true</Optimize>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningLevel>1</WarningLevel>
@@ -102,7 +102,7 @@
     <BaseAddress>285212672</BaseAddress>
     <DocumentationFile>SwVBAddin1.xml</DocumentationFile>
     <WarningLevel>1</WarningLevel>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>false</RegisterForComInterop>
     <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -115,7 +115,7 @@
     <DocumentationFile>SwVBAddin1.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <WarningLevel>1</WarningLevel>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>false</RegisterForComInterop>
     <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
     <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
@@ -176,9 +176,6 @@
     <Compile Include="Passungstabelle_Datei.vb" />
     <Compile Include="Passungstabelle_Tabelle.vb" />
     <Compile Include="Passungstabelle_Zeile.vb" />
-    <Compile Include="PMPHandler.vb">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="RenameFormat.Designer.vb">
       <DependentUpon>RenameFormat.vb</DependentUpon>
     </Compile>
@@ -199,9 +196,6 @@
     <Compile Include="SwAddin.vb">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserPMPage.vb">
-      <SubType>Code</SubType>
-    </Compile>
     <EmbeddedResource Include="My Project\Resources.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -214,12 +208,6 @@
     <EmbeddedResource Include="SetupDialog.resx">
       <DependentUpon>SetupDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToolbarLarge.bmp" />
-    <EmbeddedResource Include="ToolbarSmall.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="MainIconLarge.bmp" />
-    <EmbeddedResource Include="MainIconSmall.bmp" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -280,10 +268,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="MainLarge.bmp" />
-    <EmbeddedResource Include="MainSmall.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Help\HtmlHelp\AllgemeineEinstellungen.html">
@@ -422,6 +406,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Help\HtmlHelp\_translations.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Resources\MainLarge.png" />
+    <EmbeddedResource Include="Resources\MainSmall.png" />
+    <Content Include="Resources\passungstabellen.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Setup.XML">

@@ -1,4 +1,11 @@
-﻿Imports SolidWorks.Interop.sldworks
+﻿'Module1 
+'dient hauptsächlich dazu die Setup.xml Datei 
+'   zu erstellen
+'   zu lesen
+'   zu schreiben
+'   die alte Ini-Datei zu konvertieren
+
+Imports SolidWorks.Interop.sldworks
 Imports System.Xml
 Imports System.Data
 Imports System.Collections.Generic
@@ -7,14 +14,20 @@ Imports System.Windows.Forms.DataVisualization
 
 
 Module Module1
-    Private exc As Microsoft.Office.Interop.Excel.Application
-    Property SwxMacroPfad As String
+    Private exc As Microsoft.Office.Interop.Excel.Application   'Verweis auf Excel
+    Property SwxMacroPfad As String                             'Pfad zum Verzeichnis der Applikation
 
-
+    'Sub        Init_excel
+    'Paramter:  Keine
+    'Startet Excel
+    'Achtung: keine Fehlerabfrage wenn Excel nicht gestartet werden kann
     Sub Init_excel()
         On Error Resume Next
+        'läuft Excel bereits?
         exc = GetObject(, "Excel.Application")
+        'Wenn Excel noch nicht läuft
         If Err.Number <> 0 Then
+            'Excel starten
             exc = CreateObject("Excel.Application")
             exc.Visible = False
         Else
@@ -22,90 +35,143 @@ Module Module1
         End If
     End Sub
 
+    'Sub        Create_tabels
+    'Paramter:  XMLDaten
+    'erstellt das Data Objekt für die Setup.XML Datei inklusive Tabellenstruktur
+    'um ein Gefühl für die Datenstruktur zu bekommen, 
+    'lohnt sich ein Blick in die Datei Setup-Schema.xsd (unter Resources)
     Public Sub Create_Tabels(ByRef XMLDaten As Data)
-        Dim dst As DataTable
-        Dim dsr As DataRow
-        Dim dsr1 As DataRow
+        Dim dst As DataTable                                                'Datentabelle
+        Dim dsr As DataRow                                                  'Datenreihe
+        Dim dsr1 As DataRow                                                 'Datenreihe
+        Dim xmlSR As New System.IO.StringReader(My.Resources.Setup_Schema)  'XML Schema intern als Ressource gespeichert
 
-        Dim xmlSR As New System.IO.StringReader(My.Resources.Setup_Schema)
-
+        'Alle Daten sicherheitshalber löschen
         XMLDaten.Clear()
+        'Schema einlesen
         XMLDaten.ReadXmlSchema(xmlSR)
 
-        'Sprachentabelle erstellen
+        'Tabelle Sprachen holen
         dst = XMLDaten.Tables("Sprachen")
+        'Neue Datenreihe erstellen
         dsr = dst.NewRow
+        'Datenreihe einfügen
         dst.Rows.Add(dsr)
 
+        'Tabelle Sprache holen
         dst = XMLDaten.Tables("Sprache")
+        'Alle definierten Sprachkürzel durchlaufne
         For Each n As KeyValuePair(Of String, String) In Definitionen.SPRACHATTR
+            'Neue Datenreihe
             dsr1 = dst.NewRow
+            'Kürzel setzen
             dsr1("Kürzel") = n.Key
+            'Sprachebezeichnung setzen
             dsr1("Sprache") = n.Value
+            'Verlinkung zu Tabelle "Sprachen" setzen
             dsr1("Sprachen_Id") = 0
+            'Datenreihe einfügen
             dst.Rows.Add(dsr1)
         Next
 
-        'Sprachentabelle erstellen
+        'Tabelle Sprachkombinationen holen
         dst = XMLDaten.Tables("Sprachkombinationen")
+        'Neue Datenreihe erstellen
         dsr = dst.NewRow
+        'Datenreihe einfügen
         dst.Rows.Add(dsr)
 
+        'Tabelle Sprachkombinationen erstellen
+        'da es bei der initialen Erstellung nur eine Sprache (Deutsch) gibt
+        'wird nur die Sprachkombination "DE" erstellt
+        'Tabelle Sprachkombination holen
         dst = XMLDaten.Tables("Sprachkombination")
+        'Neue Datenreihe erstellen
         dsr1 = dst.NewRow
+        'Sprachkürzel setzen
         dsr1("Name") = "DE"
+        'Verlinkung zu Tabelle "Spachkombinationen" setzen
         dsr1("Sprachkombinationen_Id") = 0
+        'Datenreihe einfügen
         dst.Rows.Add(dsr1)
 
-        'Linienart erstellen
+        'Tabelle Linienarten holen
         dst = XMLDaten.Tables("Linienarten")
+        'Neue Datenreihe erstellen
         dsr = dst.NewRow
+        'Datenreihe einfügen
         dst.Rows.Add(dsr)
 
+        'Tabelle Linienart holen
         dst = XMLDaten.Tables("Linienart")
+        'Alle definierten Sprachkürzel durchlaufen
         For Each n In Definitionen.LINIENARTEN
+            'Neue Datenreihe
             dsr1 = dst.NewRow
+            'Namen der Linienart setzen
             dsr1("Name") = n
+            'Verlinkung zu Tabelle "Linienarten" setzen
             dsr1("Linienarten_Id") = 0
+            'Datenreihe einfügen
             dst.Rows.Add(dsr1)
         Next
 
-        'Übersetzungen erstellen
+        'Tabelle Übersetzungen holen
         dst = XMLDaten.Tables("Übersetzungen")
+        'Neue Datenreihe
         dsr = dst.NewRow
+        'Datenreihe einfügen
         dst.Rows.Add(dsr)
 
+        'Tabelle Übersetzung holen
         dst = XMLDaten.Tables("Übersetzung")
+        'Neue Datenreihe
         dsr1 = dst.NewRow
+        'Alle definierten Übersetzungstexte durchlaufen
         For Each n As KeyValuePair(Of String, String) In Definitionen.ÜBERSETZUNGSATTR_Init
             dsr1(n.Key) = n.Value
         Next
+        'Verlinkung zu Tabelle "Übersetzungen" setzen
         dsr1("Übersetzungen_Id") = 0
+        'Datenreihe einfügen
         dst.Rows.Add(dsr1)
 
-        'Generelle Einstellungen
+        'Tabelle Generell holen
         dst = XMLDaten.Tables("Generell")
+        'Neue Datenreihe
         dsr = dst.NewRow
+        'Datenreihe einfügen
         dst.Rows.Add(dsr)
 
-        'Generelle Attribute
+        'Tabelle GenerelleAttribute holen
         dst = XMLDaten.Tables("GenerelleAttribute")
+        'Neue Datenreihe
         dsr1 = dst.NewRow
+        'Alle definierten Attribute durchlaufen
         For Each n As KeyValuePair(Of String, String) In Definitionen.GENERELLE_ATTR_Init
             dsr1(n.Key) = n.Value
         Next
+        'Verlinkung zu Tabelle "Generell" setzen
         dsr1("Generell_Id") = 0
+        'Datenreihe einfügen
         dst.Rows.Add(dsr1)
 
-        'Format erstellen
+        'Tabelle Formate holen
         dst = XMLDaten.Tables("Formate")
+        'Neue Datenreihe
         dsr = dst.NewRow
+        'Datenreihe einfügen
         dst.Rows.Add(dsr)
 
+        'Datenstruktur speichern
         XMLDaten.AcceptChanges()
     End Sub
 
-    Function Read_Tab_sprachen_neu(swapp As SldWorks) As Dictionary(Of String, Dictionary(Of String, String))
+    'Function:  Read_Tab_sprachen_neu
+    'Paramter:  Keine
+    'Ergebnis:  Dictionary(Of String, Dictionary(Of String, String))
+    'liest die Übersetzungen aus der Datei Sprachen.xls ein und gibt sie als Dictionary zurück
+    Function Read_Tab_sprachen_neu() As Dictionary(Of String, Dictionary(Of String, String))
         Dim wbs As Microsoft.Office.Interop.Excel.Workbooks
         Dim wb As Microsoft.Office.Interop.Excel.Workbook
         Dim ws As Microsoft.Office.Interop.Excel.Worksheet
@@ -116,42 +182,66 @@ Module Module1
         Dim x As Integer
         Dim y As Integer
 
-
+        'Verweis auf Excel holen 
         Init_excel()
+        'Pfad und Dateiname definieren
         pfad = SwxMacroPfad & "\Sprachen.xls"
+        'Workbooks holen
         wbs = exc.Workbooks
+        'Workbook holen
         wb = wbs.Open(pfad, False, True)
+        'Wenn kein Workbook gefunden wurde, dann Programmabbruch
         If IsNothing(wb) Then
             MsgBox("Datei Sprachen.xls nicht gefunden" & Chr(10) & "im Verzeichnis: " & SwxMacroPfad & Chr(10) & "Import abgebrochen")
             Read_Tab_sprachen_neu = temp1
             Exit Function
         End If
+        'Erstes Blatt holen
         ws = wb.Worksheets.Item(1)
 
+        'Spalten und Zeilenzähler initialisieren
         x = 2
         y = 2
 
+        'Rangeobjekt auf die 2. Spalte setzen
+        'die 2. Spalte enthält das Sprachkürzel
+        'z.B.: DE für Deutsch
         rg = CType(ws.Cells(y, x), Microsoft.Office.Interop.Excel.Range)
 
+        'So lange Werte gefunden werden
         While rg.Value <> ""
+            'Dictionary initialisieren
             temp = New Dictionary(Of String, String)
+            'auf 2. Spalte springen
             x = 2
+            'Für alle Übersetzungsattribute die Werte einlesen
+            'ACHTUNG: da einige Übersetzungen dazugekommen sind die neuen Übersetzungen leere Strings
             For Each item As KeyValuePair(Of String, String) In Definitionen.ÜBERSETZUNGSATTR
+                'Übersetzung hinzufügen
                 temp.Add(item.Key, Trim(CType(ws.Cells(y, x), Microsoft.Office.Interop.Excel.Range).Value))
+                'eine Spalte weiter
                 x = x + 1
             Next
+            'Übersetzungen mit dem Sprachkürzel der 2. Spalte (= rg.Value)
+            'an das Übersetzungs-Dictionary anhänge
             temp1.Add(rg.Value, temp)
+            'Spaltenzähler initialisieren
             x = 2
+            'Zeilenzähler um 1 erhöhen
             y = y + 1
+            'Rangeobjekt auf die 2. Spalte setzen
             rg = CType(ws.Cells(y, x), Microsoft.Office.Interop.Excel.Range)
         End While
 
+        'Workbook schließen
         wb.Close(False)
+        'Excel beenden
         exc.Quit()
+        'Übersetzungen zurückgeben
         Read_Tab_sprachen_neu = temp1
     End Function
 
-    Function Read_old_ini_neu(swapp As SldWorks) As List(Of Definitionen.Strctformat)
+    Function Read_old_ini_neu() As List(Of Definitionen.Strctformat)
         Dim pfad As String
         Dim temp As Definitionen.Strctformat
         Dim temp1 As New List(Of Definitionen.Strctformat)
@@ -553,15 +643,11 @@ Module Module1
     End Function
 
     Sub Write_XML_Header(ByRef XmlWrt As XmlWriter)
-
         With XmlWrt
-
             ' Write the Xml declaration.
             .WriteStartDocument()
-
             ' Write a comment.
             .WriteComment("Passunstabelle-INI")
-
             ' Write the root element.
             .WriteStartElement("Data")
         End With
@@ -688,39 +774,30 @@ Module Module1
         End With
     End Sub
 
-
-
     Sub Write_XML_Formate_neu(ByRef XmlWrt As XmlWriter, Liste_Formate As List(Of Definitionen.Strctformat))
+        'Dim attr As Dictionary(Of String, String) = Definitionen.GENERELLE_ATTR
 
-        'Dim w As Definitionen.werte
-        Dim attr As Dictionary(Of String, String) = Definitionen.GENERELLE_ATTR
-
-
-        ' Start our first person.
+        'Abschnitt Formate beginnen
         XmlWrt.WriteStartElement("Formate")
-
         For Each n In Liste_Formate
             With XmlWrt
-                ' Start our first person.
+                'Abschnitt Format beginnen
                 XmlWrt.WriteStartElement("Format")
+                'Formatname schreiben
                 .WriteAttributeString("Formatname", n.format)
-
+                'Formatattribute schreiben
                 Write_XML_FormatAttribute_neu(XmlWrt, n)
-
-                ' Start Tabelle
+                'Abschnitt Tabelle beginnen
                 .WriteStartElement("Tabelle")
-
-                ' Tabellenattribute schreiben
-                write_XML_Tabellenattribute_neu(XmlWrt, n)
-
-                ' Ende Tabelle
+                'Tabellenattribute schreiben
+                Write_XML_Tabellenattribute_neu(XmlWrt, n)
+                'Abschnitt Tabelle beenden
                 .WriteEndElement()
-
-                ' Ende Format
+                'Abschnitt Format beenden
                 .WriteEndElement()
             End With
         Next
-        ' Ende Formate
+        'Abschnitt Formate beenden
         XmlWrt.WriteEndElement()
     End Sub
 
@@ -729,11 +806,13 @@ Module Module1
         Dim attr As Dictionary(Of String, String) = Definitionen.GENERELLE_ATTR
 
 
-        ' Start Generell
+        'Abschnitt Generell beginnen
         XmlWrt.WriteStartElement("Generell")
 
         With XmlWrt
+            'Abschnitt GenerelleAttribute beginnen
             .WriteStartElement("GenerelleAttribute")
+            'Alle generellen Attribute durchlaufen
             For Each item As KeyValuePair(Of String, String) In attr
                 w = attribute.generelle_paramter(item.Key)
                 Select Case item.Value
@@ -757,31 +836,30 @@ Module Module1
                         .WriteAttributeString(item.Key, "")
                 End Select
             Next
-            ' Ende GenerelleAttribute
+            'Abschnitt GenerelleAttribute beenden
             XmlWrt.WriteEndElement()
         End With
-
-        ' Ende Generell
+        'Abschnitt Generell beenden
         XmlWrt.WriteEndElement()
     End Sub
-    Sub Write_XML_Tab_sprachen(ByRef XmlWrt As XmlWriter, Liste_sprachen As List(Of Definitionen.Tab_Sprache))
-        ' Start our first person.
-        XmlWrt.WriteStartElement("Übersetzungen")
-        For Each n In Liste_sprachen
-            With XmlWrt
-                .WriteStartElement("Übersetzung")
-                .WriteAttributeString("Kürzel", n.kennung)
-                .WriteAttributeString("Passung", n.pass)
-                .WriteAttributeString("Maß", n.masz)
-                .WriteAttributeString("Toleranz", n.Tol)
-                .WriteAttributeString("Abmaß", n.Abm)
-                .WriteAttributeString("VorbearbeitungsAbmaße", n.vor)
-                .WriteEndElement()
-            End With
-        Next
-        ' Ende Sprachen
-        XmlWrt.WriteEndElement()
-    End Sub
+    'Sub Write_XML_Tab_sprachen(ByRef XmlWrt As XmlWriter, Liste_sprachen As List(Of Definitionen.Tab_Sprache))
+    '    ' Start our first person.
+    '    XmlWrt.WriteStartElement("Übersetzungen")
+    '    For Each n In Liste_sprachen
+    '        With XmlWrt
+    '            .WriteStartElement("Übersetzung")
+    '            .WriteAttributeString("Kürzel", n.kennung)
+    '            .WriteAttributeString("Passung", n.pass)
+    '            .WriteAttributeString("Maß", n.masz)
+    '            .WriteAttributeString("Toleranz", n.Tol)
+    '            .WriteAttributeString("Abmaß", n.Abm)
+    '            .WriteAttributeString("VorbearbeitungsAbmaße", n.vor)
+    '            .WriteEndElement()
+    '        End With
+    '    Next
+    '    ' Ende Sprachen
+    '    XmlWrt.WriteEndElement()
+    'End Sub
 
     Function Berechne_Sprachkombinationen(Liste_sprachen As Dictionary(Of String, Dictionary(Of String, String))) As List(Of String)
         Dim kombinationen As New List(Of String)
@@ -830,7 +908,7 @@ Module Module1
     Sub Write_XML_Tab_Sprachkombinationen(ByRef xmlWrt As XmlWriter, Liste_sprachen As Dictionary(Of String, Dictionary(Of String, String)))
         Dim kombinationen As New List(Of String)
 
-        kombinationen = berechne_Sprachkombinationen(Liste_sprachen)
+        kombinationen = Berechne_Sprachkombinationen(Liste_sprachen)
 
         xmlWrt.WriteStartElement("Sprachkombinationen")
 
@@ -864,7 +942,7 @@ Module Module1
         XmlWrt.WriteEndElement()
     End Sub
 
-    Function Write_XML_from_old_ini(swapp As SldWorks, ByRef dlg As SetupDialog) As Boolean
+    Function Write_XML_from_old_ini(ByRef dlg As SetupDialog) As Boolean
         Dim settings As New XmlWriterSettings()
         Dim pfad As String
         Dim temp2 As New List(Of Definitionen.Strctformat) 'Formatattribute
@@ -881,7 +959,7 @@ Module Module1
         dlg.ToolStripProgressBar1.Value = 2
         dlg.ToolStripStatusLabel1.Text = "Formate einlesen"
         dlg.Refresh()
-        temp2 = read_old_ini_neu(swapp)
+        temp2 = Read_old_ini_neu()
         If temp2.Count = 0 Then
             Write_XML_from_old_ini = False
             Exit Function
@@ -890,7 +968,7 @@ Module Module1
         dlg.ToolStripProgressBar1.Value = 3
         dlg.ToolStripStatusLabel1.Text = "Übersetzungen einlesen"
         dlg.Refresh()
-        temp3 = read_Tab_sprachen_neu(swapp)
+        temp3 = Read_Tab_sprachen_neu()
         If temp3.Count = 0 Then
             Write_XML_from_old_ini = False
             Exit Function
@@ -903,12 +981,12 @@ Module Module1
         dlg.ToolStripProgressBar1.Value = 4
         dlg.ToolStripStatusLabel1.Text = "Header schreiben"
         dlg.Refresh()
-        write_XML_Header(XmlWrt)
+        Write_XML_Header(XmlWrt)
 
         dlg.ToolStripProgressBar1.Value = 5
         dlg.ToolStripStatusLabel1.Text = "Sprachen schreiben"
         dlg.Refresh()
-        write_XML_Sprachen_neu(XmlWrt)
+        Write_XML_Sprachen_neu(XmlWrt)
 
         Write_XML_Tab_Sprachkombinationen(XmlWrt, temp3)
 
@@ -941,8 +1019,6 @@ Module Module1
         Write_XML_from_old_ini = True
 
     End Function
-
-
 
     Sub Create_strct(attr As Definitionen.Attribute, dic As Dictionary(Of String, String), ByRef temp As Definitionen.Strctformat)
         Dim w As Definitionen.Werte

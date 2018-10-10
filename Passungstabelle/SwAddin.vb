@@ -77,7 +77,7 @@ Public Class SwAddin
             Dim hklm As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.LocalMachine
             Dim hkcu As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser
 
-            Dim keyname As String = "SOFTWARE\SolidWorks\SolidWorks 2018\Addins\{" + t.GUID.ToString() + "}"
+            Dim keyname As String = "SOFTWARE\SolidWorks\Addins\{" + t.GUID.ToString() + "}"
             Dim addinkey As Microsoft.Win32.RegistryKey = hklm.CreateSubKey(keyname)
             addinkey.SetValue(Nothing, 0)
             addinkey.SetValue("Description", SWattr.Description)
@@ -100,7 +100,7 @@ Public Class SwAddin
             Dim hklm As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.LocalMachine
             Dim hkcu As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser
 
-            Dim keyname As String = "SOFTWARE\SolidWorks\SolidWorks 2018\Addins\{" + t.GUID.ToString() + "}"
+            Dim keyname As String = "SOFTWARE\SolidWorks\Addins\{" + t.GUID.ToString() + "}"
             hklm.DeleteSubKey(keyname)
 
             keyname = "Software\SolidWorks\AddInsStartup\{" + t.GUID.ToString() + "}"
@@ -150,9 +150,6 @@ Public Class SwAddin
         SwEventPtr = ISwApp
         openDocs = New Hashtable
         AttachEventHandlers()
-
-        'Setup Sample Property Manager
-        'AddPMP()
 
         ConnectToSW = True
     End Function
@@ -217,16 +214,10 @@ Public Class SwAddin
             Throw New NullReferenceException()
         End If
 
-        'cmdGroup.LargeIconList = iBmp.CreateFileFromResourceBitmap("SwVBAddin1_01.ToolbarLarge.bmp", thisAssembly)
+        cmdGroup.LargeIconList = iBmp.CreateFileFromResourceBitmap("Passungstabellen.MainLarge.png", thisAssembly)
+        cmdGroup.SmallIconList = iBmp.CreateFileFromResourceBitmap("Passungstabellen.MainSmall.png", thisAssembly)
 
-        cmdGroup.LargeIconList = iBmp.CreateFileFromResourceBitmap("Passungstabellen.MainLarge.bmp", thisAssembly)
-        'cmdGroup.SmallIconList = iBmp.CreateFileFromResourceBitmap("SwVBAddin1_01.ToolbarSmall.bmp", thisAssembly)
-        cmdGroup.SmallIconList = iBmp.CreateFileFromResourceBitmap("Passungstabellen.MainSmall.bmp", thisAssembly)
-
-        'cmdGroup.LargeMainIcon = iBmp.CreateFileFromResourceBitmap("SwVBAddin1_01.MainIconLarge.bmp", thisAssembly)
-        'cmdGroup.SmallMainIcon = iBmp.CreateFileFromResourceBitmap("SwVBAddin1_01.MainIconSmall.bmp", thisAssembly)
-
-        Dim menuToolbarOption As Integer = swCommandItemType_e.swMenuItem 'Or swCommandItemType_e.swToolbarItem
+        Dim menuToolbarOption As Integer = swCommandItemType_e.swMenuItem Or swCommandItemType_e.swToolbarItem
 
         cmdIndex0 = cmdGroup.AddCommandItem2("Passungstabelle", -1, "Passungstabelle", "Passungstabelle", 0, "ErstelleTabelle", "", mainItemID1, menuToolbarOption)
         cmdIndex1 = cmdGroup.AddCommandItem2("Passungstabelle Setup", -1, "Passungstabelle Setup", "Passungstabelle Setup", 1, "PassungsTabelleSetup", "", mainItemID2, menuToolbarOption)
@@ -235,15 +226,6 @@ Public Class SwAddin
         cmdGroup.HasToolbar = True
         cmdGroup.HasMenu = True
         cmdGroup.Activate()
-
-        'Dim flyGroup As FlyoutGroup
-        'flyGroup = iCmdMgr.CreateFlyoutGroup(flyoutGroupID, "Dynamic Flyout", "Flyout Tooltip", "Flyout Hint",
-        '      cmdGroup.SmallMainIcon, cmdGroup.LargeMainIcon, cmdGroup.SmallIconList, cmdGroup.LargeIconList, "FlyoutCallback", "FlyoutEnable")
-
-        'flyGroup.AddCommandItem("FlyoutCommand 1", "test", 0, "FlyoutCommandItem1", "FlyoutEnableCommandItem1")
-
-        'flyGroup.FlyoutType = swCommandFlyoutStyle_e.swCommandFlyoutStyle_Simple
-
 
         For Each docType As Integer In docTypes
             Dim cmdTab As ICommandTab = iCmdMgr.GetCommandTab(docType, Title)
@@ -271,30 +253,18 @@ Public Class SwAddin
                 cmdIDs(2) = cmdGroup.CommandID(cmdIndex2)
                 TextType(2) = swCommandTabButtonTextDisplay_e.swCommandTabButton_TextHorizontal
 
-                'cmdIDs(2) = cmdGroup.ToolbarId
-                'TextType(2) = swCommandTabButtonTextDisplay_e.swCommandTabButton_TextHorizontal
-
-
                 bResult = cmdBox.AddCommands(cmdIDs, TextType)
 
                 Dim cmdBox1 As CommandTabBox = cmdTab.AddCommandTabBox()
                 ReDim cmdIDs(1)
                 ReDim TextType(1)
 
-                'cmdIDs(0) = flyGroup.CmdID
-                'TextType(0) = swCommandTabButtonTextDisplay_e.swCommandTabButton_TextBelow
-
                 bResult = cmdBox1.AddCommands(cmdIDs, TextType)
-
-                'cmdTab.AddSeparator(cmdBox1, cmdIDs(0))
-
             End If
         Next
 
         thisAssembly = Nothing
-
     End Sub
-
 
     Public Sub RemoveCommandMgr()
         Try
@@ -305,16 +275,6 @@ Public Class SwAddin
         End Try
     End Sub
 
-
-    'Function AddPMP() As Boolean
-    '    ppage = New UserPMPage
-    '    ppage.Init(ISwApp, Me)
-    'End Function
-
-    'Function RemovePMP() As Boolean
-    '    ppage = Nothing
-    'End Function
-
     Function CompareIDs(ByVal storedIDs() As Integer, ByVal addinIDs() As Integer) As Boolean
 
         Dim storeList As New List(Of Integer)(storedIDs)
@@ -324,10 +284,8 @@ Public Class SwAddin
         storeList.Sort()
 
         If Not addinList.Count = storeList.Count Then
-
             Return False
         Else
-
             For i As Integer = 0 To addinList.Count - 1
                 If Not addinList(i) = storeList(i) Then
 
@@ -372,12 +330,8 @@ Public Class SwAddin
 
     Sub AttachSWEvents()
         Try
-            AddHandler ISwApp.ActiveDocChangeNotify, AddressOf Me.SldWorks_ActiveDocChangeNotify
-            AddHandler ISwApp.DocumentLoadNotify2, AddressOf Me.SldWorks_DocumentLoadNotify2
             AddHandler ISwApp.FileNewNotify2, AddressOf Me.SldWorks_FileNewNotify2
-            AddHandler ISwApp.ActiveModelDocChangeNotify, AddressOf Me.SldWorks_ActiveModelDocChangeNotify
             AddHandler ISwApp.FileOpenPostNotify, AddressOf Me.SldWorks_FileOpenPostNotify
-
         Catch e As Exception
             Console.WriteLine(e.Message)
         End Try
@@ -385,12 +339,8 @@ Public Class SwAddin
 
     Sub DetachSWEvents()
         Try
-            RemoveHandler ISwApp.ActiveDocChangeNotify, AddressOf Me.SldWorks_ActiveDocChangeNotify
-            RemoveHandler ISwApp.DocumentLoadNotify2, AddressOf Me.SldWorks_DocumentLoadNotify2
             RemoveHandler ISwApp.FileNewNotify2, AddressOf Me.SldWorks_FileNewNotify2
-            RemoveHandler ISwApp.ActiveModelDocChangeNotify, AddressOf Me.SldWorks_ActiveModelDocChangeNotify
             RemoveHandler ISwApp.FileOpenPostNotify, AddressOf Me.SldWorks_FileOpenPostNotify
-
         Catch e As Exception
             Console.WriteLine(e.Message)
         End Try
@@ -439,20 +389,9 @@ Public Class SwAddin
 #End Region
 
 #Region "Event Handlers"
-    Function SldWorks_ActiveDocChangeNotify() As Integer
-        'TODO: Add your implementation here
-    End Function
-
-    Function SldWorks_DocumentLoadNotify2(ByVal docTitle As String, ByVal docPath As String) As Integer
-
-    End Function
 
     Function SldWorks_FileNewNotify2(ByVal newDoc As Object, ByVal doctype As Integer, ByVal templateName As String) As Integer
         AttachEventsToAllDocuments()
-    End Function
-
-    Function SldWorks_ActiveModelDocChangeNotify() As Integer
-        'TODO: Add your implementation here
     End Function
 
     Function SldWorks_FileOpenPostNotify(ByVal FileName As String) As Integer
@@ -484,43 +423,6 @@ Public Class SwAddin
         Fittable.Main(ISwApp)
         Fittable = Nothing
     End Sub
-    'Sub ShowPMP()
-    '    If Not ppage Is Nothing Then
-    '        ppage.Show()
-    '    End If
-    'End Sub
-
-    'Function PMPEnable() As Integer
-    '    If ISwApp.ActiveDoc Is Nothing Then
-    '        PMPEnable = 0
-    '    Else
-    '        PMPEnable = 1
-    '    End If
-    'End Function
-
-    Sub FlyoutCallback()
-        Dim flyGroup As FlyoutGroup = iCmdMgr.GetFlyoutGroup(flyoutGroupID)
-        flyGroup.RemoveAllCommandItems()
-
-        flyGroup.AddCommandItem(System.DateTime.Now.ToLongTimeString(), "test", 0, "FlyoutCommandItem1", "FlyoutEnableCommandItem1")
-
-    End Sub
-
-    Function FlyoutEnable() As Integer
-        Return 1
-    End Function
-
-    'Sub FlyoutCommandItem1()
-    '    ISwApp.SendMsgToUser("Flyout command 1")
-
-
-
-    'End Sub
-
-    Function FlyoutEnableCommandItem1() As Integer
-        Return 1
-    End Function
-
 
     Public Function GetAppPath() As String
         Dim path As String

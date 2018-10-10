@@ -473,12 +473,12 @@ Partial Class SetupDialog
         '
         'FarbeKopfZeile
         '
-        Me.FarbeKopfZeile.BackColor = System.Drawing.SystemColors.Window
+        Me.FarbeKopfZeile.BackColor = System.Drawing.Color.Black
         Me.FarbeKopfZeile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FarbeKopfZeile.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TabellenAttributeBindingSource, "FarbeKopfZeile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.FarbeKopfZeile.Enabled = False
         Me.FarbeKopfZeile.Location = New System.Drawing.Point(73, 97)
         Me.FarbeKopfZeile.Name = "FarbeKopfZeile"
+        Me.FarbeKopfZeile.ReadOnly = True
         Me.FarbeKopfZeile.Size = New System.Drawing.Size(53, 20)
         Me.FarbeKopfZeile.TabIndex = 25
         '
@@ -635,13 +635,13 @@ Partial Class SetupDialog
         '
         'FarbeZeile
         '
-        Me.FarbeZeile.BackColor = System.Drawing.Color.White
+        Me.FarbeZeile.BackColor = System.Drawing.Color.Black
         Me.FarbeZeile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FarbeZeile.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TabellenAttributeBindingSource, "FarbeZeile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.FarbeZeile.Enabled = False
         Me.FarbeZeile.ForeColor = System.Drawing.Color.Black
         Me.FarbeZeile.Location = New System.Drawing.Point(73, 97)
         Me.FarbeZeile.Name = "FarbeZeile"
+        Me.FarbeZeile.ReadOnly = True
         Me.FarbeZeile.Size = New System.Drawing.Size(53, 20)
         Me.FarbeZeile.TabIndex = 25
         '

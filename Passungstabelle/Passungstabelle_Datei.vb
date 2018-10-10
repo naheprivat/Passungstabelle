@@ -82,32 +82,40 @@ Public Class Passungstabelle_Datei
     'Löscht die Tabellen auf allen Blättern außer dem ersten
     Sub DelTableOnOtherSheets()
         Dim sh As Sheet
+        sh = SwDraw.GetCurrentSheet
+
         For i = 1 To BlätterStr.Length - 1
-            sh = swDraw.Sheet(BlätterStr(i))
+            'sh = swDraw.Sheet(BlätterStr(i))
+            SwDraw.ActivateSheet(Blätter(i).Blatt.GetName)
             Blätter(i).DeleteTab()
         Next
+
+        SwDraw.ActivateSheet(sh.GetName)
     End Sub
 
     'Löscht die Tabellen auf allen Blättern 
     Sub DelAllTables()
         Dim sh As Sheet
+        sh = SwDraw.GetCurrentSheet
+
         For i = 0 To BlätterStr.Length - 1
-            sh = SwDraw.Sheet(BlätterStr(i))
+            'sh = SwDraw.Sheet(BlätterStr(i))
+            SwDraw.ActivateSheet(Blätter(i).Blatt.GetName)
             Blätter(i).DeleteTab()
         Next
+        SwDraw.ActivateSheet(sh.GetName)
     End Sub
 
     Function PassungstabelleGetdimensionFromSheets() As Boolean
         Dim i As Integer = 0
         Dim z As Integer = 0
 
-        'Wenn Tabelle nur auf dem ersten Blatt, dann wird auch nur auf dem ersten Blatt 
-        'nach Passungen gesucht
+        'Wenn Tabelle nur auf dem ersten Blatt erscheinen soll,
+        'dann wird auch nur auf dem ersten Blatt nach Passungen gesucht
         If Attr_generell("NurAufErstemBlatt") Then z = 0 Else z = Blätter.Length - 1
 
         For i = 0 To z
             Blätter(i).SetEinfügepunkt()
-            'Log.WriteInfo(Blätter(i).Blatt.GetName)
             Blätter(i).passungsTabelleGetDimensions()
             Blätter(i).SetEinfügePunktPosition()
         Next
@@ -117,24 +125,33 @@ Public Class Passungstabelle_Datei
 
     Sub InsertTableOnSheets()
         Dim PassungenGefunden As Boolean = False
+        Dim swsheet As Sheet
 
-        'Prüfung ob Passungen gefunden wurden
+        swsheet = SwDraw.GetCurrentSheet
+
+        'Prüfung ob auf zumindest einem Blatt, Passungen gefunden wurden
         For Each blatt In Blätter
             If Not blatt.Tabelle Is Nothing Then
                 If blatt.Tabelle.TabellenZeilen.Count > 0 Then
                     PassungenGefunden = True
+                    'Check ob auf einem der Blätter ev. eine Tabelle vorhanden ist
+                    'Wenn ja, dann wird die Tabelle gelöscht
+                ElseIf Not blatt.AlteTabelle Is Nothing Then
+                    SwDraw.ActivateSheet(blatt.Blatt.GetName)
+                    blatt.DeleteTab()
                 End If
             End If
         Next
 
+        SwDraw.ActivateSheet(swsheet.GetName)
 
-        'Keine Passungen gefunden wurden
+        'Keine Passungen gefunden
         If Not PassungenGefunden Then
             'Wenn Fehlermeldung ausgegeben werden soll
-            Dim log As New LogFile(Attr_generell)
-            log.WriteInfo("Keine Passungen gefunden", True)
+            Log.WriteInfo("Keine Passungen gefunden", True)
             Exit Sub
         End If
+
 
         'Wenn die Tabelle auf den restlichen Blättern gelöscht werden soll
         If Attr_generell("NurAufErstemBlatt") = True And Attr_generell("LöschenAufRestlichenBlättern") = True Then

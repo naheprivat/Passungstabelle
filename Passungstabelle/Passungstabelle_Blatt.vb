@@ -10,8 +10,9 @@ Public Class Passungstabelle_Blatt
         Dim ViewRef As View             'Verweis auf Ansicht
         Dim arefernz As ModelDoc2       'Referenz auf die die Ansicht verweist (Teil, Baugruppe, ...)
         Dim doctype As Integer          'Dockumenttyp der Ansichtsreferenz
-        Dim holetab As HoleTable
-        'Dim firstView As Boolean
+        Dim holetab As HoleTable        'Bohrungstabelle
+
+        'Intialisierungsfuntkion für die Strukur "Ansicht"
         Sub New(iansichtsName As String, iarefernz As ModelDoc2, idoctype As Integer, iViewRef As View)
             ansichtsName = iansichtsName
             ViewRef = iViewRef
@@ -27,26 +28,26 @@ Public Class Passungstabelle_Blatt
     Property AnzahlAnsichten As Integer             'Anzahl der Ansichten
     Property Tabelle As Passungstabelle_Tabelle     'Verweis auf die Tabelle
 
-
+    'Attribute
     Property Attr_generell As New Dictionary(Of String, String)
     Property Attr_Übersetzungen As New Dictionary(Of String, Dictionary(Of String, String))
     Property Attr_Format As New Dictionary(Of String, String)
     Property Attr_Tabelle As New Dictionary(Of String, String)
     Property Attr_Sheet As Definitionen.BlattEigenschaften
 
-    Property AlteTabelle As TableAnnotation
-    Property AlteTabelleX As Double
-    Property AlteTabelleY As Double
+    Property AlteTabelle As TableAnnotation         'Verweis auf eine eventuell vorhandene alte Passungstabelle
+    Property AlteTabelleX As Double                 'X-Positon der alten Tabelle
+    Property AlteTabelleY As Double                 'Y-Positon der alten Tabelle
 
-    Property Log As LogFile
+    Property Log As LogFile                         'Verweis auf das Log-Datei Element
 
-    Property Swapp As SldWorks
+    Property Swapp As SldWorks                      'Verweis auf SolidWorks
 
-    Dim swdraw As DrawingDoc
-    Dim Einfügepunkt(1) As Double
+    Dim swdraw As DrawingDoc                        'Verweis auf die Zeichnungsdatei
+    Dim Einfügepunkt(1) As Double                   'Einfügepunkt für die Passungstabelle
 
-
-    Sub New(iswapp As SldWorks, iAttr_generell As Dictionary(Of String, String), iAttr_Übersetzungen As Dictionary(Of String, Dictionary(Of String, String)), iBlatt As Sheet, model As DrawingDoc )
+    'Intialisierungsfuntkion für die Klasse "Passungstabelle_Blatt"
+    Sub New(iswapp As SldWorks, iAttr_generell As Dictionary(Of String, String), iAttr_Übersetzungen As Dictionary(Of String, Dictionary(Of String, String)), iBlatt As Sheet, model As DrawingDoc)
         swapp = iswapp
         Attr_generell = iAttr_generell
         Attr_Übersetzungen = iAttr_Übersetzungen
@@ -54,13 +55,18 @@ Public Class Passungstabelle_Blatt
         Blatt = iBlatt
         Log = New LogFile(Attr_generell)
     End Sub
-    Function PassungsTabelleGetViews(swmodel As SolidWorks.Interop.sldworks.ModelDoc2, blattname As String) As Boolean
-        ' Dim swDraw As DrawingDoc
+    'Funktion:  PassungsTabelleGetViews
+    '           erstellt eine Liste der Ansicht in dem angegebenen Blatt
+    '           es werden nur Ansichten berücksichtigt, die auch vom konfigurierten Modell-Type abgeleitet sind
+    '           sollen z.B.: Teile nicht berükcsicht werden, dann werden Ansicht die von Teilen abgeleitet sind
+    '           nicht in die Liste aufgenommen
+    'Parameter: swmodel     Verweis SolidWorks Datei
+    '           blattname   Blattname
+    'Ergebnis:  True
+    Function PassungsTabelleGetViews(swmodel As ModelDoc2, blattname As String) As Boolean
         Dim swView As View
         Dim AnsichtRec As Ansicht
         Dim DocType As Integer = 0
-
-        'swDraw = swmodel
 
         BlattMod = swmodel
         '* Verweis auf Blatt
@@ -101,15 +107,7 @@ Public Class Passungstabelle_Blatt
             swView = swView.GetNextView
         End While
 
-
-        'If AnzahlAnsichten = 1 And swView Is Nothing Then
-        '    passungsTabelleGetViews = False
-        'Else
-        '    passungsTabelleGetViews = True
-        'End If
-
         PassungsTabelleGetViews = True
-
     End Function
 
     'ermittelt die Passungen für jede Ansicht
@@ -124,33 +122,26 @@ Public Class Passungstabelle_Blatt
             Tabelle.Log = Log
         End If
 
-        'Start Zeitmessung
-        Dim s As DateTime = Now.ToLocalTime
-
         For Each ans In Ansichten
-            'dokt = GetDocumentTypeFromView(ans)
-            'If (dokt And dokt_setup) > 0 Then
-
+            'Ansichtsnamen in Log-Datei schreiben
             Log.WriteInfo(ans.ansichtsName, False)
 
             'Passungen in der Ansicht suchen
             Tabelle.GetViewDimension(ans.ViewRef)
-            'End If
 
             'Wenn eine Bohrungstabelle gefunden wurde, 
             'dann wir sie untersucht
             If Not ans.holetab Is Nothing Then
-                Tabelle.getHoleTableDimension(ans.holetab)
+                Tabelle.GetHoleTableDimension(ans.holetab)
             End If
             'Tabelle.getHoleTableDimension(ans.ViewRef)
         Next
 
-        'Ende Zeitmessung
-        'Dim e As DateTime = Now.ToLocalTime
-        'MsgBox("Bemaßungen" & e.Subtract(s).ToString, vbOKOnly, "Meldung")
-
+        'Einfügepunkt setzen
         Tabelle.Einfügepunkt = Einfügepunkt
+        'Sortiert die Tabelle und entfernt doppelte Einträge
         Tabelle.SetTabellenzeilenGefiltert()
+
         PassungsTabelleGetDimensions = True
     End Function
 
@@ -167,6 +158,8 @@ Public Class Passungstabelle_Blatt
     'bestimmt den Ansichtstyp der Ansicht
     Function GetDocumentTypeFromView(ans As Ansicht) As Integer
         Dim dokt As Integer = 0
+
+        'wenn die Ansicht eine Referenz enthällt
         If Not ans.arefernz Is Nothing Then
             If ans.doctype = swDocumentTypes_e.swDocPART Then
                 dokt = dokt Xor 2
@@ -178,6 +171,7 @@ Public Class Passungstabelle_Blatt
         End If
         GetDocumentTypeFromView = dokt
     End Function
+
     'bestimmt den Ansichtstyp der Ansicht
     Function GetDocumentTypeFromRef(ans As View) As Integer
         Dim dokt As Integer = 0
@@ -192,16 +186,22 @@ Public Class Passungstabelle_Blatt
         End If
         GetDocumentTypeFromRef = dokt
     End Function
+    'ermittelt die Blatteigenschaften
     Function GetSheetProperties() As Definitionen.BlattEigenschaften
         Dim ss As Object
         Dim prop As New Definitionen.BlattEigenschaften
 
+        'Blatteigenschaften
         ss = Blatt.GetProperties2
 
+        'Formatname ohne Pfad
         prop.Formatname = Mid(Blatt.GetTemplateName, InStrRev(Blatt.GetTemplateName, "\") + 1)
+        'Formatname ohne Erweiterung
         prop.Formatname = Mid(prop.Formatname, 1, Len(prop.Formatname) - 7)
+        'Blatteigenschaften
         prop.Eigenschaften = ss
-        prop.sprache = swapp.GetCurrentLanguage
+        'Sprache der SolidWorks-Installation
+        prop.sprache = Swapp.GetCurrentLanguage
         GetSheetProperties = prop
     End Function
 
@@ -213,10 +213,11 @@ Public Class Passungstabelle_Blatt
             'Die entsprechenden Format Einstellungen laden
             SetSheetFormatAttr(Attr_Sheet.Formatname, Attr_Formate, Attr_Tabellen)
         Else
+            'Sonst, Versuch die Formateinstellungen über die Blattabmessungen zu erhalten
             SetSheetFormatFromDimension(Attr_Formate, Attr_Tabellen)
         End If
     End Sub
-
+    'Ermittelt die Setupeinstellungen für das übergebene Format
     Sub SetSheetFormatAttr(formatname As String, Attr_Formate As Dictionary(Of String, Dictionary(Of String, String)), Attr_Tabellen As Dictionary(Of String, Dictionary(Of String, String)))
         Dim temp As Dictionary(Of String, String)
 
@@ -231,23 +232,31 @@ Public Class Passungstabelle_Blatt
             SetSheetFormatFromDimension(Attr_Formate, Attr_Tabellen)
         End Try
     End Sub
-
+    'Sub:       SetSheetFormatFromDimension
+    '           sucht nach einem Format in den Setup Einstellungen, das die gleichen Abmessungen hat wie das aktuelle Blattformat
+    'Parameter: Format Attribute und Tabellen Attribute
     Sub SetSheetFormatFromDimension(Attr_Formate As Dictionary(Of String, Dictionary(Of String, String)), Attr_Tabellen As Dictionary(Of String, Dictionary(Of String, String)))
         Dim temp As Dictionary(Of String, String)
         Dim tempname As String = ""
         Dim firstloop As Boolean = False
 
-
-        'Suche nach einem Format das die Abmessungen wie das Blatt hat
+        'Suche nach einem Format das die gleichen Abmessungen hat wie das Blatt
         For Each n As KeyValuePair(Of String, Dictionary(Of String, String)) In Attr_Formate
             temp = n.Value
+            'beim ersten Durchlauf wird der Setup-Formatname des ersten Eintrags gespeichert
+            'für den Fall, dass kein Format mit den selben Abemssungen gefunden wird,
+            'werden die Werte vom ersten Eintrag im Setup übernommen
             If firstloop = False Then
                 firstloop = True
                 tempname = n.Key
             End If
+            'Wenn ein Setupeintrag mit den gleichen ABmessungen gefunden wird
             If temp("Höhe") = Attr_Sheet.Eigenschaften(6) * 1000 And temp("Breite") = Attr_Sheet.Eigenschaften(5) * 1000 Then
+                'Format Attribut zuweisen
                 Attr_Format = temp
+                'Tabellen Attribut zuweisen
                 Attr_Tabelle = Attr_Tabellen(n.Key)
+                'Log-Info schreiben
                 Log.WriteInfo("Format " & Attr_Sheet.Formatname & " nicht gefunden", True)
                 Log.WriteInfo("Abmessungen von " & n.Key & " genommen", True)
                 Exit Sub
@@ -258,23 +267,33 @@ Public Class Passungstabelle_Blatt
         'deshalb werden die Werte vom ersten Format genommen
         Log.WriteInfo("Kein Format mit den Abmessungen " & Attr_Sheet.Eigenschaften(6) * 1000 & "x" & Attr_Sheet.Eigenschaften(5) * 1000 & " gefunden", False)
         Log.WriteInfo("Abmessungen von ersten definierten Format " & tempname & " genommen", True)
+        'Format Attribut vom ersten Eintrag zuweisen
         Attr_Format = Attr_Formate.Item(tempname)
+        'Tabellen Attribut vom ersten Eintrag zuweisen
         Attr_Tabelle = Attr_Tabellen(tempname)
     End Sub
-    'löscht die Passungstabelle
+
+    'Sub:       DeleteTab
+    '           löscht die Passungstabelle
+    '           es wird davon ausgegangen, dass das Blatt, auf dem sich die Tabelle befindet aktiv ist
+    'Parameter: keine
     Sub DeleteTab()
+        Dim modeldoc As ModelDoc2
+
         'Wenn keine Tabelle gesetzt wurde, dann beenden
         If AlteTabelle Is Nothing Then
             Exit Sub
         End If
-        'AlteTabelle.GeneralTableFeature.GetFeature.Select(False)
-        AlteTabelle.GetAnnotation.Select(True)
-        'AlteTabelle.Select(False)
-        BlattMod.Extension.DeleteSelection2(swDeleteSelectionOptions_e.swDelete_Absorbed)
-        'BlattMod.DeleteSelection(swDeleteSelectionOptions_e.swDelete_Absorbed)
+
+        modeldoc = swdraw
+        modeldoc.Extension.SelectByID2("PASSUNGSTABELLE@" & Blatt.GetName, "ANNOTATIONTABLES", 0, 0, 0, False, 0, Nothing, 0)
+        modeldoc.EditDelete()
+
         AlteTabelle = Nothing
     End Sub
-    'sucht nach einer vorhandenen Passungstabelle und setzt die entsprechenden Werte
+    'Sub:       CheckForOldTable
+    '           sucht nach einer vorhandenen Passungstabelle und setzt die entsprechenden Werte
+    'Parameter: Ansicht in der gesucht werden soll
     Sub CheckForOldTable(swView As View)
         Dim swann As Annotation
         Dim swtable As TableAnnotation
@@ -285,31 +304,47 @@ Public Class Passungstabelle_Blatt
         Dim tabarray As Object
         Dim i As Integer
 
+        'Alle Tabellen in der Ansicht ermitteln
         tabarray = swView.GetTableAnnotations
 
+        'Wenn es keine Tabellen gibt, dann Ende der Funktion
         If tabarray Is Nothing Then
             Exit Sub
         End If
+
+        'Alle Tabellen durchlaufen
         For i = 0 To UBound(tabarray)
             swtable = tabarray(i)
+            'Das Annotationobjekt ermitteln
             swann = swtable.GetAnnotation
+            'Wenn es sich um eine Passungstabelle handelt
             If swann.GetName = "PASSUNGSTABELLE" Then
-                If swann.Visible <> 3 Then
+                'Wenn die Passungstabelle nicht verdeckt ist
+                If swann.Visible <> swAnnotationVisibilityState_e.swAnnotationHidden Then
                     tabvis = True
                 Else
                     tabvis = False
                 End If
+                'Makrer setzen, dass eine Tabelle vorhanden ist
                 tabexists = True
+                'Verankerungspunkt speichern
                 anchor = swtable.AnchorType
+                'Einfügepunkt speichern
                 position = swann.GetPosition
                 AlteTabelleX = position(0)
                 AlteTabelleY = position(1)
+                'Verweis auf Tabellen-Objekt speichern
                 AlteTabelle = swtable
             End If
+            'Sobald eine Tabelle gefunden wurde, können wir die Schleife verlassen
+            'sonst entstehen nur unnötige Durchläufe
             If tabexists = True Then Exit For
         Next
     End Sub
-
+    'Function:  CheckForHoleTable
+    '           prüft ob sich in der übergebenen Ansicht eine Bohrungstabelle befindet
+    'Parameter: swView SWX Ansicht
+    'Ergebnis:  Bohrungstabelle-Objekt 
     Function CheckForHoleTable(swView As View) As HoleTable
         Dim swtable As TableAnnotation
         Dim holtabann As HoleTableAnnotation
@@ -317,17 +352,22 @@ Public Class Passungstabelle_Blatt
         Dim tabarray As Object
         Dim i As Integer
 
+        'Alle Tabellen in der Ansicht ermitteln
         tabarray = swView.GetTableAnnotations
 
+        'Wenn es keine Tabellen gibt, dann Ende der Funktion
         If tabarray Is Nothing Then
             CheckForHoleTable = Nothing
             Exit Function
         End If
 
+        'Alle Tabellen durchlaufen
         For i = 0 To UBound(tabarray)
             swtable = tabarray(i)
-            'If swtable.Type = swTableAnnotationType_e.swTableAnnotation_HoleChart Then
-            If swtable.Type = 1 Then
+            'Wenn es sich um eine Bohrungstabelle handelt
+            'dann Ende der Funktion
+            'Wir gehen davon aus, dass es nur eine Bohrungstabelle in einer Ansicht gibt
+            If swtable.Type = swTableAnnotationType_e.swTableAnnotation_HoleChart Then
                 holtabann = swtable
                 swholetable = holtabann.HoleTable
                 CheckForHoleTable = swholetable
@@ -336,29 +376,41 @@ Public Class Passungstabelle_Blatt
         Next
         CheckForHoleTable = swholetable
     End Function
-
+    'Sub:       SetEinfügepunkt
+    '           setzt die Koordinaten des Einfügepunkts der Tabelle an Hand der Setup Einstellungen
+    'Parameter: keine
     Sub SetEinfügepunkt()
         Dim temp(1) As Double
+
+        'X/Y Koordinaten des Einfügepunkts setzen
+        'Links-Oben
         If Attr_Format("EinfügepunktLO") = True Then
             temp(0) = 0.0
             temp(1) = Attr_Format("Höhe") / 1000.0
+            'Links-Unten
         ElseIf Attr_Format("EinfügepunktLU") = True Then
             temp(0) = 0.0
             temp(1) = 0.0
+            'Rechts-Oben
         ElseIf Attr_Format("EinfügepunktRO") = True Then
             temp(0) = Attr_Format("Breite") / 1000.0
             temp(1) = Attr_Format("Höhe") / 1000.0
+            'Rechts-Unten
         ElseIf Attr_Format("EinfügepunktRU") = True Then
             temp(0) = Attr_Format("Breite") / 1000.0
             temp(1) = 0.0
         End If
 
+        'Offset berücksichtigen
         temp(0) = temp(0) + Attr_Format("Offset_X") / 1000.0
         temp(1) = temp(1) + Attr_Format("Offset_Y") / 1000.0
 
         Einfügepunkt = temp
     End Sub
-
+    'Function:  GetColumnsCount
+    '           ermittelt die Anzahl der Spalten der Tabelle
+    'Parameter: keine
+    'Ergebnis:  Anzahl der Spalten
     Private Function GetColumnsCount() As Integer
         Dim counter As Integer = 0
 
@@ -373,7 +425,9 @@ Public Class Passungstabelle_Blatt
 
         GetColumnsCount = counter
     End Function
-
+    'Sub        SetEinfügePunktPosition
+    '           setzt den Verankerungspunkt der Tabelle
+    'Parameter: keine
     Sub SetEinfügePunktPosition()
         If CBool(Attr_Format("EinfügepunktLO")) Then Tabelle.Einfügepunktposition = swBOMConfigurationAnchorType_e.swBOMConfigurationAnchor_TopLeft
         If CBool(Attr_Format("EinfügepunktLU")) Then Tabelle.Einfügepunktposition = swBOMConfigurationAnchorType_e.swBOMConfigurationAnchor_BottomLeft
@@ -382,22 +436,18 @@ Public Class Passungstabelle_Blatt
     End Sub
 
     Sub InsertTable()
-        'Dim swTable As TableAnnotation
 
         SetEinfügepunkt()
 
-        'Wenn nicht neu positioniert werden soll
+        'Wenn nicht neu positioniert werden soll und es eine alte Tabelle gibt
+        'dann wird der Einfügepunkt der alten Tabelle übernommen
         If CBool(Attr_generell("NeuPositionieren")) = False And Not AlteTabelle Is Nothing Then
             Tabelle.Einfügepunkt(0) = AlteTabelleX
             Tabelle.Einfügepunkt(1) = AlteTabelleY
         End If
 
-        DeleteTab()
-
         'Spalten bestimmen
-        Tabelle.tabellenSpaltenCount = GetColumnsCount()
-
-        'Wenn vorhanden alte Tabelle löschen
+        Tabelle.TabellenSpaltenCount = GetColumnsCount()
 
         'Neue Tabelle einfügen
         If Tabelle.TabellenZeilen.Count > 0 Then Tabelle.InsertTable(swdraw, Blatt)

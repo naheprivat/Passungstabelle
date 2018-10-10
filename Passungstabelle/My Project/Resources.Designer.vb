@@ -63,9 +63,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property MainLarge() As System.Drawing.Bitmap
+        Friend ReadOnly Property MainLarge1() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("MainLarge", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("MainLarge1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -73,9 +73,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property MainSmall() As System.Drawing.Bitmap
+        Friend ReadOnly Property MainSmall1() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("MainSmall", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("MainSmall1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -1,0 +1,16 @@
+Koordinaten der Passungen (Raster)
+Installationsordner und Datenordner trennen? (ProgramData)
+Log-Datei mit weniger informationen
+zusätzliche Fehlerbehandlungen
+
+Fehlerprüfung im SetupDialog
+	Zahlenwerte
+
+Farblichekennzeichnung der Spaltenbreite
+	grün	gewählt
+	rot	fehlende Info
+
+Überprüfung bei Netzwerkinstallation wer Setup gerade bearbeitet
+
+
+

@@ -109,6 +109,7 @@ Public Class SetupDialog
         If FontDialog1.ShowDialog() <> DialogResult.Cancel Then
             'Werte in Dialogfelder übernehmen
             FarbeKopfZeile.BackColor = FontDialog1.Color
+            FarbeKopfZeile.ForeColor = FontDialog1.Color
             FarbeKopfZeile.Text = FontDialog1.Color.ToArgb
             SchriftartKopfZeile.Text = FontDialog1.Font.Name
             If FontDialog1.Font.Style And FontStyle.Underline Then UnterstrichenKopfZeile.Checked = True Else UnterstrichenKopfZeile.Checked = False
@@ -145,6 +146,7 @@ Public Class SetupDialog
 
         If FontDialog1.ShowDialog() <> DialogResult.Cancel Then
             FarbeZeile.BackColor = FontDialog1.Color
+            FarbeZeile.ForeColor = FontDialog1.Color
             FarbeZeile.Text = FontDialog1.Color.ToArgb
             SchriftartZeile.Text = FontDialog1.Font.Name
             If FontDialog1.Font.Style And FontStyle.Underline Then UnterstrichenZeile.Checked = True Else UnterstrichenZeile.Checked = False
@@ -175,7 +177,7 @@ Public Class SetupDialog
         ok = False
 
         'Wenn die alte Ini-Datei eingelsen werden konnte
-        If Module1.write_XML_from_old_ini(swapp, Me) Then
+        If Module1.Write_XML_from_old_ini(Me) Then
             'Fortschrittbalken und Text setzen
             ToolStripProgressBar1.Value = 9
             ToolStripStatusLabel1.Text = "Datei lesen"
@@ -193,7 +195,7 @@ Public Class SetupDialog
                 ToolStripStatusLabel1.Text = "Alte Datei konvertiert"
             Catch
                 'Falls das Lesen nicht erfolgreich war
-                Module1.create_Tabels(Data)
+                Module1.Create_Tabels(Data)
                 MsgBox("Fehler beim Lesen der Setup.XML Datei", vbOKOnly, "Meldung")
                 ToolStripProgressBar1.Value = 0
                 ToolStripStatusLabel1.Text = "Fehler bei der Konvertierung"
@@ -235,16 +237,17 @@ Public Class SetupDialog
     End Sub
 
     Private Sub FarbeZeile_TextChanged(sender As Object, e As EventArgs) Handles FarbeZeile.TextChanged
-        Dim c As Integer
-
-        c = CInt(sender.text)
-        sender.BackColor = IntegerToColor(c)
-        sender.forecolor = IntegerToColorAlpha(c)
+        'sender.ForeColor = IntegerToColor(sender.text)
+        sender.BackColor = IntegerToColor(sender.text)
+        sender.ForeColor = sender.BackColor
+        ' sender.ForeColor = IntegerToColorAlpha(sender.text)
     End Sub
 
     Private Sub FarbeKopfZeile_TextChanged(sender As Object, e As EventArgs) Handles FarbeKopfZeile.TextChanged
+        'sender.ForeColor = IntegerToColor(sender.text)
         sender.BackColor = IntegerToColor(sender.text)
-        sender.ForeColor = IntegerToColorAlpha(sender.text)
+        sender.ForeColor = sender.BackColor
+        'sender.ForeColor = IntegerToColorAlpha(sender.text)
     End Sub
 
     Private Sub ListBoxFormate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxFormate.SelectedIndexChanged

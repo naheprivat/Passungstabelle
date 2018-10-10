@@ -114,6 +114,8 @@ Public Class Passungstabelle_Tabelle
                 'Wenn es sich um einen Durchmsser handelt dann wird dem Maß ein Ø Symbol vorangestellt
                 If dispdim.Type2 = swDimensionType_e.swDiameterDimension Then
                     prefix = "Ø"
+                Else
+                    prefix = ""
                 End If
 
                 'Passung und Toleranzen ermitteln
@@ -155,7 +157,7 @@ Public Class Passungstabelle_Tabelle
             'Prüfung ob auch Passungswerte eingetragen sind
             'Könnte ja auch sein, dass als Toleranzttyp Passung eingestellt ist und keine Passung gewählt wurde
             'Wenn kein Passungswert gefunden wird, dann Abbruch der Funktion
-            If Not CheckForFitValues(tol.GetHoleFitValue, tol.GetShaftFitValue, dimen.GetSystemValue2("") * fac) Then
+            If Not CheckForFitValues(tol.GetHoleFitValue, tol.GetShaftFitValue, "Bemaßung: " & dimen.FullName & " Maß: " & dimen.GetSystemValue2("") * fac) Then
                 Gettolfromdim = False
                 Exit Function
             End If
@@ -225,7 +227,7 @@ Public Class Passungstabelle_Tabelle
             For Each temp In tempz
                 If Not temp Is Nothing Then
                     TabellenZeilen.Add(temp)
-                    Log.WriteInfo("Bemaßung: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
+                    Log.WriteInfo("Bemaßung: " & temp.Zeile("Name") & " Maß: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
                     temp = Nothing
                     Tabellenzeilencount = Tabellenzeilencount + 1
                 End If
@@ -254,7 +256,7 @@ Public Class Passungstabelle_Tabelle
 
         'Prüfung ob auch Passungswerte eingetragen sind
         'Könnte ja auch sein, dass als Toleranzttyp Passung eingestellt ist und keine Passung gewählt wurde
-        If Not CheckForFitValues(tol.GetHoleFitValue, tol.GetShaftFitValue, dimen.GetSystemValue2("") * fac) Then
+        If Not CheckForFitValues(tol.GetHoleFitValue, tol.GetShaftFitValue, "Bemaßung: " & dimen.FullName & " Maß: " & dimen.GetSystemValue2("") * fac) Then
             tempz = Nothing
             Gettolfromfit = tempz
             Exit Function
@@ -319,7 +321,7 @@ Public Class Passungstabelle_Tabelle
 
         'Prüfung ob auch Passungswerte eingetragen sind
         'Könnte ja auch sein, dass als Toleranzttyp Passung eingestellt ist und keine Passung gewählt wurde
-        If Not CheckForFitValues(swCalloutVariable.HoleFit, swCalloutVariable.ShaftFit, swCalloutLengthVariable.Length * fac) Then
+        If Not CheckForFitValues(swCalloutVariable.HoleFit, swCalloutVariable.ShaftFit, "Bemaßung: " & swCalloutVariable.VariableName & " Maß: " & swCalloutLengthVariable.Length * fac) Then
             tempz = Nothing
             GettolfromfitCallOut = tempz
             Exit Function
@@ -359,13 +361,13 @@ Public Class Passungstabelle_Tabelle
         If Not IsNothing(temp) Then
             If CheckForFitToleranceValues(temp) Then
                 tempz.Add(temp)
-                Log.WriteInfo("Bemaßung: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
+                Log.WriteInfo("Bemaßung: " & temp.Zeile("Name") & " Maß: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
             End If
         End If
         If Not IsNothing(temp1) Then
             If CheckForFitToleranceValues(temp1) Then
                 tempz.Add(temp1)
-                Log.WriteInfo("Bemaßung: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
+                Log.WriteInfo("Bemaßung: " & temp.Zeile("Name") & " Maß: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
             End If
         End If
         GettolfromfitCallOut = tempz
@@ -404,7 +406,7 @@ Public Class Passungstabelle_Tabelle
                     'Prüfung ob auch Passungswerte eingetragen sind
                     'Könnte ja auch sein, dass als Toleranzttyp Passung eingestellt ist und keine Passung gewählt wurde
                     'Wenn kein Passungswert gefunden wird, dann Abbruch der Funktion
-                    If Not CheckForFitValues(swCalloutVariable.HoleFit, swCalloutVariable.ShaftFit, swCalloutLengthVariable.Length * fac) Then
+                    If Not CheckForFitValues(swCalloutVariable.HoleFit, swCalloutVariable.ShaftFit, "Bemaßung: " & swCalloutVariable.VariableName & " Maß: " & swCalloutLengthVariable.Length * fac) Then
                         Gettolfromcalloutvar = False
                         Exit Function
                     End If
@@ -464,7 +466,7 @@ Public Class Passungstabelle_Tabelle
                         If Not temp Is Nothing Then
                             TabellenZeilen.Add(temp)
                             Log.WriteInfo("Bohrungsbeschreibung", False)
-                            Log.WriteInfo("Bemaßung: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
+                            Log.WriteInfo("Bemaßung: " & temp.Zeile("Name") & " Maß: " & temp.Zeile("Maß").ToString & Chr(9) & temp.Zeile("Passung"), False)
                             temp = Nothing
                             Tabellenzeilencount = Tabellenzeilencount + 1
                         End If
@@ -548,7 +550,8 @@ Public Class Passungstabelle_Tabelle
 
         temp.Zeile("VorbearbeitungAbmaßToleranzMitte") = Convert.ToDouble(temp.Zeile("VorbearbeitungAbmaßU")) + (Convert.ToDouble(temp.Zeile("VorbearbeitungAbmaßO")) - Convert.ToDouble(temp.Zeile("VorbearbeitungAbmaßU"))) / 2.0
 
-        temp.Zeile("MaßPassung") = temp.prefix & temp.Zeile("Maß") & " " & temp.Zeile("Passung")
+        temp.Zeile("MaßPassung") = temp.Prefix & temp.Zeile("Maß") & " " & temp.Zeile("Passung")
+        temp.Zeile("Name") = dimen.FullName
 
         tol.SetFitValues(HoleValue, Shaftvalue)
         SetColumnsFromDim = temp
@@ -592,6 +595,7 @@ Public Class Passungstabelle_Tabelle
         temp.Zeile("VorbearbeitungAbmaßToleranzMitte") = Convert.ToDouble(temp.Zeile("VorbearbeitungAbmaßU")) + (Convert.ToDouble(temp.Zeile("VorbearbeitungAbmaßO")) - Convert.ToDouble(temp.Zeile("VorbearbeitungAbmaßU"))) / 2.0
 
         temp.Zeile("MaßPassung") = temp.prefix & temp.Zeile("Maß") & " " & temp.Zeile("Passung")
+        temp.Zeile("Name") = swCalloutVariable.VariableName
 
         SetColumnsFromCallOut = temp
     End Function
@@ -661,8 +665,13 @@ Public Class Passungstabelle_Tabelle
 
     Sub InsertTable(swdraw As DrawingDoc, swsheet As Sheet)
         Dim swTable As TableAnnotation
+        Dim modeldoc As ModelDoc2 = swdraw
 
         swdraw.ActivateSheet(swsheet.GetName)
+
+        modeldoc.Extension.SelectByID2("PASSUNGSTABELLE@" & swsheet.GetName, "ANNOTATIONTABLES", 0, 0, 0, False, 0, Nothing, 0)
+        modeldoc.EditDelete()
+
         swTable = swdraw.InsertTableAnnotation2(False, Einfügepunkt(0), Einfügepunkt(1), Einfügepunktposition, "", tabellenzeilencount * 2 + 1, tabellenSpaltenCount)
         swTable.GetAnnotation.SetName("PASSUNGSTABELLE")
         swTable.Title = "Passungstabelle"
@@ -806,10 +815,12 @@ Public Class Passungstabelle_Tabelle
             If n.Key.Length > 10 Then
                 If n.Key.Substring(0, 9) = "TabSpalte" Then
                     If Attr_Tabelle(n.Key) = True Then
-                        swTable.SetColumnTitle2(pos, "<FONT color=" & HeadColor & ">" & lang1l(n.Key.Substring(9)), True)
+                        'swTable.SetColumnTitle2(pos, "<FONT color=" & HeadColor & ">" & lang1l(n.Key.Substring(9)), True)
+                        swTable.SetColumnTitle(pos, "<FONT color=" & HeadColor & ">" & lang1l(n.Key.Substring(9)))
                         swTable.SetCellTextFormat(0, pos, False, HeadStyle)
                         If lang2l.Count > 0 Then
-                            swTable.SetColumnTitle2(pos, swTable.GetColumnTitle2(pos, True) & Chr(13) & lang2l(n.Key.Substring(9)), True)
+                            'swTable.SetColumnTitle2(pos, swTable.GetColumnTitle2(pos, True) & Chr(13) & lang2l(n.Key.Substring(9)), True)
+                            swTable.SetColumnTitle(pos, swTable.GetColumnTitle2(pos, True) & Chr(13) & lang2l(n.Key.Substring(9)))
                             swTable.SetCellTextFormat(0, pos, False, HeadStyle)
                         End If
                         pos = pos + 1
@@ -964,9 +975,12 @@ Public Class Passungstabelle_Tabelle
 
     'Filtert die Tabellzeilen ohne Duplikate
     Sub SetTabellenzeilenGefiltert()
+        'Sortiert die Einträge
         TabellenZeilen.Sort()
+        'Entfernt doppelte Einträge
         TabellenZeilengefiltert = TabellenZeilen.Distinct
-        Tabellenzeilencount = tabellenZeilengefiltert.Count
+        'Setzt den Zeilenzähler neu
+        Tabellenzeilencount = TabellenZeilengefiltert.Count
     End Sub
 
 End Class

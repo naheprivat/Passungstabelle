@@ -225,9 +225,8 @@ Public Class DrawingEventHandler
     Overrides Function Init(ByVal sw As SldWorks, ByVal addin As SwAddin, ByVal model As ModelDoc2) As Boolean
         userAddin = addin
         iDrawing = model
-        iDocument = iDrawing
+        iDocument = IDrawing
         iSwApp = sw
-
     End Function
 
     Overrides Function AttachEventHandlers() As Boolean
@@ -247,7 +246,7 @@ Public Class DrawingEventHandler
         End If
         'DisconnectModelViews()
 
-        'userAddin.DetachModelEventHandler(iDocument)
+        userAddin.DetachModelEventHandler(iDocument)
     End Function
 
     Function DrawingDoc_DestroyNotify() As Integer
@@ -260,6 +259,7 @@ Public Class DrawingEventHandler
 
     Function DrawingDoc_RegenPostNotify() As Integer
         Dim Fittable As New Passungstabelle
+        
 
         Fittable.Main(iSwApp, IDrawing)
         Fittable = Nothing
