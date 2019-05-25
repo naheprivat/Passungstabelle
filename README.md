@@ -1,12 +1,15 @@
 # Passungstabelle
 ## Allgemeine Hinweise
 - Bei diesem Add-In handelt es sich um ein Add-In für SolidWorks.
-Es erstellt eine Passungstabelle auf Zeichnungen.
+  Es erstellt eine Passungstabelle auf Zeichnungen.
 
-Dieses Add-In ist "just for fun" entstanden
-Da ich kein Programmierer bin, stehen einem professionellen Programmierer
-unter Umständen bei manchen Teilen, die Haare zu Berge.
-Dieses Add-In erhebt keinen Anspruch auf Professionalität und die Verwendung erfolgt auf eigene Gefahr
+  Dieses Add-In ist "just for fun" entstanden
+  Da ich kein Programmierer bin, stehen einem professionellen Programmierer
+  unter Umständen bei manchen Teilen, die Haare zu Berge.
+  Dieses Add-In erhebt keinen Anspruch auf Professionalität und die Verwendung erfolgt auf eigene Gefahr
+
+- zum Code
+  Der Code ist nicht komplett bereinigt und auch nicht durchgehend kommentiert
 
 ## Add-In Hinweise
 Der Pfad zur Setup.XML Datei wird in der Registry gespeichert unter "HKEY_LOCAL_MACHINE\Software\nahe"
@@ -22,9 +25,14 @@ den bestehenden Dialog
 "VsdFolderDlg.wid"
 im Verzechnis 
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\1031
+und
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\0
 durch den im Verzeichnis
 SetupDialog Anpassung
 zu ersetzen.
+Die Zahlen stehen für den Sprache die Ihr für Eure Visual Studio Installation gewählt habt.
+Eine Liste der Sprachcodes findet Ihr z.B. [hier](https://msdn.microsoft.com/de-de/library/windows/hardware/dn898488(v=vs.85).aspx)
+0 steht scheinbar für eine Systemeinstellung
 ### ACHTUNG: bitte unbedingt vorher die bestehende Datei sichern
 
 ## Hilfesystem Hinweise
