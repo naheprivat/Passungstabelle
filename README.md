@@ -10,8 +10,8 @@
   Dieses Add-In erhebt keinen Anspruch auf Professionalität und die Verwendung erfolgt auf eigene Gefahr
 
 - zum Code
-
   Der Code ist nicht komplett bereinigt und auch nicht durchgehend kommentiert
+  
 
 ## Add-In Hinweise
 Der Pfad zur Setup.XML Datei wird in der Registry gespeichert unter "HKEY_LOCAL_MACHINE\Software\nahe"
@@ -38,7 +38,7 @@ Eine Liste der Sprachcodes findet Ihr z.B. [hier](https://msdn.microsoft.com/de-
 ### ACHTUNG: bitte unbedingt vorher die bestehende Datei sichern
 
 ## Hilfesystem Hinweise
-Für die Erstellung der Hilfe wurde das Programm [HelpNDoc](https://www.helpndoc.com) verwendet
+Für die Erstellung der Hilfedateien wurde das Programm [HelpNDoc](https://www.helpndoc.com) verwendet
 
 ## Anregungen und Kritik
 bitte postet Anregungen un Kritik zum dem Add-In
