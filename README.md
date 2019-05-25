@@ -16,7 +16,7 @@ Bei der Installation durch das Setup-Projekt wird dieser Schlüssel automatisch 
 Wird das Add-In debugged, muss der Schlüssel ev. manuell gesetzt werden
 
 ## Setup Hinweise
-um im Installationsdialog zwei Pfade abzufragen muss der Standarddilaog angepasst werden
+um im Installationsdialog zwei Pfade abzufragen muss der Standarddilaog angepasst werden,
 dazu war es in meinem Fall (Verwendung von Visual Studio 2017) notwendig, 
 den bestehenden Dialog 
 "VsdFolderDlg.wid"
@@ -25,11 +25,11 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Common
 durch den im Verzeichnis
 SetupDialog Anpassung
 zu ersetzen.
-ACHTUNG: bitte unbedingt vorher die bestehende Datei sichern
+### ACHTUNG:
+- bitte unbedingt vorher die bestehende Datei sichern
 
 ## Hilfesystem Hinweise
-Für die Erstellung der Hilfe wurde das Programm HelpNDoc verwendet
-Ein Download dazu findet sich unter https://www.helpndoc.com
+Für die Erstellung der Hilfe wurde das Programm [HelpNDoc](https://www.helpndoc.com) verwendet
 
 ## Anregungen und Kritik
 bitte postet Anregungen un Kritik zum dem Add-In
