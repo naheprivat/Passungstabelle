@@ -1,7 +1,6 @@
 # Passungstabelle
 ## Allgemeine Hinweise
-- Bei diesem Add-In handelt es sich um ein Add-In für SolidWorks.
-
+- Bei diesem Add-In handelt es sich um ein Add-In für SolidWorks.  
   Es erstellt eine Passungstabelle auf Zeichnungen.
   
   Dieses Add-In ist "just for fun" entstanden
