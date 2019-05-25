@@ -8,8 +8,7 @@
   unter Umständen bei manchen Teilen, die Haare zu Berge.
   Dieses Add-In erhebt keinen Anspruch auf Professionalität und die Verwendung erfolgt auf eigene Gefahr
 
-- zum Code
-
+- zum Code  
   Der Code ist nicht komplett bereinigt und auch nicht durchgehend kommentiert.
   Ein, meiner Meinung nach, guter Ratgeber beim Programmieren ist das Buch
   [Weniger Schlecht programmieren](https://www.oreilly.de/buecher/120174/9783897215672-weniger-schlecht-programmieren.html)
@@ -29,9 +28,9 @@ dazu war es in meinem Fall (Verwendung von Visual Studio 2017) notwendig,
 den bestehenden Dialog 
 "VsdFolderDlg.wid"
 im Verzechnis 
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\1031
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\1031  
 und
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\0
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\0  
 durch den im Verzeichnis
 SetupDialog Anpassung
 zu ersetzen.
