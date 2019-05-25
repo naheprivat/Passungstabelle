@@ -16,24 +16,21 @@
   und alles habe ich auch noch nicht umsetzen können  
 
 ## Add-In Hinweise
-Der Pfad zur Setup.XML Datei wird in der Registry gespeichert unter "HKEY_LOCAL_MACHINE\Software\nahe"
-und unter dem Schlüssel "SetupPfad"
-Wird der Schlüssel nicht gefunden wird die Setup.XML Datei im ausführenden Verzeichnis des Add-In´s gesucht
-Bei der Installation durch das Setup-Projekt wird dieser Schlüssel automatisch gesetzt.
+Der Pfad zur Setup.XML Datei wird in der Registry gespeichert unter "HKEY_LOCAL_MACHINE\Software\nahe"  
+und unter dem Schlüssel "SetupPfad"  
+Wird der Schlüssel nicht gefunden wird die Setup.XML Datei im ausführenden Verzeichnis des Add-In´s gesucht.  
+Bei der Installation durch das Setup-Projekt wird dieser Schlüssel automatisch gesetzt.  
 Wird das Add-In debugged, muss der Schlüssel ev. manuell gesetzt werden
 
 ## Setup Hinweise
-um im Installationsdialog zwei Pfade abzufragen muss der Standarddilaog angepasst werden,
-dazu war es in meinem Fall (Verwendung von Visual Studio 2017) notwendig, 
-den bestehenden Dialog 
-"VsdFolderDlg.wid"
-im Verzechnis 
+um im Installationsdialog zwei Pfade abzufragen muss der Standarddilaog angepasst werden.  
+Dazu war es in meinem Fall (Verwendung von Visual Studio 2017) notwendig, den bestehenden Dialog  
+"VsdFolderDlg.wid"  
+im Verzechnis   
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\1031  
-und
+und  
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\0  
-durch den im Verzeichnis
-SetupDialog Anpassung
-zu ersetzen.
+durch den im Verzeichnis ''SetupDialog Anpassung'' zu ersetzen.  
 Die Zahlen stehen für den Sprache die Ihr für Eure Visual Studio Installation gewählt habt.
 Eine Liste der Sprachcodes findet Ihr z.B. [hier](https://msdn.microsoft.com/de-de/library/windows/hardware/dn898488(v=vs.85).aspx)
 0 steht scheinbar für eine Systemeinstellung
