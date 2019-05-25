@@ -45,5 +45,5 @@ im SolidWorks Forum von [cad.de](https://ww3.cad.de/cgi-bin/ubb/forumdisplay.cgi
 
 ## Ausblick
 das Einzige Feature, dass ich noch gerne umsetzen würde, wäre eine mehrsprachige Benutzeroberfläche des Setups.  
-Das man zumindest zwischen Deutsch und Englisch wählen kann,  
-dass wenn die SolidWorks-Sprach-Einstellung eine andere als Deutsch ist, automatisch Englisch verwendet wird
+Das man zumindest zwischen Deutsch und Englisch wählen kann.  
+Oder wenn die SolidWorks-Sprach-Einstellung eine andere als Deutsch ist, automatisch Englisch verwendet wird
