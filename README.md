@@ -9,7 +9,7 @@
   Dieses Add-In erhebt keinen Anspruch auf Professionalität und die Verwendung erfolgt auf eigene Gefahr
 
 - zum Code
-  Der Code ist nicht komplett bereinigt und auch nicht durchgehend kommentiert
+ Der Code ist nicht komplett bereinigt und auch nicht durchgehend kommentiert
 
 ## Add-In Hinweise
 Der Pfad zur Setup.XML Datei wird in der Registry gespeichert unter "HKEY_LOCAL_MACHINE\Software\nahe"
