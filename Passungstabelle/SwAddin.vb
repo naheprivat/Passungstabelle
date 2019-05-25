@@ -30,7 +30,8 @@ Public Class SwAddin
     Dim SwEventPtr As SldWorks
     'Dim ppage As UserPMPage
     Dim iBmp As BitmapHandler
-
+    Dim macro_pfad As String = ""
+    Dim Setup_pfad As String = ""
 
     Public Const mainCmdGroupID As Integer = 0
     Public Const mainItemID1 As Integer = 0
@@ -121,7 +122,6 @@ Public Class SwAddin
 
     Function ConnectToSW(ByVal ThisSW As Object, ByVal Cookie As Integer) As Boolean Implements SolidWorks.Interop.swpublished.SwAddin.ConnectToSW
         Dim pt As New Passungstabelle
-        Dim macro_pfad As String = ""
 
 
         ISwApp = ThisSW
@@ -129,7 +129,9 @@ Public Class SwAddin
 
         'Ini Datei lesen
         macro_pfad = GetAppPath()
+        Setup_pfad = GetSetupPath()
         pt.Macro_pfad = macro_pfad
+        pt.Setup_pfad = Setup_pfad
 
         'Nur wenn die Setup-Datei gefunden wird
         If pt.Check_for_setup() Then
@@ -412,7 +414,8 @@ Public Class SwAddin
 
     Sub PassungsTabelleHilfe()
         Dim p As New Process()
-        Dim psi As New ProcessStartInfo(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\Help\HtmlHelp\Willkommen.html")
+        'Dim psi As New ProcessStartInfo(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\Help\HtmlHelp\Willkommen.html")
+        Dim psi As New ProcessStartInfo(macro_pfad & "\Help\HtmlHelp\Willkommen.html")
         psi.Verb = "open"
         p.StartInfo = psi
         p.Start()
@@ -428,6 +431,19 @@ Public Class SwAddin
         Dim path As String
         path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
         GetAppPath = path
+    End Function
+
+
+    'Function   GetSetupPath
+    'Paramter:  keine
+    'Ergebnis:  liefert den Pfad der Setup-Datei
+    Public Function GetSetupPath() As String
+        Dim path As String
+        path = My.Computer.Registry.GetValue("HKEY_LOCAL_MACHINE\Software\nahe", "SetupPfad", Nothing)
+        If path Is Nothing Then
+            path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
+        End If
+        GetSetupPath = path
     End Function
 
 #End Region

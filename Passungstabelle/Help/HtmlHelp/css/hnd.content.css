@@ -111,10 +111,36 @@ a.rvts20, span.rvts20
 }
 span.rvts21
 {
+ font-size: 12pt;
+ font-family: 'Calibri Light';
+ color: #000000;
+}
+span.rvts22
+{
+ font-size: 11pt;
+ color: #000000;
+}
+span.rvts23
+{
  font-size: 11pt;
  font-weight: bold;
 }
-span.rvts22
+span.rvts24
+{
+ font-size: 11pt;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts25
+{
+ color: #000000;
+}
+span.rvts26
+{
+ font-size: 11pt;
+ font-weight: bold;
+}
+span.rvts27
 {
  font-weight: bold;
 }

@@ -6,11 +6,15 @@ Imports System.Collections
 Imports System.Collections.Generic
 Imports System.Data
 Imports System.Xml
+Imports System.IO
 
 Public Class SetupDialog
     Property Swapp As SldWorks
     Property Macro_pfad As String
+    Property Setup_pfad As String
     Property Pos As Integer = -1
+
+    Dim SpaltenBoxen As New Dictionary(Of String, List(Of Control))
 
     'Wandelt einen Integerwert in ein Color-Objekt mit Transparenz um
     'IntegerToColor(ByRef RGB As Int32)
@@ -45,14 +49,17 @@ Public Class SetupDialog
 
     'Sichert die Setupeinstellungen im Makropfad als Setup.XML
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
+        Dim XmlWrt As XmlWriter
 
+        'XMLWriterSettings intialisieren
         Dim settings As New XmlWriterSettings With {.Indent = True, .IndentChars = "   ", .NewLineOnAttributes = True}
 
-        'settings.Indent = True
-        'settings.IndentChars = "   "
-        'settings.NewLineOnAttributes = True
-
-        Dim XmlWrt As XmlWriter = XmlWriter.Create(Macro_pfad & "\" & Definitionen.INI_File, settings)
+        Try
+            XmlWrt = XmlWriter.Create(Setup_pfad & Definitionen.INI_File, settings)
+        Catch ex As Exception
+            MsgBox("Fehler beim Schreiben der Datei" & Chr(10) & Setup_pfad & Chr(10) & "Datei kann nicht gesichert werden")
+            Exit Sub
+        End Try
 
         'Nur wenn es Einträge gibt wird gesichert
         If ListBoxFormate.Items.Count = 0 Then
@@ -61,9 +68,20 @@ Public Class SetupDialog
         End If
         'Änderungen im Dataset speichern
         Data.AcceptChanges()
-        'Data.WriteXml(macro_pfad & "\" & Definitionen.INI_File)
-        Data.WriteXml(XmlWrt, True)
-        XmlWrt.Close()
+        'Daten schreiben
+        If Not XmlWrt Is Nothing Then
+            Try
+                Data.WriteXml(XmlWrt, True)
+            Catch ex As Exception
+                MsgBox("Fehler beim Schreiben der Datei" & Chr(10) & Setup_pfad & Chr(10) & "Datei kann nicht gesichert werden")
+                Exit Sub
+            End Try
+        End If
+
+        'Datei schließen
+        If Not XmlWrt Is Nothing Then
+            XmlWrt.Close()
+        End If
     End Sub
 
     'Abbruch
@@ -75,26 +93,17 @@ Public Class SetupDialog
 
     'Textattribute für die Tabellenkopfzeile einstellen
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles TabellenKopfZeileBT.Click
-        'Dim zahl As Double
         Dim st As FontStyle
         Dim d As Single
 
-        'st = 0
         'Aktuelle Werte des Schrifstils ermitteln und zuweisen
         If UnterstrichenKopfZeile.Checked Then st = st Xor FontStyle.Underline
         If DurchgestrichenKopfZeile.Checked Then st = st Xor FontStyle.Strikeout
         If FettKopfZeile.Checked Then st = st Xor FontStyle.Bold
-        'If SchriftstilKopfZeile.Text = "Kursiv" Then st = st Xor FontStyle.Italic Else st = st Xor FontStyle.Regular
         If KursivKopfZeile.Checked Then st = st Xor FontStyle.Italic
 
         'Wenn ein Wert für die Schrifthöhe vorhanden ist
-        If TexthöheKopfZeile.Text <> "" Then
-            'Schrifthöhe von mm in Punkte umrechnen
-            d = (CDbl(TexthöheKopfZeile.Text.Replace(".", ",")) / 10.0) * 72.0 / 2.54
-        Else
-            'Sonst Standardschrifthöhe
-            d = 10
-        End If
+        If TexthöheZeile.Text <> "" Then d = (CDbl(TexthöheZeile.Text) / 10) * 72 / 2.54 Else d = 10
 
         'Werte dem Fontobjekt zuordnen, damit das auch im Fontdialog angezeigt wird
         Dim schrift = New Font(SchriftartKopfZeile.Text, d, st)
@@ -116,25 +125,19 @@ Public Class SetupDialog
             If FontDialog1.Font.Style And FontStyle.Strikeout Then DurchgestrichenKopfZeile.Checked = True Else DurchgestrichenKopfZeile.Checked = False
             If FontDialog1.Font.Style And FontStyle.Bold Then FettKopfZeile.Checked = True Else FettKopfZeile.Checked = False
             If FontDialog1.Font.Style And FontStyle.Italic Then KursivKopfZeile.Checked = True Else KursivKopfZeile.Checked = False
-            'zahl = (FontDialog1.Font.SizeInPoints * 2.54 / 72.0) * 10.0
-            'TexthöheKopfZeile.Text = zahl.ToString("0.00")
         End If
     End Sub
     'Textattribute für die Tabellenzeile einstellen
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles TabellenZeilenBT.Click
-        'Dim zahl As Double
         Dim st As FontStyle
         Dim d As Single
 
-        FontDialog1.ShowEffects = True
-        FontDialog1.ShowColor = True
-
-        st = 0
+        'FontDialog1.ShowEffects = True
+        'FontDialog1.ShowColor = True
 
         If UnterstrichenZeile.Checked Then st = st Xor FontStyle.Underline
         If DurchgestrichenZeile.Checked Then st = st Xor FontStyle.Strikeout
         If FettZeile.Checked Then st = st Xor FontStyle.Bold
-        'If SchriftstilZeile.Text = "Kursiv" Then st = st Xor FontStyle.Italic Else st = st Xor FontStyle.Regular
         If KursivKopfZeile.Checked Then st = st Xor FontStyle.Italic
 
         If TexthöheZeile.Text <> "" Then d = (CDbl(TexthöheZeile.Text) / 10) * 72 / 2.54 Else d = 10
@@ -152,10 +155,7 @@ Public Class SetupDialog
             If FontDialog1.Font.Style And FontStyle.Underline Then UnterstrichenZeile.Checked = True Else UnterstrichenZeile.Checked = False
             If FontDialog1.Font.Style And FontStyle.Strikeout Then DurchgestrichenZeile.Checked = True Else DurchgestrichenZeile.Checked = False
             If FontDialog1.Font.Style And FontStyle.Bold Then FettZeile.Checked = True Else FettZeile.Checked = False
-            'If FontDialog1.Font.Style And FontStyle.Italic Then SchriftstilZeile.Text = "Kursiv" Else SchriftstilZeile.Text = "Normal"
             If FontDialog1.Font.Style And FontStyle.Italic Then KursivZeile.Checked = True Else KursivZeile.Checked = False
-            'zahl = (FontDialog1.Font.SizeInPoints * 2.54 / 72) * 10
-            'TexthöheZeile.Text = zahl.ToString("0.00")
         End If
     End Sub
 
@@ -164,15 +164,17 @@ Public Class SetupDialog
         Dim pfad As String
         Dim ok As Boolean
 
-
         'Abfrage ob die Setup-Datei auch wirkllich ersetzt werden soll
         If MsgBox("Achtung: Dadurch wird eine ev. vorhandene Setup Datei ersetzt." & Chr(10) & "Wählen Sie Ja wenn Sie die Datei importieren möchten", vbYesNo, "Meldung") = vbNo Then
             Exit Sub
         End If
 
-        'macro_pfad = AppContext.BaseDirectory
+        pfad = Setup_pfad & Definitionen.INI_File
 
-        pfad = macro_pfad & "\" & Definitionen.INI_File
+        If WriteAccess(pfad) = False Then
+            MsgBox("Sie haben keinen Schreibzugriff auf die Datei " & pfad & " oder sie existiert nicht", vbOKOnly, "Meldung")
+            Exit Sub
+        End If
 
         ok = False
 
@@ -206,16 +208,45 @@ Public Class SetupDialog
         MsgBox("Achtung:" & Chr(10) & "da zusätzliche Spalten dazugekommen sind" & Chr(10) & "müssen Sie die Spaltenübersetzungen, im Tabulator, 'Sprachen' ergänzen", vbInformation, "Meldung")
     End Sub
 
+    Private Sub SetSpaltenFarbe(Spalte As String, Aktiv As Boolean)
+        Dim ctrlList As New List(Of Control)
+
+        ctrlList = SpaltenBoxen(Spalte)
+
+        For Each ctrl In ctrlList
+            If Aktiv Then ctrl.BackColor = Color.LightGreen Else ctrl.BackColor = Color.White
+        Next
+    End Sub
+
+    Private Sub SetSpaltenBoxen()
+        Dim ctrls As Control()
+        Dim j As Integer = 1
+        Dim i As Integer = 1
+
+        While Me.Controls.Find("CB_Spalte" & j, True).Length >= 1
+            Dim ctrlList As New List(Of Control)
+            ctrls = Me.Controls.Find("CB_Spalte" & j, True)
+            Do
+                ctrls = Me.Controls.Find("SP" & j & "_TB" & i, True)
+                If ctrls.Length = 1 Then ctrlList.Add(ctrls(0))
+                i = i + 1
+            Loop Until ctrls.Length < 1
+            SpaltenBoxen.Add("CB_Spalte" & j, ctrlList)
+            i = 1
+            j = j + 1
+        End While
+    End Sub
 
     Private Sub SetupDialog_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dim pfad As String
         Dim ok As Boolean
 
+        'Macro_pfad = GetAppPath()
+        Setup_Pfad = GetSetupPath()
 
-        'macro_pfad = AppContext.BaseDirectory
-        macro_pfad = GetAppPath()
+        pfad = Setup_pfad & Definitionen.INI_File
 
-        pfad = macro_pfad & "\" & Definitionen.INI_File
+        'Versuch die Setup Datei zu lesen
         Try
             Data.ReadXml(pfad)
             GenerelleAttributeBindingSource.Position = 0
@@ -226,38 +257,41 @@ Public Class SetupDialog
             MsgBox("Keine Setup.XML Datei gefunden, Daten werden mit Standardwerten befüllt", vbOKOnly, "Meldung")
         End Try
 
-        Module1.SwxMacroPfad = macro_pfad
+        'Check ob die Setup Datei geschrieben werden kann
+        If WriteAccess(pfad) = False Then
+            MsgBox("Sie haben kein Schreibrecht für die Datei " & Chr(10) & pfad & Chr(10) & " Setup wird abgebrochen", vbOKOnly, "Meldung")
+            Me.Close()
+            Exit Sub
+        End If
+
+        Module1.SwxMacroPfad = Setup_pfad
         TabControl1.TabPages(2).Refresh()
         TabControl1.TabPages(0).Refresh()
+        SetSpaltenBoxen()
 
-        ' macro_pfad = AppContext.BaseDirectory
-        macro_pfad = GetAppPath()
-        ' MsgBox(macro_pfad, vbOKOnly, "Meldung")
+        Setup_pfad = GetSetupPath()
 
+        Me.Text = "Passungstabelle Ver. " & System.Reflection.Assembly.GetExecutingAssembly.GetName.Version.ToString & " Setup für - " & ListBoxFormate.Text
     End Sub
 
     Private Sub FarbeZeile_TextChanged(sender As Object, e As EventArgs) Handles FarbeZeile.TextChanged
-        'sender.ForeColor = IntegerToColor(sender.text)
         sender.BackColor = IntegerToColor(sender.text)
         sender.ForeColor = sender.BackColor
-        ' sender.ForeColor = IntegerToColorAlpha(sender.text)
     End Sub
 
     Private Sub FarbeKopfZeile_TextChanged(sender As Object, e As EventArgs) Handles FarbeKopfZeile.TextChanged
-        'sender.ForeColor = IntegerToColor(sender.text)
         sender.BackColor = IntegerToColor(sender.text)
         sender.ForeColor = sender.BackColor
-        'sender.ForeColor = IntegerToColorAlpha(sender.text)
     End Sub
 
     Private Sub ListBoxFormate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxFormate.SelectedIndexChanged
         pos = sender.SelectedIndex
 
         TabellenAttributeBindingSource.Position = pos
-        FormatAttributeBindingSource.Position = pos
-        FormatBindingSource1.Position = pos
+        FormatAttributeBindingSource.Position = Pos
+        FormatBindingSource1.Position = Pos
+        Me.Text = "Passungstabelle Ver. " & System.Reflection.Assembly.GetExecutingAssembly.GetName.Version.ToString & " Setup für - " & ListBoxFormate.Text
 
-        Me.Text = "Passungstabelle Setup für - " & ListBoxFormate.Text
     End Sub
 
     Sub Insert_sprachkombinationen()
@@ -568,95 +602,43 @@ Public Class SetupDialog
     End Sub
 
     Private Sub CB_Spalte1_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte1.CheckedChanged
-        If CB_Spalte1.Checked Then
-            TextBox1.BackColor = Color.LightGreen
-            TextBox22.BackColor = Color.LightGreen
-        Else
-            TextBox1.BackColor = Color.White
-            TextBox22.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte1", CB_Spalte1.Checked)
     End Sub
 
     Private Sub CB_Spalte2_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte2.CheckedChanged
-        If CB_Spalte2.Checked Then
-            TextBox6.BackColor = Color.LightGreen
-            TextBox17.BackColor = Color.LightGreen
-        Else
-            TextBox6.BackColor = Color.White
-            TextBox17.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte2", CB_Spalte2.Checked)
     End Sub
 
     Private Sub CB_Spalte3_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte3.CheckedChanged
-        If CB_Spalte3.Checked Then
-            TextBox7.BackColor = Color.LightGreen
-            TextBox16.BackColor = Color.LightGreen
-        Else
-            TextBox7.BackColor = Color.White
-            TextBox16.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte3", CB_Spalte3.Checked)
     End Sub
 
     Private Sub CB_Spalte4_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte4.CheckedChanged
-        If CB_Spalte4.Checked Then
-            TextBox2.BackColor = Color.LightGreen
-            TextBox3.BackColor = Color.LightGreen
-            TextBox20.BackColor = Color.LightGreen
-            TextBox21.BackColor = Color.LightGreen
-        Else
-            TextBox2.BackColor = Color.White
-            TextBox3.BackColor = Color.White
-            TextBox20.BackColor = Color.White
-            TextBox21.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte4", CB_Spalte4.Checked)
     End Sub
 
     Private Sub CB_Spalte5_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte5.CheckedChanged
-        If CB_Spalte5.Checked Then
-            TextBox4.BackColor = Color.LightGreen
-            TextBox5.BackColor = Color.LightGreen
-            TextBox18.BackColor = Color.LightGreen
-            TextBox19.BackColor = Color.LightGreen
-        Else
-            TextBox4.BackColor = Color.White
-            TextBox5.BackColor = Color.White
-            TextBox18.BackColor = Color.White
-            TextBox19.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte5", CB_Spalte5.Checked)
     End Sub
 
     Private Sub CB_Spalte6_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte6.CheckedChanged
-        If CB_Spalte6.Checked Then
-            TextBox8.BackColor = Color.LightGreen
-            TextBox15.BackColor = Color.LightGreen
-        Else
-            TextBox8.BackColor = Color.White
-            TextBox15.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte6", CB_Spalte6.Checked)
     End Sub
 
     Private Sub CB_Spalte7_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte7.CheckedChanged
-        If CB_Spalte7.Checked Then
-            TextBox9.BackColor = Color.LightGreen
-            TextBox10.BackColor = Color.LightGreen
-            TextBox13.BackColor = Color.LightGreen
-            TextBox14.BackColor = Color.LightGreen
-        Else
-            TextBox9.BackColor = Color.White
-            TextBox10.BackColor = Color.White
-            TextBox13.BackColor = Color.White
-            TextBox14.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte7", CB_Spalte7.Checked)
     End Sub
 
     Private Sub CB_Spalte8_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte8.CheckedChanged
-        If CB_Spalte8.Checked Then
-            TextBox11.BackColor = Color.LightGreen
-            TextBox12.BackColor = Color.LightGreen
-        Else
-            TextBox11.BackColor = Color.White
-            TextBox12.BackColor = Color.White
-        End If
+        SetSpaltenFarbe("CB_Spalte8", CB_Spalte8.Checked)
+    End Sub
+
+    Private Sub CB_Spalte9_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte9.CheckedChanged
+        SetSpaltenFarbe("CB_Spalte9", CB_Spalte9.Checked)
+    End Sub
+
+    Private Sub CB_Spalte10_CheckedChanged(sender As Object, e As EventArgs) Handles CB_Spalte10.CheckedChanged
+        SetSpaltenFarbe("CB_Spalte10", CB_Spalte10.Checked)
     End Sub
 
     Private Sub CB_AutomatischeSpaltenBreite_CheckedChanged(sender As Object, e As EventArgs)
@@ -673,12 +655,24 @@ Public Class SetupDialog
         End If
     End Sub
 
-
     Public Function GetAppPath() As String
         Dim path As String
         path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
         GetAppPath = path
     End Function
+
+    'Function   GetSetupPath
+    'Paramter:  keine
+    'Ergebnis:  liefert den Pfad der Setup-Datei
+    Public Function GetSetupPath() As String
+        Dim path As String
+        path = My.Computer.Registry.GetValue("HKEY_LOCAL_MACHINE\Software\nahe", "SetupPfad", Nothing)
+        If path Is Nothing Then
+            path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
+        End If
+        GetSetupPath = path
+    End Function
+
 
     Private Sub NurAufErstemBlatt_CheckedChanged(sender As Object, e As EventArgs) Handles NurAufErstemBlatt.CheckedChanged
         If Not NurAufErstemBlatt.Checked And LöschenAufRestlichenBlättern.Checked Then
@@ -706,6 +700,8 @@ Public Class SetupDialog
             BreiteSpalte6.Enabled = False
             BreiteSpalte7.Enabled = False
             BreiteSpalte8.Enabled = False
+            BreiteSpalte9.Enabled = False
+            BreiteSpalte10.Enabled = False
         Else
             BreiteSpalte1.Enabled = True
             BreiteSpalte2.Enabled = True
@@ -715,6 +711,8 @@ Public Class SetupDialog
             BreiteSpalte6.Enabled = True
             BreiteSpalte7.Enabled = True
             BreiteSpalte8.Enabled = True
+            BreiteSpalte9.Enabled = True
+            BreiteSpalte10.Enabled = True
         End If
     End Sub
 
@@ -788,8 +786,63 @@ Public Class SetupDialog
         dta = Data.Tables("Format")
         dta.Rows(ListBoxFormate.SelectedIndex)("Formatname") = DlgRename.FormatName.Text
         dta = Nothing
-
     End Sub
+    Private Function WriteAccess(Pfad As String) As Boolean
+        Dim fs As FileStream
+        Dim zugriff As Boolean = False
 
+        If File.Exists(Pfad) Then
+            Try
+                fs = New FileStream(Pfad, FileMode.Append, FileAccess.Write)
+                fs.Close()
+                WriteAccess = True
+                Exit Function
+            Catch ex As Exception
+                WriteAccess = False
+                Exit Function
+            End Try
+        Else
+            WriteAccess = False
+        End If
+    End Function
+
+    Private Function CreateAccess(Pfad As String) As Boolean
+        Dim fs As FileStream
+        Dim zugriff As Boolean = False
+
+        If File.Exists(Pfad) Then
+            Try
+                fs = New FileStream(Pfad, FileMode.Create, FileAccess.Write)
+                fs.Close()
+                File.Delete(Pfad)
+                CreateAccess = True
+                Exit Function
+            Catch ex As Exception
+                CreateAccess = False
+                Exit Function
+            End Try
+        Else
+            CreateAccess = False
+        End If
+    End Function
+
+    Private Function ReadAccess(Pfad As String) As Boolean
+        Dim fs As FileStream
+        Dim zugriff As Boolean = False
+
+        If File.Exists(Pfad) Then
+            Try
+                fs = New FileStream(Pfad, FileMode.Create, FileAccess.Write)
+                fs.Close()
+                ReadAccess = True
+                Exit Function
+            Catch ex As Exception
+                ReadAccess = False
+                Exit Function
+            End Try
+        Else
+            ReadAccess = False
+        End If
+    End Function
 
 End Class

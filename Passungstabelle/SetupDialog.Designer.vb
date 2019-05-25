@@ -40,6 +40,8 @@ Partial Class SetupDialog
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VorbearbeitungsAbmaßeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Anzahl = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Zone = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ÜbersetzungenIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ÜbersetzungBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabPage3 = New System.Windows.Forms.TabPage()
@@ -142,7 +144,17 @@ Partial Class SetupDialog
         Me.SchichtStärkeKeine = New System.Windows.Forms.RadioButton()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.SP10_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP10_TB1 = New System.Windows.Forms.TextBox()
+        Me.CB_Spalte10 = New System.Windows.Forms.CheckBox()
+        Me.SP9_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP9_TB1 = New System.Windows.Forms.TextBox()
+        Me.CB_Spalte9 = New System.Windows.Forms.CheckBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.BreiteSpalte10 = New System.Windows.Forms.TextBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.BreiteSpalte9 = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
         Me.BreiteSpalte8 = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.BreiteSpalte7 = New System.Windows.Forms.TextBox()
@@ -161,21 +173,21 @@ Partial Class SetupDialog
         Me.BreiteSpalte1 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TextBox23 = New System.Windows.Forms.TextBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
-        Me.TextBox18 = New System.Windows.Forms.TextBox()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
-        Me.TextBox20 = New System.Windows.Forms.TextBox()
-        Me.TextBox21 = New System.Windows.Forms.TextBox()
-        Me.TextBox22 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.SP8_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP7_TB4 = New System.Windows.Forms.TextBox()
+        Me.SP7_TB3 = New System.Windows.Forms.TextBox()
+        Me.SP6_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP3_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP2_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP5_TB4 = New System.Windows.Forms.TextBox()
+        Me.SP5_TB3 = New System.Windows.Forms.TextBox()
+        Me.SP4_TB4 = New System.Windows.Forms.TextBox()
+        Me.SP4_TB3 = New System.Windows.Forms.TextBox()
+        Me.SP1_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP8_TB1 = New System.Windows.Forms.TextBox()
         Me.CB_Spalte8 = New System.Windows.Forms.CheckBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.SP7_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP7_TB1 = New System.Windows.Forms.TextBox()
         Me.CB_Spalte7 = New System.Windows.Forms.CheckBox()
         Me.CB_Spalte6 = New System.Windows.Forms.CheckBox()
         Me.CB_Spalte5 = New System.Windows.Forms.CheckBox()
@@ -183,14 +195,14 @@ Partial Class SetupDialog
         Me.CB_Spalte3 = New System.Windows.Forms.CheckBox()
         Me.CB_Spalte2 = New System.Windows.Forms.CheckBox()
         Me.CB_Spalte1 = New System.Windows.Forms.CheckBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.SP6_TB1 = New System.Windows.Forms.TextBox()
+        Me.SP3_TB1 = New System.Windows.Forms.TextBox()
+        Me.SP2_TB1 = New System.Windows.Forms.TextBox()
+        Me.SP5_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP5_TB1 = New System.Windows.Forms.TextBox()
+        Me.SP4_TB2 = New System.Windows.Forms.TextBox()
+        Me.SP4_TB1 = New System.Windows.Forms.TextBox()
+        Me.SP1_TB1 = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatLab1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
@@ -261,7 +273,7 @@ Partial Class SetupDialog
         '
         Me.DataGridÜbersetzungen.AutoGenerateColumns = False
         Me.DataGridÜbersetzungen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridÜbersetzungen.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.KürzelDataGridViewTextBoxColumn, Me.Maß, Me.PassungDataGridViewTextBoxColumn, Me.MaßePassung, Me.ToleranzDataGridViewTextBoxColumn, Me.AbmaßDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.VorbearbeitungsAbmaßeDataGridViewTextBoxColumn, Me.VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn, Me.ÜbersetzungenIdDataGridViewTextBoxColumn})
+        Me.DataGridÜbersetzungen.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.KürzelDataGridViewTextBoxColumn, Me.Maß, Me.PassungDataGridViewTextBoxColumn, Me.MaßePassung, Me.ToleranzDataGridViewTextBoxColumn, Me.AbmaßDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.VorbearbeitungsAbmaßeDataGridViewTextBoxColumn, Me.VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn, Me.Anzahl, Me.Zone, Me.ÜbersetzungenIdDataGridViewTextBoxColumn})
         Me.DataGridÜbersetzungen.DataSource = Me.ÜbersetzungBindingSource
         Me.DataGridÜbersetzungen.Location = New System.Drawing.Point(16, 18)
         Me.DataGridÜbersetzungen.Name = "DataGridÜbersetzungen"
@@ -338,6 +350,18 @@ Partial Class SetupDialog
         Me.VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn.DataPropertyName = "VorbearbeitungsToleranzMitte"
         Me.VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn.HeaderText = "VorbearbeitungsToleranzMitte"
         Me.VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn.Name = "VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn"
+        '
+        'Anzahl
+        '
+        Me.Anzahl.DataPropertyName = "Anzahl"
+        Me.Anzahl.HeaderText = "Anzahl"
+        Me.Anzahl.Name = "Anzahl"
+        '
+        'Zone
+        '
+        Me.Zone.DataPropertyName = "Zone"
+        Me.Zone.HeaderText = "Zone"
+        Me.Zone.Name = "Zone"
         '
         'ÜbersetzungenIdDataGridViewTextBoxColumn
         '
@@ -1459,23 +1483,29 @@ Partial Class SetupDialog
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage5.Controls.Add(Me.SP10_TB2)
+        Me.TabPage5.Controls.Add(Me.SP10_TB1)
+        Me.TabPage5.Controls.Add(Me.CB_Spalte10)
+        Me.TabPage5.Controls.Add(Me.SP9_TB2)
+        Me.TabPage5.Controls.Add(Me.SP9_TB1)
+        Me.TabPage5.Controls.Add(Me.CB_Spalte9)
         Me.TabPage5.Controls.Add(Me.GroupBox10)
         Me.TabPage5.Controls.Add(Me.TextBox23)
-        Me.TabPage5.Controls.Add(Me.TextBox12)
-        Me.TabPage5.Controls.Add(Me.TextBox13)
-        Me.TabPage5.Controls.Add(Me.TextBox14)
-        Me.TabPage5.Controls.Add(Me.TextBox15)
-        Me.TabPage5.Controls.Add(Me.TextBox16)
-        Me.TabPage5.Controls.Add(Me.TextBox17)
-        Me.TabPage5.Controls.Add(Me.TextBox18)
-        Me.TabPage5.Controls.Add(Me.TextBox19)
-        Me.TabPage5.Controls.Add(Me.TextBox20)
-        Me.TabPage5.Controls.Add(Me.TextBox21)
-        Me.TabPage5.Controls.Add(Me.TextBox22)
-        Me.TabPage5.Controls.Add(Me.TextBox11)
+        Me.TabPage5.Controls.Add(Me.SP8_TB2)
+        Me.TabPage5.Controls.Add(Me.SP7_TB4)
+        Me.TabPage5.Controls.Add(Me.SP7_TB3)
+        Me.TabPage5.Controls.Add(Me.SP6_TB2)
+        Me.TabPage5.Controls.Add(Me.SP3_TB2)
+        Me.TabPage5.Controls.Add(Me.SP2_TB2)
+        Me.TabPage5.Controls.Add(Me.SP5_TB4)
+        Me.TabPage5.Controls.Add(Me.SP5_TB3)
+        Me.TabPage5.Controls.Add(Me.SP4_TB4)
+        Me.TabPage5.Controls.Add(Me.SP4_TB3)
+        Me.TabPage5.Controls.Add(Me.SP1_TB2)
+        Me.TabPage5.Controls.Add(Me.SP8_TB1)
         Me.TabPage5.Controls.Add(Me.CB_Spalte8)
-        Me.TabPage5.Controls.Add(Me.TextBox9)
-        Me.TabPage5.Controls.Add(Me.TextBox10)
+        Me.TabPage5.Controls.Add(Me.SP7_TB2)
+        Me.TabPage5.Controls.Add(Me.SP7_TB1)
         Me.TabPage5.Controls.Add(Me.CB_Spalte7)
         Me.TabPage5.Controls.Add(Me.CB_Spalte6)
         Me.TabPage5.Controls.Add(Me.CB_Spalte5)
@@ -1483,22 +1513,117 @@ Partial Class SetupDialog
         Me.TabPage5.Controls.Add(Me.CB_Spalte3)
         Me.TabPage5.Controls.Add(Me.CB_Spalte2)
         Me.TabPage5.Controls.Add(Me.CB_Spalte1)
-        Me.TabPage5.Controls.Add(Me.TextBox8)
-        Me.TabPage5.Controls.Add(Me.TextBox7)
-        Me.TabPage5.Controls.Add(Me.TextBox6)
-        Me.TabPage5.Controls.Add(Me.TextBox5)
-        Me.TabPage5.Controls.Add(Me.TextBox4)
-        Me.TabPage5.Controls.Add(Me.TextBox3)
-        Me.TabPage5.Controls.Add(Me.TextBox2)
-        Me.TabPage5.Controls.Add(Me.TextBox1)
+        Me.TabPage5.Controls.Add(Me.SP6_TB1)
+        Me.TabPage5.Controls.Add(Me.SP3_TB1)
+        Me.TabPage5.Controls.Add(Me.SP2_TB1)
+        Me.TabPage5.Controls.Add(Me.SP5_TB2)
+        Me.TabPage5.Controls.Add(Me.SP5_TB1)
+        Me.TabPage5.Controls.Add(Me.SP4_TB2)
+        Me.TabPage5.Controls.Add(Me.SP4_TB1)
+        Me.TabPage5.Controls.Add(Me.SP1_TB1)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Size = New System.Drawing.Size(677, 393)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Tabellenspalten"
         '
+        'SP10_TB2
+        '
+        Me.SP10_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP10_TB2.Enabled = False
+        Me.SP10_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP10_TB2.Location = New System.Drawing.Point(473, 99)
+        Me.SP10_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP10_TB2.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP10_TB2.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP10_TB2.Multiline = True
+        Me.SP10_TB2.Name = "SP10_TB2"
+        Me.SP10_TB2.ReadOnly = True
+        Me.SP10_TB2.Size = New System.Drawing.Size(50, 46)
+        Me.SP10_TB2.TabIndex = 71
+        Me.SP10_TB2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "A1/C4"
+        Me.SP10_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'SP10_TB1
+        '
+        Me.SP10_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP10_TB1.Enabled = False
+        Me.SP10_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP10_TB1.Location = New System.Drawing.Point(473, 53)
+        Me.SP10_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP10_TB1.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP10_TB1.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP10_TB1.Multiline = True
+        Me.SP10_TB1.Name = "SP10_TB1"
+        Me.SP10_TB1.ReadOnly = True
+        Me.SP10_TB1.Size = New System.Drawing.Size(50, 46)
+        Me.SP10_TB1.TabIndex = 70
+        Me.SP10_TB1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "B2"
+        Me.SP10_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'CB_Spalte10
+        '
+        Me.CB_Spalte10.AutoSize = True
+        Me.CB_Spalte10.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TabellenAttributeBindingSource, "TabSpalteZone", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CB_Spalte10.Location = New System.Drawing.Point(490, 27)
+        Me.CB_Spalte10.Name = "CB_Spalte10"
+        Me.CB_Spalte10.Size = New System.Drawing.Size(15, 14)
+        Me.CB_Spalte10.TabIndex = 69
+        Me.ToolTip1.SetToolTip(Me.CB_Spalte10, "Zeichnblattzonen der Passungen anzeigen" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "das setzt voraus, dass die Zonen in SWX " &
+        "richtig eingestellt sind" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
+        Me.CB_Spalte10.UseVisualStyleBackColor = True
+        '
+        'SP9_TB2
+        '
+        Me.SP9_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP9_TB2.Enabled = False
+        Me.SP9_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP9_TB2.Location = New System.Drawing.Point(417, 99)
+        Me.SP9_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP9_TB2.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP9_TB2.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP9_TB2.Multiline = True
+        Me.SP9_TB2.Name = "SP9_TB2"
+        Me.SP9_TB2.ReadOnly = True
+        Me.SP9_TB2.Size = New System.Drawing.Size(50, 46)
+        Me.SP9_TB2.TabIndex = 68
+        Me.SP9_TB2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2"
+        Me.SP9_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'SP9_TB1
+        '
+        Me.SP9_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP9_TB1.Enabled = False
+        Me.SP9_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP9_TB1.Location = New System.Drawing.Point(417, 53)
+        Me.SP9_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP9_TB1.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP9_TB1.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP9_TB1.Multiline = True
+        Me.SP9_TB1.Name = "SP9_TB1"
+        Me.SP9_TB1.ReadOnly = True
+        Me.SP9_TB1.Size = New System.Drawing.Size(50, 46)
+        Me.SP9_TB1.TabIndex = 67
+        Me.SP9_TB1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "1"
+        Me.SP9_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'CB_Spalte9
+        '
+        Me.CB_Spalte9.AutoSize = True
+        Me.CB_Spalte9.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TabellenAttributeBindingSource, "TabSpalteAnzahl", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CB_Spalte9.Location = New System.Drawing.Point(434, 27)
+        Me.CB_Spalte9.Name = "CB_Spalte9"
+        Me.CB_Spalte9.Size = New System.Drawing.Size(15, 14)
+        Me.CB_Spalte9.TabIndex = 66
+        Me.ToolTip1.SetToolTip(Me.CB_Spalte9, "zeigt die Anzahl der gleichen Passungen an" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10))
+        Me.CB_Spalte9.UseVisualStyleBackColor = True
+        '
         'GroupBox10
         '
+        Me.GroupBox10.Controls.Add(Me.BreiteSpalte10)
+        Me.GroupBox10.Controls.Add(Me.Label36)
+        Me.GroupBox10.Controls.Add(Me.BreiteSpalte9)
+        Me.GroupBox10.Controls.Add(Me.Label35)
         Me.GroupBox10.Controls.Add(Me.BreiteSpalte8)
         Me.GroupBox10.Controls.Add(Me.Label23)
         Me.GroupBox10.Controls.Add(Me.BreiteSpalte7)
@@ -1518,10 +1643,46 @@ Partial Class SetupDialog
         Me.GroupBox10.Controls.Add(Me.Label16)
         Me.GroupBox10.Location = New System.Drawing.Point(3, 162)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(421, 95)
+        Me.GroupBox10.Size = New System.Drawing.Size(529, 95)
         Me.GroupBox10.TabIndex = 65
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Spaltenbreiten"
+        '
+        'BreiteSpalte10
+        '
+        Me.BreiteSpalte10.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TabellenAttributeBindingSource, "BreiteSpalteZone", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.BreiteSpalte10.Location = New System.Drawing.Point(470, 16)
+        Me.BreiteSpalte10.Name = "BreiteSpalte10"
+        Me.BreiteSpalte10.Size = New System.Drawing.Size(50, 20)
+        Me.BreiteSpalte10.TabIndex = 79
+        Me.ToolTip1.SetToolTip(Me.BreiteSpalte10, "Breite der vierten Splate" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "sieh auch Tabellentyp")
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(484, 39)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(23, 13)
+        Me.Label36.TabIndex = 78
+        Me.Label36.Text = "mm"
+        '
+        'BreiteSpalte9
+        '
+        Me.BreiteSpalte9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TabellenAttributeBindingSource, "BreiteSpalteAnzahl", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.BreiteSpalte9.Location = New System.Drawing.Point(414, 16)
+        Me.BreiteSpalte9.Name = "BreiteSpalte9"
+        Me.BreiteSpalte9.Size = New System.Drawing.Size(50, 20)
+        Me.BreiteSpalte9.TabIndex = 77
+        Me.ToolTip1.SetToolTip(Me.BreiteSpalte9, "Breite der vierten Splate" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "sieh auch Tabellentyp")
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(428, 39)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(23, 13)
+        Me.Label35.TabIndex = 76
+        Me.Label35.Text = "mm"
         '
         'BreiteSpalte8
         '
@@ -1682,217 +1843,217 @@ Partial Class SetupDialog
         '
         Me.TextBox23.BackColor = System.Drawing.SystemColors.MenuBar
         Me.TextBox23.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox23.Location = New System.Drawing.Point(417, 53)
+        Me.TextBox23.Location = New System.Drawing.Point(19, 263)
         Me.TextBox23.Multiline = True
         Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(240, 92)
+        Me.TextBox23.Size = New System.Drawing.Size(392, 92)
         Me.TextBox23.TabIndex = 64
         Me.TextBox23.Text = "markieren Sie die Spalten die Sie angezeigt bekommen möchten" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "für die Beispiele o" &
     "ben wurde eine Schichtstärke von 0,012mm angenommen" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'TextBox12
+        'SP8_TB2
         '
-        Me.TextBox12.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox12.Enabled = False
-        Me.TextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox12.Location = New System.Drawing.Point(361, 99)
-        Me.TextBox12.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox12.MaximumSize = New System.Drawing.Size(50, 40)
-        Me.TextBox12.MinimumSize = New System.Drawing.Size(50, 46)
-        Me.TextBox12.Multiline = True
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.ReadOnly = True
-        Me.TextBox12.Size = New System.Drawing.Size(50, 46)
-        Me.TextBox12.TabIndex = 63
-        Me.TextBox12.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "25,9905"
-        Me.TextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP8_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP8_TB2.Enabled = False
+        Me.SP8_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP8_TB2.Location = New System.Drawing.Point(361, 99)
+        Me.SP8_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP8_TB2.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP8_TB2.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP8_TB2.Multiline = True
+        Me.SP8_TB2.Name = "SP8_TB2"
+        Me.SP8_TB2.ReadOnly = True
+        Me.SP8_TB2.Size = New System.Drawing.Size(50, 46)
+        Me.SP8_TB2.TabIndex = 63
+        Me.SP8_TB2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "25,9905"
+        Me.SP8_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox13
+        'SP7_TB4
         '
-        Me.TextBox13.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox13.Enabled = False
-        Me.TextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox13.Location = New System.Drawing.Point(315, 122)
-        Me.TextBox13.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox13.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox13.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox13.Multiline = True
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.ReadOnly = True
-        Me.TextBox13.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox13.TabIndex = 62
-        Me.TextBox13.Text = "25,984"
-        Me.TextBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP7_TB4.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP7_TB4.Enabled = False
+        Me.SP7_TB4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP7_TB4.Location = New System.Drawing.Point(315, 122)
+        Me.SP7_TB4.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP7_TB4.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB4.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB4.Multiline = True
+        Me.SP7_TB4.Name = "SP7_TB4"
+        Me.SP7_TB4.ReadOnly = True
+        Me.SP7_TB4.Size = New System.Drawing.Size(40, 23)
+        Me.SP7_TB4.TabIndex = 62
+        Me.SP7_TB4.Text = "25,984"
+        Me.SP7_TB4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox14
+        'SP7_TB3
         '
-        Me.TextBox14.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox14.Enabled = False
-        Me.TextBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox14.Location = New System.Drawing.Point(315, 99)
-        Me.TextBox14.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox14.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox14.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox14.Multiline = True
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.ReadOnly = True
-        Me.TextBox14.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox14.TabIndex = 61
-        Me.TextBox14.Text = "25,997"
-        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP7_TB3.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP7_TB3.Enabled = False
+        Me.SP7_TB3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP7_TB3.Location = New System.Drawing.Point(315, 99)
+        Me.SP7_TB3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP7_TB3.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB3.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB3.Multiline = True
+        Me.SP7_TB3.Name = "SP7_TB3"
+        Me.SP7_TB3.ReadOnly = True
+        Me.SP7_TB3.Size = New System.Drawing.Size(40, 23)
+        Me.SP7_TB3.TabIndex = 61
+        Me.SP7_TB3.Text = "25,997"
+        Me.SP7_TB3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox15
+        'SP6_TB2
         '
-        Me.TextBox15.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox15.Enabled = False
-        Me.TextBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox15.Location = New System.Drawing.Point(259, 99)
-        Me.TextBox15.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox15.MaximumSize = New System.Drawing.Size(50, 40)
-        Me.TextBox15.MinimumSize = New System.Drawing.Size(50, 46)
-        Me.TextBox15.Multiline = True
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.ReadOnly = True
-        Me.TextBox15.Size = New System.Drawing.Size(50, 46)
-        Me.TextBox15.TabIndex = 60
-        Me.TextBox15.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26,0145"
-        Me.TextBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP6_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP6_TB2.Enabled = False
+        Me.SP6_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP6_TB2.Location = New System.Drawing.Point(259, 99)
+        Me.SP6_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP6_TB2.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP6_TB2.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP6_TB2.Multiline = True
+        Me.SP6_TB2.Name = "SP6_TB2"
+        Me.SP6_TB2.ReadOnly = True
+        Me.SP6_TB2.Size = New System.Drawing.Size(50, 46)
+        Me.SP6_TB2.TabIndex = 60
+        Me.SP6_TB2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26,0145"
+        Me.SP6_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox16
+        'SP3_TB2
         '
-        Me.TextBox16.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox16.Enabled = False
-        Me.TextBox16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox16.Location = New System.Drawing.Point(111, 99)
-        Me.TextBox16.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox16.MaximumSize = New System.Drawing.Size(50, 40)
-        Me.TextBox16.MinimumSize = New System.Drawing.Size(50, 46)
-        Me.TextBox16.Multiline = True
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.ReadOnly = True
-        Me.TextBox16.Size = New System.Drawing.Size(50, 46)
-        Me.TextBox16.TabIndex = 59
-        Me.TextBox16.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26 m6"
-        Me.TextBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP3_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP3_TB2.Enabled = False
+        Me.SP3_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP3_TB2.Location = New System.Drawing.Point(111, 99)
+        Me.SP3_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP3_TB2.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP3_TB2.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP3_TB2.Multiline = True
+        Me.SP3_TB2.Name = "SP3_TB2"
+        Me.SP3_TB2.ReadOnly = True
+        Me.SP3_TB2.Size = New System.Drawing.Size(50, 46)
+        Me.SP3_TB2.TabIndex = 59
+        Me.SP3_TB2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26 m6"
+        Me.SP3_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox17
+        'SP2_TB2
         '
-        Me.TextBox17.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox17.Enabled = False
-        Me.TextBox17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox17.Location = New System.Drawing.Point(65, 99)
-        Me.TextBox17.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox17.MaximumSize = New System.Drawing.Size(40, 40)
-        Me.TextBox17.MinimumSize = New System.Drawing.Size(40, 46)
-        Me.TextBox17.Multiline = True
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.ReadOnly = True
-        Me.TextBox17.Size = New System.Drawing.Size(40, 46)
-        Me.TextBox17.TabIndex = 58
-        Me.TextBox17.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "m6"
-        Me.TextBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP2_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP2_TB2.Enabled = False
+        Me.SP2_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP2_TB2.Location = New System.Drawing.Point(65, 99)
+        Me.SP2_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP2_TB2.MaximumSize = New System.Drawing.Size(40, 40)
+        Me.SP2_TB2.MinimumSize = New System.Drawing.Size(40, 46)
+        Me.SP2_TB2.Multiline = True
+        Me.SP2_TB2.Name = "SP2_TB2"
+        Me.SP2_TB2.ReadOnly = True
+        Me.SP2_TB2.Size = New System.Drawing.Size(40, 46)
+        Me.SP2_TB2.TabIndex = 58
+        Me.SP2_TB2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "m6"
+        Me.SP2_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox18
+        'SP5_TB4
         '
-        Me.TextBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox18.Enabled = False
-        Me.TextBox18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox18.Location = New System.Drawing.Point(213, 122)
-        Me.TextBox18.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox18.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox18.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox18.Multiline = True
-        Me.TextBox18.Name = "TextBox18"
-        Me.TextBox18.ReadOnly = True
-        Me.TextBox18.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox18.TabIndex = 57
-        Me.TextBox18.Text = "26,008"
-        Me.TextBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP5_TB4.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP5_TB4.Enabled = False
+        Me.SP5_TB4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP5_TB4.Location = New System.Drawing.Point(213, 122)
+        Me.SP5_TB4.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP5_TB4.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB4.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB4.Multiline = True
+        Me.SP5_TB4.Name = "SP5_TB4"
+        Me.SP5_TB4.ReadOnly = True
+        Me.SP5_TB4.Size = New System.Drawing.Size(40, 23)
+        Me.SP5_TB4.TabIndex = 57
+        Me.SP5_TB4.Text = "26,008"
+        Me.SP5_TB4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox19
+        'SP5_TB3
         '
-        Me.TextBox19.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox19.Enabled = False
-        Me.TextBox19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox19.Location = New System.Drawing.Point(213, 99)
-        Me.TextBox19.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox19.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox19.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox19.Multiline = True
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.ReadOnly = True
-        Me.TextBox19.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox19.TabIndex = 56
-        Me.TextBox19.Text = "26,021"
-        Me.TextBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP5_TB3.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP5_TB3.Enabled = False
+        Me.SP5_TB3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP5_TB3.Location = New System.Drawing.Point(213, 99)
+        Me.SP5_TB3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP5_TB3.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB3.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB3.Multiline = True
+        Me.SP5_TB3.Name = "SP5_TB3"
+        Me.SP5_TB3.ReadOnly = True
+        Me.SP5_TB3.Size = New System.Drawing.Size(40, 23)
+        Me.SP5_TB3.TabIndex = 56
+        Me.SP5_TB3.Text = "26,021"
+        Me.SP5_TB3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox20
+        'SP4_TB4
         '
-        Me.TextBox20.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox20.Enabled = False
-        Me.TextBox20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox20.Location = New System.Drawing.Point(167, 122)
-        Me.TextBox20.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox20.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox20.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox20.Multiline = True
-        Me.TextBox20.Name = "TextBox20"
-        Me.TextBox20.ReadOnly = True
-        Me.TextBox20.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox20.TabIndex = 55
-        Me.TextBox20.Text = "+0,008"
-        Me.TextBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP4_TB4.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP4_TB4.Enabled = False
+        Me.SP4_TB4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP4_TB4.Location = New System.Drawing.Point(167, 122)
+        Me.SP4_TB4.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP4_TB4.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB4.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB4.Multiline = True
+        Me.SP4_TB4.Name = "SP4_TB4"
+        Me.SP4_TB4.ReadOnly = True
+        Me.SP4_TB4.Size = New System.Drawing.Size(40, 23)
+        Me.SP4_TB4.TabIndex = 55
+        Me.SP4_TB4.Text = "+0,008"
+        Me.SP4_TB4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox21
+        'SP4_TB3
         '
-        Me.TextBox21.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox21.Enabled = False
-        Me.TextBox21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox21.Location = New System.Drawing.Point(167, 99)
-        Me.TextBox21.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox21.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox21.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox21.Multiline = True
-        Me.TextBox21.Name = "TextBox21"
-        Me.TextBox21.ReadOnly = True
-        Me.TextBox21.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox21.TabIndex = 54
-        Me.TextBox21.Text = "+0,021"
-        Me.TextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP4_TB3.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP4_TB3.Enabled = False
+        Me.SP4_TB3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP4_TB3.Location = New System.Drawing.Point(167, 99)
+        Me.SP4_TB3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP4_TB3.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB3.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB3.Multiline = True
+        Me.SP4_TB3.Name = "SP4_TB3"
+        Me.SP4_TB3.ReadOnly = True
+        Me.SP4_TB3.Size = New System.Drawing.Size(40, 23)
+        Me.SP4_TB3.TabIndex = 54
+        Me.SP4_TB3.Text = "+0,021"
+        Me.SP4_TB3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox22
+        'SP1_TB2
         '
-        Me.TextBox22.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox22.Enabled = False
-        Me.TextBox22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox22.Location = New System.Drawing.Point(19, 99)
-        Me.TextBox22.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox22.MaximumSize = New System.Drawing.Size(40, 40)
-        Me.TextBox22.MinimumSize = New System.Drawing.Size(40, 46)
-        Me.TextBox22.Multiline = True
-        Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.ReadOnly = True
-        Me.TextBox22.Size = New System.Drawing.Size(40, 46)
-        Me.TextBox22.TabIndex = 53
-        Me.TextBox22.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP1_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP1_TB2.Enabled = False
+        Me.SP1_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP1_TB2.Location = New System.Drawing.Point(19, 99)
+        Me.SP1_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP1_TB2.MaximumSize = New System.Drawing.Size(40, 40)
+        Me.SP1_TB2.MinimumSize = New System.Drawing.Size(40, 46)
+        Me.SP1_TB2.Multiline = True
+        Me.SP1_TB2.Name = "SP1_TB2"
+        Me.SP1_TB2.ReadOnly = True
+        Me.SP1_TB2.Size = New System.Drawing.Size(40, 46)
+        Me.SP1_TB2.TabIndex = 53
+        Me.SP1_TB2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.SP1_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox11
+        'SP8_TB1
         '
-        Me.TextBox11.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox11.Enabled = False
-        Me.TextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(361, 53)
-        Me.TextBox11.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox11.MaximumSize = New System.Drawing.Size(50, 40)
-        Me.TextBox11.MinimumSize = New System.Drawing.Size(50, 46)
-        Me.TextBox11.Multiline = True
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.ReadOnly = True
-        Me.TextBox11.Size = New System.Drawing.Size(50, 46)
-        Me.TextBox11.TabIndex = 52
-        Me.TextBox11.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26,0345"
-        Me.TextBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP8_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP8_TB1.Enabled = False
+        Me.SP8_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP8_TB1.Location = New System.Drawing.Point(361, 53)
+        Me.SP8_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP8_TB1.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP8_TB1.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP8_TB1.Multiline = True
+        Me.SP8_TB1.Name = "SP8_TB1"
+        Me.SP8_TB1.ReadOnly = True
+        Me.SP8_TB1.Size = New System.Drawing.Size(50, 46)
+        Me.SP8_TB1.TabIndex = 52
+        Me.SP8_TB1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26,0345"
+        Me.SP8_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CB_Spalte8
         '
@@ -1905,39 +2066,39 @@ Partial Class SetupDialog
         Me.ToolTip1.SetToolTip(Me.CB_Spalte8, "Vorberbeitung Toleranzmitte")
         Me.CB_Spalte8.UseVisualStyleBackColor = True
         '
-        'TextBox9
+        'SP7_TB2
         '
-        Me.TextBox9.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox9.Enabled = False
-        Me.TextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(315, 76)
-        Me.TextBox9.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox9.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox9.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox9.Multiline = True
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.ReadOnly = True
-        Me.TextBox9.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox9.TabIndex = 50
-        Me.TextBox9.Text = "26,024"
-        Me.TextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP7_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP7_TB2.Enabled = False
+        Me.SP7_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP7_TB2.Location = New System.Drawing.Point(315, 76)
+        Me.SP7_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP7_TB2.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB2.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB2.Multiline = True
+        Me.SP7_TB2.Name = "SP7_TB2"
+        Me.SP7_TB2.ReadOnly = True
+        Me.SP7_TB2.Size = New System.Drawing.Size(40, 23)
+        Me.SP7_TB2.TabIndex = 50
+        Me.SP7_TB2.Text = "26,024"
+        Me.SP7_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox10
+        'SP7_TB1
         '
-        Me.TextBox10.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox10.Enabled = False
-        Me.TextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(315, 53)
-        Me.TextBox10.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox10.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox10.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox10.Multiline = True
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.ReadOnly = True
-        Me.TextBox10.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox10.TabIndex = 49
-        Me.TextBox10.Text = "26,045"
-        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP7_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP7_TB1.Enabled = False
+        Me.SP7_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP7_TB1.Location = New System.Drawing.Point(315, 53)
+        Me.SP7_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP7_TB1.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB1.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP7_TB1.Multiline = True
+        Me.SP7_TB1.Name = "SP7_TB1"
+        Me.SP7_TB1.ReadOnly = True
+        Me.SP7_TB1.Size = New System.Drawing.Size(40, 23)
+        Me.SP7_TB1.TabIndex = 49
+        Me.SP7_TB1.Text = "26,045"
+        Me.SP7_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CB_Spalte7
         '
@@ -2017,141 +2178,141 @@ Partial Class SetupDialog
         Me.ToolTip1.SetToolTip(Me.CB_Spalte1, "Maß")
         Me.CB_Spalte1.UseVisualStyleBackColor = True
         '
-        'TextBox8
+        'SP6_TB1
         '
-        Me.TextBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox8.Enabled = False
-        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(259, 53)
-        Me.TextBox8.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox8.MaximumSize = New System.Drawing.Size(50, 40)
-        Me.TextBox8.MinimumSize = New System.Drawing.Size(50, 46)
-        Me.TextBox8.Multiline = True
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.ReadOnly = True
-        Me.TextBox8.Size = New System.Drawing.Size(50, 46)
-        Me.TextBox8.TabIndex = 41
-        Me.TextBox8.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26,0105"
-        Me.TextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP6_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP6_TB1.Enabled = False
+        Me.SP6_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP6_TB1.Location = New System.Drawing.Point(259, 53)
+        Me.SP6_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP6_TB1.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP6_TB1.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP6_TB1.Multiline = True
+        Me.SP6_TB1.Name = "SP6_TB1"
+        Me.SP6_TB1.ReadOnly = True
+        Me.SP6_TB1.Size = New System.Drawing.Size(50, 46)
+        Me.SP6_TB1.TabIndex = 41
+        Me.SP6_TB1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26,0105"
+        Me.SP6_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox7
+        'SP3_TB1
         '
-        Me.TextBox7.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox7.Enabled = False
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(111, 53)
-        Me.TextBox7.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox7.MaximumSize = New System.Drawing.Size(50, 40)
-        Me.TextBox7.MinimumSize = New System.Drawing.Size(50, 46)
-        Me.TextBox7.Multiline = True
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.ReadOnly = True
-        Me.TextBox7.Size = New System.Drawing.Size(50, 46)
-        Me.TextBox7.TabIndex = 40
-        Me.TextBox7.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26 H7"
-        Me.TextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP3_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP3_TB1.Enabled = False
+        Me.SP3_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP3_TB1.Location = New System.Drawing.Point(111, 53)
+        Me.SP3_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP3_TB1.MaximumSize = New System.Drawing.Size(50, 40)
+        Me.SP3_TB1.MinimumSize = New System.Drawing.Size(50, 46)
+        Me.SP3_TB1.Multiline = True
+        Me.SP3_TB1.Name = "SP3_TB1"
+        Me.SP3_TB1.ReadOnly = True
+        Me.SP3_TB1.Size = New System.Drawing.Size(50, 46)
+        Me.SP3_TB1.TabIndex = 40
+        Me.SP3_TB1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26 H7"
+        Me.SP3_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox6
+        'SP2_TB1
         '
-        Me.TextBox6.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox6.Enabled = False
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(65, 53)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox6.MaximumSize = New System.Drawing.Size(40, 40)
-        Me.TextBox6.MinimumSize = New System.Drawing.Size(40, 46)
-        Me.TextBox6.Multiline = True
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.ReadOnly = True
-        Me.TextBox6.Size = New System.Drawing.Size(40, 46)
-        Me.TextBox6.TabIndex = 39
-        Me.TextBox6.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "H7"
-        Me.TextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP2_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP2_TB1.Enabled = False
+        Me.SP2_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP2_TB1.Location = New System.Drawing.Point(65, 53)
+        Me.SP2_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP2_TB1.MaximumSize = New System.Drawing.Size(40, 40)
+        Me.SP2_TB1.MinimumSize = New System.Drawing.Size(40, 46)
+        Me.SP2_TB1.Multiline = True
+        Me.SP2_TB1.Name = "SP2_TB1"
+        Me.SP2_TB1.ReadOnly = True
+        Me.SP2_TB1.Size = New System.Drawing.Size(40, 46)
+        Me.SP2_TB1.TabIndex = 39
+        Me.SP2_TB1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "H7"
+        Me.SP2_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox5
+        'SP5_TB2
         '
-        Me.TextBox5.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox5.Enabled = False
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(213, 76)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox5.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox5.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox5.Multiline = True
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox5.TabIndex = 38
-        Me.TextBox5.Text = "26"
-        Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP5_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP5_TB2.Enabled = False
+        Me.SP5_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP5_TB2.Location = New System.Drawing.Point(213, 76)
+        Me.SP5_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP5_TB2.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB2.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB2.Multiline = True
+        Me.SP5_TB2.Name = "SP5_TB2"
+        Me.SP5_TB2.ReadOnly = True
+        Me.SP5_TB2.Size = New System.Drawing.Size(40, 23)
+        Me.SP5_TB2.TabIndex = 38
+        Me.SP5_TB2.Text = "26"
+        Me.SP5_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox4
+        'SP5_TB1
         '
-        Me.TextBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(213, 53)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox4.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox4.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox4.Multiline = True
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox4.TabIndex = 37
-        Me.TextBox4.Text = "26,021"
-        Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP5_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP5_TB1.Enabled = False
+        Me.SP5_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP5_TB1.Location = New System.Drawing.Point(213, 53)
+        Me.SP5_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP5_TB1.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB1.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP5_TB1.Multiline = True
+        Me.SP5_TB1.Name = "SP5_TB1"
+        Me.SP5_TB1.ReadOnly = True
+        Me.SP5_TB1.Size = New System.Drawing.Size(40, 23)
+        Me.SP5_TB1.TabIndex = 37
+        Me.SP5_TB1.Text = "26,021"
+        Me.SP5_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox3
+        'SP4_TB2
         '
-        Me.TextBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(167, 76)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox3.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox3.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox3.TabIndex = 36
-        Me.TextBox3.Text = "0"
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP4_TB2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP4_TB2.Enabled = False
+        Me.SP4_TB2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP4_TB2.Location = New System.Drawing.Point(167, 76)
+        Me.SP4_TB2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP4_TB2.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB2.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB2.Multiline = True
+        Me.SP4_TB2.Name = "SP4_TB2"
+        Me.SP4_TB2.ReadOnly = True
+        Me.SP4_TB2.Size = New System.Drawing.Size(40, 23)
+        Me.SP4_TB2.TabIndex = 36
+        Me.SP4_TB2.Text = "0"
+        Me.SP4_TB2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox2
+        'SP4_TB1
         '
-        Me.TextBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(167, 53)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox2.MaximumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox2.MinimumSize = New System.Drawing.Size(40, 23)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(40, 23)
-        Me.TextBox2.TabIndex = 35
-        Me.TextBox2.Text = "+0,021"
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP4_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP4_TB1.Enabled = False
+        Me.SP4_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP4_TB1.Location = New System.Drawing.Point(167, 53)
+        Me.SP4_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP4_TB1.MaximumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB1.MinimumSize = New System.Drawing.Size(40, 23)
+        Me.SP4_TB1.Multiline = True
+        Me.SP4_TB1.Name = "SP4_TB1"
+        Me.SP4_TB1.ReadOnly = True
+        Me.SP4_TB1.Size = New System.Drawing.Size(40, 23)
+        Me.SP4_TB1.TabIndex = 35
+        Me.SP4_TB1.Text = "+0,021"
+        Me.SP4_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox1
+        'SP1_TB1
         '
-        Me.TextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(19, 53)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.TextBox1.MaximumSize = New System.Drawing.Size(40, 40)
-        Me.TextBox1.MinimumSize = New System.Drawing.Size(40, 46)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(40, 46)
-        Me.TextBox1.TabIndex = 34
-        Me.TextBox1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.SP1_TB1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SP1_TB1.Enabled = False
+        Me.SP1_TB1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SP1_TB1.Location = New System.Drawing.Point(19, 53)
+        Me.SP1_TB1.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.SP1_TB1.MaximumSize = New System.Drawing.Size(40, 40)
+        Me.SP1_TB1.MinimumSize = New System.Drawing.Size(40, 46)
+        Me.SP1_TB1.Multiline = True
+        Me.SP1_TB1.Name = "SP1_TB1"
+        Me.SP1_TB1.ReadOnly = True
+        Me.SP1_TB1.Size = New System.Drawing.Size(40, 46)
+        Me.SP1_TB1.TabIndex = 34
+        Me.SP1_TB1.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "26" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.SP1_TB1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'StatusStrip1
         '
@@ -2202,6 +2363,7 @@ Partial Class SetupDialog
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Passungstabelle Setup"
+        Me.ToolTip1.SetToolTip(Me, "Anzahl der Passungen in Zeichnung anzeigen")
         Me.TabPage4.ResumeLayout(False)
         CType(Me.DataGridÜbersetzungen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SpracheBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2359,21 +2521,21 @@ Partial Class SetupDialog
     Friend WithEvents AlleFormateGleichBT As Windows.Forms.Button
     Friend WithEvents TabPage5 As Windows.Forms.TabPage
     Friend WithEvents TextBox23 As Windows.Forms.TextBox
-    Friend WithEvents TextBox12 As Windows.Forms.TextBox
-    Friend WithEvents TextBox13 As Windows.Forms.TextBox
-    Friend WithEvents TextBox14 As Windows.Forms.TextBox
-    Friend WithEvents TextBox15 As Windows.Forms.TextBox
-    Friend WithEvents TextBox16 As Windows.Forms.TextBox
-    Friend WithEvents TextBox17 As Windows.Forms.TextBox
-    Friend WithEvents TextBox18 As Windows.Forms.TextBox
-    Friend WithEvents TextBox19 As Windows.Forms.TextBox
-    Friend WithEvents TextBox20 As Windows.Forms.TextBox
-    Friend WithEvents TextBox21 As Windows.Forms.TextBox
-    Friend WithEvents TextBox22 As Windows.Forms.TextBox
-    Friend WithEvents TextBox11 As Windows.Forms.TextBox
+    Friend WithEvents SP8_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP7_TB4 As Windows.Forms.TextBox
+    Friend WithEvents SP7_TB3 As Windows.Forms.TextBox
+    Friend WithEvents SP6_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP3_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP2_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP5_TB4 As Windows.Forms.TextBox
+    Friend WithEvents SP5_TB3 As Windows.Forms.TextBox
+    Friend WithEvents SP4_TB4 As Windows.Forms.TextBox
+    Friend WithEvents SP4_TB3 As Windows.Forms.TextBox
+    Friend WithEvents SP1_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP8_TB1 As Windows.Forms.TextBox
     Friend WithEvents CB_Spalte8 As Windows.Forms.CheckBox
-    Friend WithEvents TextBox9 As Windows.Forms.TextBox
-    Friend WithEvents TextBox10 As Windows.Forms.TextBox
+    Friend WithEvents SP7_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP7_TB1 As Windows.Forms.TextBox
     Friend WithEvents CB_Spalte7 As Windows.Forms.CheckBox
     Friend WithEvents CB_Spalte6 As Windows.Forms.CheckBox
     Friend WithEvents CB_Spalte5 As Windows.Forms.CheckBox
@@ -2381,14 +2543,14 @@ Partial Class SetupDialog
     Friend WithEvents CB_Spalte3 As Windows.Forms.CheckBox
     Friend WithEvents CB_Spalte2 As Windows.Forms.CheckBox
     Friend WithEvents CB_Spalte1 As Windows.Forms.CheckBox
-    Friend WithEvents TextBox8 As Windows.Forms.TextBox
-    Friend WithEvents TextBox7 As Windows.Forms.TextBox
-    Friend WithEvents TextBox6 As Windows.Forms.TextBox
-    Friend WithEvents TextBox5 As Windows.Forms.TextBox
-    Friend WithEvents TextBox4 As Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As Windows.Forms.TextBox
+    Friend WithEvents SP6_TB1 As Windows.Forms.TextBox
+    Friend WithEvents SP3_TB1 As Windows.Forms.TextBox
+    Friend WithEvents SP2_TB1 As Windows.Forms.TextBox
+    Friend WithEvents SP5_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP5_TB1 As Windows.Forms.TextBox
+    Friend WithEvents SP4_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP4_TB1 As Windows.Forms.TextBox
+    Friend WithEvents SP1_TB1 As Windows.Forms.TextBox
     Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
     Friend WithEvents GroupBox10 As Windows.Forms.GroupBox
     Friend WithEvents BreiteSpalte4 As Windows.Forms.TextBox
@@ -2412,6 +2574,18 @@ Partial Class SetupDialog
     Friend WithEvents Label19 As Windows.Forms.Label
     Friend WithEvents BreiteSpalte5 As Windows.Forms.TextBox
     Friend WithEvents Label17 As Windows.Forms.Label
+    Friend WithEvents Label33 As Windows.Forms.Label
+    Friend WithEvents Label34 As Windows.Forms.Label
+    Friend WithEvents SP10_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP10_TB1 As Windows.Forms.TextBox
+    Friend WithEvents CB_Spalte10 As Windows.Forms.CheckBox
+    Friend WithEvents SP9_TB2 As Windows.Forms.TextBox
+    Friend WithEvents SP9_TB1 As Windows.Forms.TextBox
+    Friend WithEvents CB_Spalte9 As Windows.Forms.CheckBox
+    Friend WithEvents BreiteSpalte10 As Windows.Forms.TextBox
+    Friend WithEvents Label36 As Windows.Forms.Label
+    Friend WithEvents BreiteSpalte9 As Windows.Forms.TextBox
+    Friend WithEvents Label35 As Windows.Forms.Label
     Friend WithEvents KürzelDataGridViewTextBoxColumn As Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents Maß As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PassungDataGridViewTextBoxColumn As Windows.Forms.DataGridViewTextBoxColumn
@@ -2421,7 +2595,7 @@ Partial Class SetupDialog
     Friend WithEvents DataGridViewTextBoxColumn1 As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents VorbearbeitungsAbmaßeDataGridViewTextBoxColumn As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents VorbearbeitungsToleranzMitteDataGridViewTextBoxColumn As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Anzahl As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Zone As Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ÜbersetzungenIdDataGridViewTextBoxColumn As Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label33 As Windows.Forms.Label
-    Friend WithEvents Label34 As Windows.Forms.Label
 End Class

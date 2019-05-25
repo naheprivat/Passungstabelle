@@ -159,7 +159,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_301AC45EE35746B9AAC43E924B49D2B4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_303838A9AEF446AC9F3B5D5F67A5EBE2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_327DCC70E0BB4EC4A10BF88D68B374B6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -273,6 +285,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_570A23BF6CE548F488A1148847560FD6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5AB27032D5D44D9A9FD73004647A7314"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -280,12 +298,6 @@
         "Entry"
         {
         "MsmKey" = "8:_5B8A6E4E5B4943D3858799620BD3956B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5BF3AE7E78F54BF9B3911A15173224CB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -340,12 +352,6 @@
         "Entry"
         {
         "MsmKey" = "8:_69CF411A598D4F13A2193B2374156301"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_69D6888B9C224AA1AF1FA7EEAA3C8379"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -489,18 +495,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_95396822EB04F0B8C2BA31E1D44232DC"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_955D6C3153A122742352AA0DBE160565"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_979DFA8651BC45BE8B606F4F765A78EA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -549,6 +543,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A8063C3FCF5986232C99500D8BCA1E0C"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A8A52D6AFC6748CBA273B560B9F0BEE1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -561,12 +561,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B1B84008B81CE504D362DCF6659354D0"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
         "OwnerKey" = "8:_19DE4C28ED83DC942287EB76518B9C7A"
         "MsmSig" = "8:_UNDEFINED"
@@ -574,13 +568,13 @@
         "Entry"
         {
         "MsmKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
+        "OwnerKey" = "8:_8C4861609DB3CA1E4538BC95D85DB8FE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
-        "OwnerKey" = "8:_8C4861609DB3CA1E4538BC95D85DB8FE"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -592,12 +586,6 @@
         "Entry"
         {
         "MsmKey" = "8:_B80CD584C354426186BD3DAEB921CB72"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B96604AA8A7A4A4AB441031998E70086"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -645,6 +633,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C5B39E0955E490A9EA67A44600E242D0"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CAA341F6790F45BAA157B0F892BFDEC5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -675,12 +669,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D2F5B8635FEA495F87DC6EC28BEFD528"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D3BFEE41D39848FFB88C1D857E477348"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -694,6 +682,12 @@
         "Entry"
         {
         "MsmKey" = "8:_D4C452ACB74D4510A7ADD6EA58C048E6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D6F52F6609494BE9B414808DE146EDFD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -771,12 +765,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EFEBF7E3325849DB8502BBE76E622109"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F2079A8F743B4208935274E0456D5175"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -807,6 +795,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_FB0A086E94D9443DA3D580E3B78F1AE2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_FC57560C85AE41E4AF8998B2705E8F89"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -821,6 +815,12 @@
         {
         "MsmKey" = "8:_FCE3F6F7C1024CFA96497BADEBE0BFF2"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FD2403ABFDBCB31B67E09456CF303EF4"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -844,37 +844,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_95396822EB04F0B8C2BA31E1D44232DC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B1B84008B81CE504D362DCF6659354D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_955D6C3153A122742352AA0DBE160565"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_19DE4C28ED83DC942287EB76518B9C7A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_51E9B673FE2B05B0440DC701B5795F9D"
+        "OwnerKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -886,7 +856,37 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
+        "OwnerKey" = "8:_51E9B673FE2B05B0440DC701B5795F9D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_19DE4C28ED83DC942287EB76518B9C7A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A8063C3FCF5986232C99500D8BCA1E0C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FD2403ABFDBCB31B67E09456CF303EF4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C5B39E0955E490A9EA67A44600E242D0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1475,6 +1475,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_301AC45EE35746B9AAC43E924B49D2B4"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\css\\hnd.content.css"
+            "TargetName" = "8:hnd.content.css"
+            "Tag" = "8:"
+            "Folder" = "8:_667214695741494C9B905D9D34FE08CC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_303838A9AEF446AC9F3B5D5F67A5EBE2"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\css\\theme-dark-green.min.css"
@@ -1488,6 +1508,26 @@
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_327DCC70E0BB4EC4A10BF88D68B374B6"
+            {
+            "SourcePath" = "8:..\\Passungstabelle\\Resources\\Setup.XML"
+            "TargetName" = "8:Setup.XML"
+            "Tag" = "8:"
+            "Folder" = "8:_AD5EAB9E6C0B4A0381DE4A8E0654842C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:TRUE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
@@ -1866,6 +1906,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_570A23BF6CE548F488A1148847560FD6"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\uri-1.18.9\\uri.min.js"
+            "TargetName" = "8:uri.min.js"
+            "Tag" = "8:"
+            "Folder" = "8:_727FF81D6DF24A73A2C406BB67CBFCF5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5AB27032D5D44D9A9FD73004647A7314"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\helpndoc-5\\icons\\28.png"
@@ -1899,26 +1959,6 @@
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5BF3AE7E78F54BF9B3911A15173224CB"
-            {
-            "SourcePath" = "8:..\\Passungstabelle\\Resources\\Setup.XML"
-            "TargetName" = "8:Setup.XML"
-            "Tag" = "8:"
-            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:TRUE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
@@ -2092,26 +2132,6 @@
             "TargetName" = "8:Deinstallation.html"
             "Tag" = "8:"
             "Folder" = "8:_1F5C7AA5B01744F6BC0D9ABA0A9D3906"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69D6888B9C224AA1AF1FA7EEAA3C8379"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\lib\\Tabellenspalten_Einstellungen.png"
-            "TargetName" = "8:Tabellenspalten_Einstellungen.png"
-            "Tag" = "8:"
-            "Folder" = "8:_6E0806F4202B48E69D72F0AAC4850D6C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2597,58 +2617,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_95396822EB04F0B8C2BA31E1D44232DC"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.sldworks, Version=26.2.0.63, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SolidWorks.Interop.sldworks.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_955D6C3153A122742352AA0DBE160565"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swpublished, Version=26.2.0.63, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SolidWorks.Interop.swpublished.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_979DFA8651BC45BE8B606F4F765A78EA"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\jstree-3.3.2\\themes\\default\\style.css"
@@ -2809,6 +2777,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A8063C3FCF5986232C99500D8BCA1E0C"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swpublished, Version=26.2.0.63, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A8063C3FCF5986232C99500D8BCA1E0C"
+                    {
+                    "Name" = "8:SolidWorks.Interop.swpublished.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SolidWorks.Interop.swpublished.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A8A52D6AFC6748CBA273B560B9F0BEE1"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\Formateinstellungen.html"
@@ -2847,32 +2846,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B1B84008B81CE504D362DCF6659354D0"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swconst, Version=26.2.0.63, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SolidWorks.Interop.swconst.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B2CC4DBA90F29523A0380E52894F38C8"
@@ -2932,26 +2905,6 @@
             "TargetName" = "8:12.png"
             "Tag" = "8:"
             "Folder" = "8:_4CE0A8297F244325B3F600599A8A9318"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B96604AA8A7A4A4AB441031998E70086"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\js\\hndsd.min.js"
-            "TargetName" = "8:hndsd.min.js"
-            "Tag" = "8:"
-            "Folder" = "8:_F68D1C1E1E28488599AEBBD0A71E707C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3106,6 +3059,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C5B39E0955E490A9EA67A44600E242D0"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.sldworks, Version=26.2.0.63, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C5B39E0955E490A9EA67A44600E242D0"
+                    {
+                    "Name" = "8:SolidWorks.Interop.sldworks.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SolidWorks.Interop.sldworks.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CAA341F6790F45BAA157B0F892BFDEC5"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\bootstrap-3.3.6\\js\\bootstrap.min.js"
@@ -3206,26 +3190,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D2F5B8635FEA495F87DC6EC28BEFD528"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\uri-1.18.9\\uri.min.js"
-            "TargetName" = "8:uri.min.js"
-            "Tag" = "8:"
-            "Folder" = "8:_727FF81D6DF24A73A2C406BB67CBFCF5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D3BFEE41D39848FFB88C1D857E477348"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\helpndoc-5\\icons\\3.png"
@@ -3272,6 +3236,26 @@
             "TargetName" = "8:layout.min.css"
             "Tag" = "8:"
             "Folder" = "8:_667214695741494C9B905D9D34FE08CC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6F52F6609494BE9B414808DE146EDFD"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\js\\hndsd.min.js"
+            "TargetName" = "8:hndsd.min.js"
+            "Tag" = "8:"
+            "Folder" = "8:_F68D1C1E1E28488599AEBBD0A71E707C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3537,26 +3521,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EFEBF7E3325849DB8502BBE76E622109"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\css\\hnd.content.css"
-            "TargetName" = "8:hnd.content.css"
-            "Tag" = "8:"
-            "Folder" = "8:_667214695741494C9B905D9D34FE08CC"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2079A8F743B4208935274E0456D5175"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\Versionshinweise.html"
@@ -3637,6 +3601,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FB0A086E94D9443DA3D580E3B78F1AE2"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\lib\\Tabellenspalten_Einstellungen.PNG"
+            "TargetName" = "8:Tabellenspalten_Einstellungen.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_6E0806F4202B48E69D72F0AAC4850D6C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FC57560C85AE41E4AF8998B2705E8F89"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\helpndoc-5\\icons\\38.png"
@@ -3695,6 +3679,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FD2403ABFDBCB31B67E09456CF303EF4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swconst, Version=26.2.0.63, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FD2403ABFDBCB31B67E09456CF303EF4"
+                    {
+                    "Name" = "8:SolidWorks.Interop.swconst.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SolidWorks.Interop.swconst.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE27910AB52F41178A2C658C54B4435B"
@@ -4019,6 +4034,18 @@
                 {
                 }
             }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_AD5EAB9E6C0B4A0381DE4A8E0654842C"
+            {
+            "DefaultLocation" = "8:[TARGETDIR]"
+            "Name" = "8:Custom Folder #1"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:DATAFILEDIR"
+                "Folders"
+                {
+                }
+            }
             "{1525181F-901A-416C-8A58-119130FE478E}:_E6398391C8F84EA9B8F3ECC4054FBF66"
             {
             "Name" = "8:#1919"
@@ -4054,14 +4081,14 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Passungstabelle"
         "ProductCode" = "8:{0F653CCF-2457-4059-979E-F9A78F969950}"
-        "PackageCode" = "8:{E5387194-91BD-4680-90E7-6DF9B3741939}"
+        "PackageCode" = "8:{235C3AFF-BE93-42C7-8A21-23F7E7B3B9DB}"
         "UpgradeCode" = "8:{42F62349-E964-4FBC-AD54-29AA4C202A1E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:8.0.03"
+        "ProductVersion" = "8:8.1.01"
         "Manufacturer" = "8:nahe"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -4159,6 +4186,28 @@
                                 }
                                 "Values"
                                 {
+                                }
+                            }
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_8CDCD709AE7B4F1797C32C324872B88F"
+                            {
+                            "Name" = "8:[Manufacturer]"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:TRUE"
+                            "DeleteAtUninstall" = "11:TRUE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                }
+                                "Values"
+                                {
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_C721C3F0950C483DA267393A2B03A4FD"
+                                    {
+                                    "Name" = "8:SetupPfad"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:[DATAFILEDIR]"
+                                    }
                                 }
                             }
                         }
@@ -4673,7 +4722,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F368A621193C472FA96635BA11CC9C0E"
             {
-            "SourcePath" = "8:..\\Passungstabelle\\obj\\Release\\Passungstabellen.dll"
+            "SourcePath" = "8:..\\Passungstabelle\\obj\\Debug\\Passungstabellen.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"

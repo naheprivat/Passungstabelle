@@ -16,6 +16,7 @@ Imports System.Windows.Forms.DataVisualization
 Module Module1
     Private exc As Microsoft.Office.Interop.Excel.Application   'Verweis auf Excel
     Property SwxMacroPfad As String                             'Pfad zum Verzeichnis der Applikation
+    Property Setup_Pfad As String
 
     'Sub        Init_excel
     'Paramter:  Keine
@@ -185,7 +186,8 @@ Module Module1
         'Verweis auf Excel holen 
         Init_excel()
         'Pfad und Dateiname definieren
-        pfad = SwxMacroPfad & "\Sprachen.xls"
+        'pfad = SwxMacroPfad & "\Sprachen.xls"
+        pfad = SwxMacroPfad & "Sprachen.xls"
         'Workbooks holen
         wbs = exc.Workbooks
         'Workbook holen
@@ -252,7 +254,8 @@ Module Module1
         Dim fileReader As System.IO.StreamReader
 
 
-        pfad = SwxMacroPfad & "\" & Definitionen.OLD_INI_File
+        'pfad = SwxMacroPfad & "\" & Definitionen.OLD_INI_File
+        pfad = SwxMacroPfad & Definitionen.OLD_INI_File
 
 
         '* Errorhandler initialisieren
@@ -517,6 +520,14 @@ Module Module1
                 w = temp1(i).tabbellen_paramter("TabSpalteVorbearbeitungsToleranzMitte")
                 w.b = False
                 temp1(i).tabbellen_paramter("TabSpalteVorbearbeitungsToleranzMitte") = w
+
+                w = temp1(i).tabbellen_paramter("TabSpalteAnzahl")
+                w.b = False
+                temp1(i).tabbellen_paramter("TabSpalteAnzahl") = w
+
+                w = temp1(i).tabbellen_paramter("TabSpalteZone")
+                w.b = False
+                temp1(i).tabbellen_paramter("TabSpalteZone") = w
 
                 Select Case CInt(zeile)
                     Case 1
@@ -975,7 +986,8 @@ Module Module1
         End If
 
 
-        pfad = SwxMacroPfad & "\" & Definitionen.INI_File
+        'pfad = SwxMacroPfad & "\" & Definitionen.INI_File
+        pfad = SwxMacroPfad & Definitionen.INI_File
         Dim XmlWrt As XmlWriter = XmlWriter.Create(pfad, settings)
 
         dlg.ToolStripProgressBar1.Value = 4

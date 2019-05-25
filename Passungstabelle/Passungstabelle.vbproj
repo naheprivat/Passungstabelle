@@ -187,6 +187,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Setup-Schema.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Setup-Schema.vb">
+      <DependentUpon>Setup-Schema.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SetupDialog.Designer.vb">
       <DependentUpon>SetupDialog.vb</DependentUpon>
     </Compile>

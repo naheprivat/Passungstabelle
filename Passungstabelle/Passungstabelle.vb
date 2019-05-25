@@ -6,10 +6,15 @@ Imports System.Collections.Generic
 Imports System.Data
 Imports System.Xml
 Imports System.IO
+Imports System.Environment
+
+
+
 
 Public Class Passungstabelle
     Property Macro_pfad As String
     Property Log_pfad As String
+    Property Setup_pfad As String
     Property XMLDaten As New DataSet
     Property Attr_generell As New Dictionary(Of String, String)
     Property Attr_Übersetzungen As New Dictionary(Of String, Dictionary(Of String, String))
@@ -39,8 +44,10 @@ Public Class Passungstabelle
 
         'Makropfad ermitteln
         Macro_pfad = GetAppPath()
+        Setup_pfad = GetSetupPath()
+
         'Pfad für Log-Datei setzen
-        Log_pfad = Macro_pfad & "\" & Definitionen.LOGName
+        Log_pfad = GetLogPath() & "\" & Definitionen.LOGName
 
         'Wenn keine Daten geladen sind oder sich die Setup Datei geändert hat, dann Setup Daten einlesen
         If Attr_generell.Count = 0 Or Setup_has_changed() Then
@@ -110,8 +117,9 @@ Public Class Passungstabelle
         Dim ok As Boolean
 
 
-        Macro_pfad = GetAppPath()
-        pfad = macro_pfad & "\" & Definitionen.INI_File
+        'Macro_pfad = GetAppPath()
+        Setup_pfad = GetSetupPath()
+        pfad = Setup_pfad & Definitionen.INI_File
 
         Dim xmlSR As New System.IO.StringReader(My.Resources.Setup_Schema)
 
@@ -130,7 +138,7 @@ Public Class Passungstabelle
             Exit Function
         End Try
 
-        'Wenn die Setup-Datei gelesen werden konnte werden die Attribute eingelsen
+        'Wenn die Setup-Datei gelesen werden konnte werden die Attribute eingelesen
         If Attr_read() = False Then
             Check_for_setup = False
         Else
@@ -159,7 +167,8 @@ Public Class Passungstabelle
     'Speichert das Änderungsdatum der Setup-Datei 
     Sub Set_Setup_date()
         Dim pfad As String
-        pfad = macro_pfad & "\" & Definitionen.INI_File
+        'pfad = macro_pfad & "\" & Definitionen.INI_File
+        pfad = Setup_pfad & Definitionen.INI_File
         Setup_Date_Time = File.GetLastWriteTime(pfad)
     End Sub
     'Function:  Setup_has_changed
@@ -168,7 +177,9 @@ Public Class Passungstabelle
     'Prüft ob sich das Datum der letzten Speicherung geändert hat
     Function Setup_has_changed() As Boolean
         Dim pfad As String
-        pfad = macro_pfad & "\" & Definitionen.INI_File
+
+        'pfad = macro_pfad & "\" & Definitionen.INI_File
+        pfad = Setup_pfad & Definitionen.INI_File
 
         If Setup_Date_Time < File.GetLastWriteTime(pfad) Then
             Setup_Date_Time = File.GetLastWriteTime(pfad)
@@ -177,27 +188,42 @@ Public Class Passungstabelle
         End If
         Setup_has_changed = False
     End Function
+    Sub SaveSetup()
+        'XMLWriterSettings intialisieren
+        Dim settings As New XmlWriterSettings With {.Indent = True, .IndentChars = "   ", .NewLineOnAttributes = True}
+        Dim XmlWrt As XmlWriter = XmlWriter.Create(Setup_pfad & Definitionen.INI_File, settings)
 
+        'Änderungen im Dataset speichern
+        XMLDaten.AcceptChanges()
+        'Daten schreiben
+        XMLDaten.WriteXml(XmlWrt, True)
+        'Datei schließen
+        XmlWrt.Close()
+    End Sub
     'Liest die Generellen Einstellungen ein
     Function Attr_get_generell() As Dictionary(Of String, String)
         Dim temp As New Dictionary(Of String, String)
         Dim dt As DataTable
         Dim dr As DataRow
         Dim attrname As String = ""
+        Dim SaveNeeded As Boolean = False
 
         dt = XMLDaten.Tables("GenerelleAttribute")
         dr = dt.Rows(0)
-
-        Try
-            For Each n As KeyValuePair(Of String, String) In Definitionen.GENERELLE_ATTR
+        For Each n As KeyValuePair(Of String, String) In Definitionen.GENERELLE_ATTR
+            Try
                 attrname = n.Key
                 temp(n.Key) = dr(n.Key)
-            Next
-        Catch ex As Exception
-            Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'generelle Attribute'" & Chr(10) & "Makro 'Passungstabelle' abgebrochen", True)
-            Attr_get_generell = Nothing
-            Exit Function
-        End Try
+            Catch ex As Exception
+                Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'generelle Attribute'" & Chr(10) & "Makro 'Passungstabelle' abgebrochen", False)
+                'Attr_get_generell = Nothing
+                'Exit Function
+                dr(n.Key) = Definitionen.GENERELLE_ATTR_Init(attrname)
+                temp(n.Key) = Definitionen.GENERELLE_ATTR_Init(attrname)
+                SaveNeeded = True
+            End Try
+        Next
+        If SaveNeeded Then SaveSetup()
         Attr_get_generell = temp
     End Function
     'Liest die Übersetzungen ein
@@ -207,24 +233,28 @@ Public Class Passungstabelle
         Dim dr As DataRow
         Dim i As Integer
         Dim attrname As String = ""
-
+        Dim SaveNeeded As Boolean = False
         dt = XMLDaten.Tables("Übersetzung")
 
         For i = 0 To dt.Rows.Count - 1
             dr = dt.Rows(i)
             Dim temp1 As New Dictionary(Of String, String)
-            Try
-                For Each n As KeyValuePair(Of String, String) In Definitionen.ÜBERSETZUNGSATTR
+            For Each n As KeyValuePair(Of String, String) In Definitionen.ÜBERSETZUNGSATTR
+                Try
                     attrname = n.Key
                     temp1(n.Key) = dr(n.Key)
-                Next
-            Catch ex As Exception
-                Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'Übersetzung'" & Chr(10) & "Makro 'Passungstabelle' abgebrochen", True)
-                Attr_get_übersetzungen = Nothing
-                Exit Function
-            End Try
+                Catch ex As Exception
+                    Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'Übersetzung'" & Chr(10) & "Vorgabewert wird gesetzt", False)
+                    'Attr_get_übersetzungen = Nothing
+                    'Exit Function
+                    dr(n.Key) = Definitionen.ÜBERSETZUNGSATTR_Init(attrname)
+                    temp1(n.Key) = Definitionen.ÜBERSETZUNGSATTR_Init(attrname)
+                    SaveNeeded = True
+                End Try
+            Next
             temp(dr("Kürzel")) = temp1
         Next
+        If SaveNeeded Then SaveSetup()
         Attr_get_übersetzungen = temp
     End Function
     'Liest die Formateinstellungen ein
@@ -236,8 +266,8 @@ Public Class Passungstabelle
         Dim drf As DataRow
         Dim i As Integer
         Dim attrname As String = ""
-
         Dim id As Integer
+        Dim SaveNeeded As Boolean = False
 
         dt = XMLDaten.Tables("FormatAttribute")
         dtf = XMLDaten.Tables("Format")
@@ -249,19 +279,25 @@ Public Class Passungstabelle
             id = drf("Format_Id")
             dr = dt.Select("Format_Id=" & id)(0)
             Dim temp1 As New Dictionary(Of String, String)
-            Try
-                For Each n As KeyValuePair(Of String, String) In Definitionen.FORMATATTR
+            For Each n As KeyValuePair(Of String, String) In Definitionen.FORMATATTR
+                Try
                     attrname = n.Key
                     temp1(n.Key) = dr(n.Key)
-                Next
-            Catch ex As Exception
-                Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'Format'" & Chr(10) & "Makro 'Passungstabelle' abgebrochen", True)
-                Attr_get_formate = Nothing
-                Exit Function
-            End Try
-
+                Catch ex As Exception
+                    Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'Format'" & Chr(10) & "Makro 'Passungstabelle' abgebrochen", False)
+                    'Attr_get_formate = Nothing
+                    'Exit Function
+                    dr(n.Key) = Definitionen.FORMATATTR_Init(attrname)
+                    temp1(n.Key) = Definitionen.FORMATATTR_Init(attrname)
+                    SaveNeeded = True
+                End Try
+            Next
+            dr.AcceptChanges()
             temp(drf("Formatname")) = temp1
         Next
+
+        If SaveNeeded Then SaveSetup()
+
         Attr_get_formate = temp
     End Function
 
@@ -280,6 +316,7 @@ Public Class Passungstabelle
         Dim i As Integer
         Dim id As Integer
         Dim attrname As String = ""
+        Dim SaveNeeded As Boolean = False
 
         dt = XMLDaten.Tables("TabellenAttribute")
         dtf = XMLDaten.Tables("Format")
@@ -297,18 +334,23 @@ Public Class Passungstabelle
             'Tabellenattribute auswählen
             dr = dt.Select("Tabelle_Id=" & id)(0)
             Dim temp1 As New Dictionary(Of String, String)
-            Try
-                For Each n As KeyValuePair(Of String, String) In Definitionen.TABELLENATTR
+            For Each n As KeyValuePair(Of String, String) In Definitionen.TABELLENATTR
+                Try
                     attrname = n.Key
                     temp1(n.Key) = dr(n.Key)
-                Next
-            Catch ex As Exception
-                Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'Tabelle'" & Chr(10) & "Makro 'Passungstabelle' abgebrochen", True)
-                Attr_get_Tabelle = Nothing
-                Exit Function
-            End Try
+                Catch ex As Exception
+                    Log.WriteInfo("Fehler beim Lesen des Attributes '" & attrname & "' im Abschnitt 'Tabelle'" & Chr(10) & "Vorgabewert wird gesetzt", False)
+                    'Attr_get_Tabelle = Nothing
+                    'Exit Function
+                    dr(n.Key) = Definitionen.TABELLENATTR_Init(attrname)
+                    temp1(attrname) = Definitionen.TABELLENATTR_Init(attrname)
+                    SaveNeeded = True
+                End Try
+            Next
+            dr.AcceptChanges()
             temp(drf("Formatname")) = temp1
         Next
+        If SaveNeeded Then SaveSetup()
         Attr_get_Tabelle = temp
     End Function
 
@@ -319,6 +361,39 @@ Public Class Passungstabelle
         Dim path As String
         path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
         GetAppPath = path
+    End Function
+
+    'Function   GetSetupPath
+    'Paramter:  keine
+    'Ergebnis:  liefert den Pfad der Setup-Datei
+    Public Function GetSetupPath() As String
+        Dim path As String
+        path = My.Computer.Registry.GetValue("HKEY_LOCAL_MACHINE\Software\nahe", "SetupPfad", Nothing)
+        If path Is Nothing Then
+            path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
+        End If
+        GetSetupPath = path
+    End Function
+    'Function   GetLogPath
+    'Paramter:  keine
+    'Ergebnis:  liefert den Pfad der Log-Datei
+    Public Function GetLogPath() As String
+        Dim path As String
+
+        'path = My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData
+        'GetLogPath = path
+
+        path = GetFolderPath(SpecialFolder.CommonApplicationData)
+
+        path = path & "\" & My.Application.Info.CompanyName
+        If (Not System.IO.Directory.Exists(path)) Then
+            System.IO.Directory.CreateDirectory(path)
+        End If
+        path = path & "\" & My.Application.Info.ProductName
+        If (Not System.IO.Directory.Exists(path)) Then
+            System.IO.Directory.CreateDirectory(path)
+        End If
+        GetLogPath = path
     End Function
 
 End Class

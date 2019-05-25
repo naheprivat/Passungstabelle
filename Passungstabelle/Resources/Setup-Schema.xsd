@@ -1,161 +1,261 @@
-﻿<?xml version="1.0" standalone="yes"?>
-<xs:schema id="Data" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-  <xs:element name="Data" msdata:IsDataSet="true" msdata:Locale="en-US">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Data" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Data" msdata:IsDataSet="true" msdata:Locale="en-US" msprop:Generator_DataSetName="Data" msprop:Generator_UserDSName="Data">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Sprachen">
+        <xs:element name="Sprachen" msprop:Generator_TableClassName="SprachenDataTable" msprop:Generator_TableVarName="tableSprachen" msprop:Generator_TablePropName="Sprachen" msprop:Generator_RowDeletingName="SprachenRowDeleting" msprop:Generator_RowChangingName="SprachenRowChanging" msprop:Generator_RowEvHandlerName="SprachenRowChangeEventHandler" msprop:Generator_RowDeletedName="SprachenRowDeleted" msprop:Generator_UserTableName="Sprachen" msprop:Generator_RowChangedName="SprachenRowChanged" msprop:Generator_RowEvArgName="SprachenRowChangeEvent" msprop:Generator_RowClassName="SprachenRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Sprache" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Sprache" msprop:Generator_TableClassName="SpracheDataTable" msprop:Generator_TableVarName="tableSprache" msprop:Generator_TablePropName="Sprache" msprop:Generator_RowDeletingName="SpracheRowDeleting" msprop:Generator_RowChangingName="SpracheRowChanging" msprop:Generator_RowEvHandlerName="SpracheRowChangeEventHandler" msprop:Generator_RowDeletedName="SpracheRowDeleted" msprop:Generator_UserTableName="Sprache" msprop:Generator_RowChangedName="SpracheRowChanged" msprop:Generator_RowEvArgName="SpracheRowChangeEvent" msprop:Generator_RowClassName="SpracheRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:attribute name="Kürzel" type="xs:string" />
-                  <xs:attribute name="Sprache" type="xs:string" />
+                  <xs:attribute name="Kürzel" msprop:Generator_ColumnVarNameInTable="columnKürzel" msprop:Generator_ColumnPropNameInRow="Kürzel" msprop:Generator_ColumnPropNameInTable="KürzelColumn" msprop:Generator_UserColumnName="Kürzel" type="xs:string" />
+                  <xs:attribute name="Sprache" msprop:Generator_ColumnVarNameInTable="columnSprache" msprop:Generator_ColumnPropNameInRow="Sprache" msprop:Generator_ColumnPropNameInTable="SpracheColumn" msprop:Generator_UserColumnName="Sprache" type="xs:string" />
+                  <xs:attribute name="Sprachen_Id" msprop:Generator_ColumnVarNameInTable="columnSprachen_Id" msprop:Generator_ColumnPropNameInRow="Sprachen_Id" msprop:Generator_ColumnPropNameInTable="Sprachen_IdColumn" msprop:Generator_UserColumnName="Sprachen_Id" type="xs:int" use="prohibited" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Sprachen_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnSprachen_Id" msprop:Generator_ColumnPropNameInRow="Sprachen_Id" msprop:Generator_ColumnPropNameInTable="Sprachen_IdColumn" msprop:Generator_UserColumnName="Sprachen_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="Sprachkombinationen">
+        <xs:element name="Sprachkombinationen" msprop:Generator_TableClassName="SprachkombinationenDataTable" msprop:Generator_TableVarName="tableSprachkombinationen" msprop:Generator_TablePropName="Sprachkombinationen" msprop:Generator_RowDeletingName="SprachkombinationenRowDeleting" msprop:Generator_RowChangingName="SprachkombinationenRowChanging" msprop:Generator_RowEvHandlerName="SprachkombinationenRowChangeEventHandler" msprop:Generator_RowDeletedName="SprachkombinationenRowDeleted" msprop:Generator_UserTableName="Sprachkombinationen" msprop:Generator_RowChangedName="SprachkombinationenRowChanged" msprop:Generator_RowEvArgName="SprachkombinationenRowChangeEvent" msprop:Generator_RowClassName="SprachkombinationenRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Sprachkombination" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Sprachkombination" msprop:Generator_TableClassName="SprachkombinationDataTable" msprop:Generator_TableVarName="tableSprachkombination" msprop:Generator_TablePropName="Sprachkombination" msprop:Generator_RowDeletingName="SprachkombinationRowDeleting" msprop:Generator_RowChangingName="SprachkombinationRowChanging" msprop:Generator_RowEvHandlerName="SprachkombinationRowChangeEventHandler" msprop:Generator_RowDeletedName="SprachkombinationRowDeleted" msprop:Generator_UserTableName="Sprachkombination" msprop:Generator_RowChangedName="SprachkombinationRowChanged" msprop:Generator_RowEvArgName="SprachkombinationRowChangeEvent" msprop:Generator_RowClassName="SprachkombinationRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" />
+                  <xs:attribute name="Sprachkombinationen_Id" msprop:Generator_ColumnVarNameInTable="columnSprachkombinationen_Id" msprop:Generator_ColumnPropNameInRow="Sprachkombinationen_Id" msprop:Generator_ColumnPropNameInTable="Sprachkombinationen_IdColumn" msprop:Generator_UserColumnName="Sprachkombinationen_Id" type="xs:int" use="prohibited" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Sprachkombinationen_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnSprachkombinationen_Id" msprop:Generator_ColumnPropNameInRow="Sprachkombinationen_Id" msprop:Generator_ColumnPropNameInTable="Sprachkombinationen_IdColumn" msprop:Generator_UserColumnName="Sprachkombinationen_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="Linienarten">
+        <xs:element name="Linienarten" msprop:Generator_TableClassName="LinienartenDataTable" msprop:Generator_TableVarName="tableLinienarten" msprop:Generator_TablePropName="Linienarten" msprop:Generator_RowDeletingName="LinienartenRowDeleting" msprop:Generator_RowChangingName="LinienartenRowChanging" msprop:Generator_RowEvHandlerName="LinienartenRowChangeEventHandler" msprop:Generator_RowDeletedName="LinienartenRowDeleted" msprop:Generator_UserTableName="Linienarten" msprop:Generator_RowChangedName="LinienartenRowChanged" msprop:Generator_RowEvArgName="LinienartenRowChangeEvent" msprop:Generator_RowClassName="LinienartenRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Linienart" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Linienart" msprop:Generator_TableClassName="LinienartDataTable" msprop:Generator_TableVarName="tableLinienart" msprop:Generator_TablePropName="Linienart" msprop:Generator_RowDeletingName="LinienartRowDeleting" msprop:Generator_RowChangingName="LinienartRowChanging" msprop:Generator_RowEvHandlerName="LinienartRowChangeEventHandler" msprop:Generator_RowDeletedName="LinienartRowDeleted" msprop:Generator_UserTableName="Linienart" msprop:Generator_RowChangedName="LinienartRowChanged" msprop:Generator_RowEvArgName="LinienartRowChangeEvent" msprop:Generator_RowClassName="LinienartRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:attribute name="Name" type="xs:string" />
+                  <xs:attribute name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" />
+                  <xs:attribute name="Linienarten_Id" msprop:Generator_ColumnVarNameInTable="columnLinienarten_Id" msprop:Generator_ColumnPropNameInRow="Linienarten_Id" msprop:Generator_ColumnPropNameInTable="Linienarten_IdColumn" msprop:Generator_UserColumnName="Linienarten_Id" type="xs:int" use="prohibited" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Linienarten_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnLinienarten_Id" msprop:Generator_ColumnPropNameInRow="Linienarten_Id" msprop:Generator_ColumnPropNameInTable="Linienarten_IdColumn" msprop:Generator_UserColumnName="Linienarten_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="Generell">
+        <xs:element name="Generell" msprop:Generator_TableClassName="GenerellDataTable" msprop:Generator_TableVarName="tableGenerell" msprop:Generator_TablePropName="Generell" msprop:Generator_RowDeletingName="GenerellRowDeleting" msprop:Generator_RowChangingName="GenerellRowChanging" msprop:Generator_RowEvHandlerName="GenerellRowChangeEventHandler" msprop:Generator_RowDeletedName="GenerellRowDeleted" msprop:Generator_UserTableName="Generell" msprop:Generator_RowChangedName="GenerellRowChanged" msprop:Generator_RowEvArgName="GenerellRowChangeEvent" msprop:Generator_RowClassName="GenerellRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="GenerelleAttribute" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="GenerelleAttribute" msprop:Generator_TableClassName="GenerelleAttributeDataTable" msprop:Generator_TableVarName="tableGenerelleAttribute" msprop:Generator_TablePropName="GenerelleAttribute" msprop:Generator_RowDeletingName="GenerelleAttributeRowDeleting" msprop:Generator_RowChangingName="GenerelleAttributeRowChanging" msprop:Generator_RowEvHandlerName="GenerelleAttributeRowChangeEventHandler" msprop:Generator_RowDeletedName="GenerelleAttributeRowDeleted" msprop:Generator_UserTableName="GenerelleAttribute" msprop:Generator_RowChangedName="GenerelleAttributeRowChanged" msprop:Generator_RowEvArgName="GenerelleAttributeRowChangeEvent" msprop:Generator_RowClassName="GenerelleAttributeRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:attribute name="RundenAuf" type="xs:string" />
-                  <xs:attribute name="PlusZeichen" type="xs:string" />
-                  <xs:attribute name="ReaktionAufLeerePassung" type="xs:string" />
-                  <xs:attribute name="NeuPositionieren" type="xs:string" />
-                  <xs:attribute name="NurAufErstemBlatt" type="xs:string" />
-                  <xs:attribute name="AnsichtsTypSkizzen" type="xs:string" />
-                  <xs:attribute name="AnsichtsTypTeile" type="xs:string" />
-                  <xs:attribute name="AnsichtsTypBaugruppen" type="xs:string" />
-                  <xs:attribute name="LogDatei" type="xs:string" />
-                  <xs:attribute name="SchichtStärke" type="xs:string" />
-                  <xs:attribute name="SchichtStärkeAbfragen" type="xs:string" />
-		  <xs:attribute name="SchichtStärkeKeine" type="xs:string" />
-		  <xs:attribute name="SchichtStärkeFix" type="xs:string" />
-                  <xs:attribute name="Fehlermeldung" type="xs:string" />
-                  <xs:attribute name="LöschenAufRestlichenBlättern" type="xs:string" />
-                  <xs:attribute name="Eventgesteuert" type="xs:string" />
+                  <xs:attribute name="RundenAuf" msprop:Generator_ColumnVarNameInTable="columnRundenAuf" msprop:Generator_ColumnPropNameInRow="RundenAuf" msprop:Generator_ColumnPropNameInTable="RundenAufColumn" msprop:Generator_UserColumnName="RundenAuf" type="xs:string" />
+                  <xs:attribute name="PlusZeichen" msprop:Generator_ColumnVarNameInTable="columnPlusZeichen" msprop:Generator_ColumnPropNameInRow="PlusZeichen" msprop:Generator_ColumnPropNameInTable="PlusZeichenColumn" msprop:Generator_UserColumnName="PlusZeichen" type="xs:string" />
+                  <xs:attribute name="ReaktionAufLeerePassung" msprop:Generator_ColumnVarNameInTable="columnReaktionAufLeerePassung" msprop:Generator_ColumnPropNameInRow="ReaktionAufLeerePassung" msprop:Generator_ColumnPropNameInTable="ReaktionAufLeerePassungColumn" msprop:Generator_UserColumnName="ReaktionAufLeerePassung" type="xs:string" />
+                  <xs:attribute name="NeuPositionieren" msprop:Generator_ColumnVarNameInTable="columnNeuPositionieren" msprop:Generator_ColumnPropNameInRow="NeuPositionieren" msprop:Generator_ColumnPropNameInTable="NeuPositionierenColumn" msprop:Generator_UserColumnName="NeuPositionieren" type="xs:string" />
+                  <xs:attribute name="NurAufErstemBlatt" msprop:Generator_ColumnVarNameInTable="columnNurAufErstemBlatt" msprop:Generator_ColumnPropNameInRow="NurAufErstemBlatt" msprop:Generator_ColumnPropNameInTable="NurAufErstemBlattColumn" msprop:Generator_UserColumnName="NurAufErstemBlatt" type="xs:string" />
+                  <xs:attribute name="AnsichtsTypSkizzen" msprop:Generator_ColumnVarNameInTable="columnAnsichtsTypSkizzen" msprop:Generator_ColumnPropNameInRow="AnsichtsTypSkizzen" msprop:Generator_ColumnPropNameInTable="AnsichtsTypSkizzenColumn" msprop:Generator_UserColumnName="AnsichtsTypSkizzen" type="xs:string" />
+                  <xs:attribute name="AnsichtsTypTeile" msprop:Generator_ColumnVarNameInTable="columnAnsichtsTypTeile" msprop:Generator_ColumnPropNameInRow="AnsichtsTypTeile" msprop:Generator_ColumnPropNameInTable="AnsichtsTypTeileColumn" msprop:Generator_UserColumnName="AnsichtsTypTeile" type="xs:string" />
+                  <xs:attribute name="AnsichtsTypBaugruppen" msprop:Generator_ColumnVarNameInTable="columnAnsichtsTypBaugruppen" msprop:Generator_ColumnPropNameInRow="AnsichtsTypBaugruppen" msprop:Generator_ColumnPropNameInTable="AnsichtsTypBaugruppenColumn" msprop:Generator_UserColumnName="AnsichtsTypBaugruppen" type="xs:string" />
+                  <xs:attribute name="LogDatei" msprop:Generator_ColumnVarNameInTable="columnLogDatei" msprop:Generator_ColumnPropNameInRow="LogDatei" msprop:Generator_ColumnPropNameInTable="LogDateiColumn" msprop:Generator_UserColumnName="LogDatei" type="xs:string" />
+                  <xs:attribute name="SchichtStärke" msprop:Generator_ColumnVarNameInTable="columnSchichtStärke" msprop:Generator_ColumnPropNameInRow="SchichtStärke" msprop:Generator_ColumnPropNameInTable="SchichtStärkeColumn" msprop:Generator_UserColumnName="SchichtStärke" type="xs:string" />
+                  <xs:attribute name="SchichtStärkeAbfragen" msprop:Generator_ColumnVarNameInTable="columnSchichtStärkeAbfragen" msprop:Generator_ColumnPropNameInRow="SchichtStärkeAbfragen" msprop:Generator_ColumnPropNameInTable="SchichtStärkeAbfragenColumn" msprop:Generator_UserColumnName="SchichtStärkeAbfragen" type="xs:string" />
+                  <xs:attribute name="SchichtStärkeKeine" msprop:Generator_ColumnVarNameInTable="columnSchichtStärkeKeine" msprop:Generator_ColumnPropNameInRow="SchichtStärkeKeine" msprop:Generator_ColumnPropNameInTable="SchichtStärkeKeineColumn" msprop:Generator_UserColumnName="SchichtStärkeKeine" type="xs:string" />
+                  <xs:attribute name="SchichtStärkeFix" msprop:Generator_ColumnVarNameInTable="columnSchichtStärkeFix" msprop:Generator_ColumnPropNameInRow="SchichtStärkeFix" msprop:Generator_ColumnPropNameInTable="SchichtStärkeFixColumn" msprop:Generator_UserColumnName="SchichtStärkeFix" type="xs:string" />
+                  <xs:attribute name="Fehlermeldung" msprop:Generator_ColumnVarNameInTable="columnFehlermeldung" msprop:Generator_ColumnPropNameInRow="Fehlermeldung" msprop:Generator_ColumnPropNameInTable="FehlermeldungColumn" msprop:Generator_UserColumnName="Fehlermeldung" type="xs:string" />
+                  <xs:attribute name="LöschenAufRestlichenBlättern" msprop:Generator_ColumnVarNameInTable="columnLöschenAufRestlichenBlättern" msprop:Generator_ColumnPropNameInRow="LöschenAufRestlichenBlättern" msprop:Generator_ColumnPropNameInTable="LöschenAufRestlichenBlätternColumn" msprop:Generator_UserColumnName="LöschenAufRestlichenBlättern" type="xs:string" />
+                  <xs:attribute name="Eventgesteuert" msprop:Generator_ColumnVarNameInTable="columnEventgesteuert" msprop:Generator_ColumnPropNameInRow="Eventgesteuert" msprop:Generator_ColumnPropNameInTable="EventgesteuertColumn" msprop:Generator_UserColumnName="Eventgesteuert" type="xs:string" />
+                  <xs:attribute name="Generell_Id" msprop:Generator_ColumnVarNameInTable="columnGenerell_Id" msprop:Generator_ColumnPropNameInRow="Generell_Id" msprop:Generator_ColumnPropNameInTable="Generell_IdColumn" msprop:Generator_UserColumnName="Generell_Id" type="xs:int" use="prohibited" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Generell_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnGenerell_Id" msprop:Generator_ColumnPropNameInRow="Generell_Id" msprop:Generator_ColumnPropNameInTable="Generell_IdColumn" msprop:Generator_UserColumnName="Generell_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="Übersetzungen">
+        <xs:element name="Übersetzungen" msprop:Generator_TableClassName="ÜbersetzungenDataTable" msprop:Generator_TableVarName="tableÜbersetzungen" msprop:Generator_TablePropName="Übersetzungen" msprop:Generator_RowDeletingName="ÜbersetzungenRowDeleting" msprop:Generator_RowChangingName="ÜbersetzungenRowChanging" msprop:Generator_RowEvHandlerName="ÜbersetzungenRowChangeEventHandler" msprop:Generator_RowDeletedName="ÜbersetzungenRowDeleted" msprop:Generator_UserTableName="Übersetzungen" msprop:Generator_RowChangedName="ÜbersetzungenRowChanged" msprop:Generator_RowEvArgName="ÜbersetzungenRowChangeEvent" msprop:Generator_RowClassName="ÜbersetzungenRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Übersetzung" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Übersetzung" msprop:Generator_TableClassName="ÜbersetzungDataTable" msprop:Generator_TableVarName="tableÜbersetzung" msprop:Generator_TablePropName="Übersetzung" msprop:Generator_RowDeletingName="ÜbersetzungRowDeleting" msprop:Generator_RowChangingName="ÜbersetzungRowChanging" msprop:Generator_RowEvHandlerName="ÜbersetzungRowChangeEventHandler" msprop:Generator_RowDeletedName="ÜbersetzungRowDeleted" msprop:Generator_UserTableName="Übersetzung" msprop:Generator_RowChangedName="ÜbersetzungRowChanged" msprop:Generator_RowEvArgName="ÜbersetzungRowChangeEvent" msprop:Generator_RowClassName="ÜbersetzungRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:attribute name="Kürzel" type="xs:string" />
-                  <xs:attribute name="Maß" type="xs:string" />
-                  <xs:attribute name="Passung" type="xs:string" />
-                  <xs:attribute name="MaßePassung" type="xs:string" />
-                  <xs:attribute name="Toleranz" type="xs:string" />
-                  <xs:attribute name="Abmaß" type="xs:string" />
-		  <xs:attribute name="AbmaßToleranzMitte" type="xs:string" />
-                  <xs:attribute name="VorbearbeitungsAbmaße" type="xs:string" /> 		  
-                  <xs:attribute name="VorbearbeitungsToleranzMitte" type="xs:string" />		  
+                  <xs:attribute name="Kürzel" msprop:Generator_ColumnVarNameInTable="columnKürzel" msprop:Generator_ColumnPropNameInRow="Kürzel" msprop:Generator_ColumnPropNameInTable="KürzelColumn" msprop:Generator_UserColumnName="Kürzel" type="xs:string" />
+                  <xs:attribute name="Maß" msprop:Generator_ColumnVarNameInTable="columnMaß" msprop:Generator_ColumnPropNameInRow="Maß" msprop:Generator_ColumnPropNameInTable="MaßColumn" msprop:Generator_UserColumnName="Maß" type="xs:string" />
+                  <xs:attribute name="Passung" msprop:Generator_ColumnVarNameInTable="columnPassung" msprop:Generator_ColumnPropNameInRow="Passung" msprop:Generator_ColumnPropNameInTable="PassungColumn" msprop:Generator_UserColumnName="Passung" type="xs:string" />
+                  <xs:attribute name="MaßePassung" msprop:Generator_ColumnVarNameInTable="columnMaßePassung" msprop:Generator_ColumnPropNameInRow="MaßePassung" msprop:Generator_ColumnPropNameInTable="MaßePassungColumn" msprop:Generator_UserColumnName="MaßePassung" type="xs:string" />
+                  <xs:attribute name="Toleranz" msprop:Generator_ColumnVarNameInTable="columnToleranz" msprop:Generator_ColumnPropNameInRow="Toleranz" msprop:Generator_ColumnPropNameInTable="ToleranzColumn" msprop:Generator_UserColumnName="Toleranz" type="xs:string" />
+                  <xs:attribute name="Abmaß" msprop:Generator_ColumnVarNameInTable="columnAbmaß" msprop:Generator_ColumnPropNameInRow="Abmaß" msprop:Generator_ColumnPropNameInTable="AbmaßColumn" msprop:Generator_UserColumnName="Abmaß" type="xs:string" />
+                  <xs:attribute name="AbmaßToleranzMitte" msprop:Generator_ColumnVarNameInTable="columnAbmaßToleranzMitte" msprop:Generator_ColumnPropNameInRow="AbmaßToleranzMitte" msprop:Generator_ColumnPropNameInTable="AbmaßToleranzMitteColumn" msprop:Generator_UserColumnName="AbmaßToleranzMitte" type="xs:string" />
+                  <xs:attribute name="VorbearbeitungsAbmaße" msprop:Generator_ColumnVarNameInTable="columnVorbearbeitungsAbmaße" msprop:Generator_ColumnPropNameInRow="VorbearbeitungsAbmaße" msprop:Generator_ColumnPropNameInTable="VorbearbeitungsAbmaßeColumn" msprop:Generator_UserColumnName="VorbearbeitungsAbmaße" type="xs:string" />
+                  <xs:attribute name="VorbearbeitungsToleranzMitte" msprop:Generator_ColumnVarNameInTable="columnVorbearbeitungsToleranzMitte" msprop:Generator_ColumnPropNameInRow="VorbearbeitungsToleranzMitte" msprop:Generator_ColumnPropNameInTable="VorbearbeitungsToleranzMitteColumn" msprop:Generator_UserColumnName="VorbearbeitungsToleranzMitte" type="xs:string" />
+                  <xs:attribute name="Anzahl" msprop:Generator_ColumnVarNameInTable="columnAnzah" msprop:Generator_ColumnPropNameInRow="Anzahl" msprop:Generator_ColumnPropNameInTable="AnzahlColumn" msprop:Generator_UserColumnName="Anzahl" type="xs:string" />
+                  <xs:attribute name="Zone" msprop:Generator_ColumnVarNameInTable="columnZone" msprop:Generator_ColumnPropNameInRow="Zone" msprop:Generator_ColumnPropNameInTable="ZoneColumn" msprop:Generator_UserColumnName="Zone" type="xs:string" />
+                  <xs:attribute name="Übersetzungen_Id" msprop:Generator_ColumnVarNameInTable="columnÜbersetzungen_Id" msprop:Generator_ColumnPropNameInRow="Übersetzungen_Id" msprop:Generator_ColumnPropNameInTable="Übersetzungen_IdColumn" msprop:Generator_UserColumnName="Übersetzungen_Id" type="xs:int" use="prohibited" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Übersetzungen_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnÜbersetzungen_Id" msprop:Generator_ColumnPropNameInRow="Übersetzungen_Id" msprop:Generator_ColumnPropNameInTable="Übersetzungen_IdColumn" msprop:Generator_UserColumnName="Übersetzungen_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="Formate">
+        <xs:element name="Formate" msprop:Generator_TableClassName="FormateDataTable" msprop:Generator_TableVarName="tableFormate" msprop:Generator_TablePropName="Formate" msprop:Generator_RowDeletingName="FormateRowDeleting" msprop:Generator_RowChangingName="FormateRowChanging" msprop:Generator_RowEvHandlerName="FormateRowChangeEventHandler" msprop:Generator_RowDeletedName="FormateRowDeleted" msprop:Generator_UserTableName="Formate" msprop:Generator_RowChangedName="FormateRowChanged" msprop:Generator_RowEvArgName="FormateRowChangeEvent" msprop:Generator_RowClassName="FormateRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Format" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Format" msprop:Generator_TableClassName="FormatDataTable" msprop:Generator_TableVarName="tableFormat" msprop:Generator_TablePropName="Format" msprop:Generator_RowDeletingName="FormatRowDeleting" msprop:Generator_RowChangingName="FormatRowChanging" msprop:Generator_RowEvHandlerName="FormatRowChangeEventHandler" msprop:Generator_RowDeletedName="FormatRowDeleted" msprop:Generator_UserTableName="Format" msprop:Generator_RowChangedName="FormatRowChanged" msprop:Generator_RowEvArgName="FormatRowChangeEvent" msprop:Generator_RowClassName="FormatRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="FormatAttribute" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="FormatAttribute" msprop:Generator_TableClassName="FormatAttributeDataTable" msprop:Generator_TableVarName="tableFormatAttribute" msprop:Generator_TablePropName="FormatAttribute" msprop:Generator_RowDeletingName="FormatAttributeRowDeleting" msprop:Generator_RowChangingName="FormatAttributeRowChanging" msprop:Generator_RowEvHandlerName="FormatAttributeRowChangeEventHandler" msprop:Generator_RowDeletedName="FormatAttributeRowDeleted" msprop:Generator_UserTableName="FormatAttribute" msprop:Generator_RowChangedName="FormatAttributeRowChanged" msprop:Generator_RowEvArgName="FormatAttributeRowChangeEvent" msprop:Generator_RowClassName="FormatAttributeRow" minOccurs="0" maxOccurs="unbounded">
                       <xs:complexType>
-                        <xs:attribute name="Breite" type="xs:string" />
-                        <xs:attribute name="Höhe" type="xs:string" />
-                        <xs:attribute name="EinfügepunktLO" type="xs:string" />
-			<xs:attribute name="EinfügepunktRO" type="xs:string" />
-			<xs:attribute name="EinfügepunktLU" type="xs:string" />
-			<xs:attribute name="EinfügepunktRU" type="xs:string" />
-                        <xs:attribute name="Offset_X" type="xs:string" />
-                        <xs:attribute name="Offset_Y" type="xs:string" />
+                        <xs:attribute name="Breite" msprop:Generator_ColumnVarNameInTable="columnBreite" msprop:Generator_ColumnPropNameInRow="Breite" msprop:Generator_ColumnPropNameInTable="BreiteColumn" msprop:Generator_UserColumnName="Breite" type="xs:string" />
+                        <xs:attribute name="Höhe" msprop:Generator_ColumnVarNameInTable="columnHöhe" msprop:Generator_ColumnPropNameInRow="Höhe" msprop:Generator_ColumnPropNameInTable="HöheColumn" msprop:Generator_UserColumnName="Höhe" type="xs:string" />
+                        <xs:attribute name="EinfügepunktLO" msprop:Generator_ColumnVarNameInTable="columnEinfügepunktLO" msprop:Generator_ColumnPropNameInRow="EinfügepunktLO" msprop:Generator_ColumnPropNameInTable="EinfügepunktLOColumn" msprop:Generator_UserColumnName="EinfügepunktLO" type="xs:string" />
+                        <xs:attribute name="EinfügepunktRO" msprop:Generator_ColumnVarNameInTable="columnEinfügepunktRO" msprop:Generator_ColumnPropNameInRow="EinfügepunktRO" msprop:Generator_ColumnPropNameInTable="EinfügepunktROColumn" msprop:Generator_UserColumnName="EinfügepunktRO" type="xs:string" />
+                        <xs:attribute name="EinfügepunktLU" msprop:Generator_ColumnVarNameInTable="columnEinfügepunktLU" msprop:Generator_ColumnPropNameInRow="EinfügepunktLU" msprop:Generator_ColumnPropNameInTable="EinfügepunktLUColumn" msprop:Generator_UserColumnName="EinfügepunktLU" type="xs:string" />
+                        <xs:attribute name="EinfügepunktRU" msprop:Generator_ColumnVarNameInTable="columnEinfügepunktRU" msprop:Generator_ColumnPropNameInRow="EinfügepunktRU" msprop:Generator_ColumnPropNameInTable="EinfügepunktRUColumn" msprop:Generator_UserColumnName="EinfügepunktRU" type="xs:string" />
+                        <xs:attribute name="Offset_X" msprop:Generator_ColumnVarNameInTable="columnOffset_X" msprop:Generator_ColumnPropNameInRow="Offset_X" msprop:Generator_ColumnPropNameInTable="Offset_XColumn" msprop:Generator_UserColumnName="Offset_X" type="xs:string" />
+                        <xs:attribute name="Offset_Y" msprop:Generator_ColumnVarNameInTable="columnOffset_Y" msprop:Generator_ColumnPropNameInRow="Offset_Y" msprop:Generator_ColumnPropNameInTable="Offset_YColumn" msprop:Generator_UserColumnName="Offset_Y" type="xs:string" />
+                        <xs:attribute name="Format_Id" msprop:Generator_ColumnVarNameInTable="columnFormat_Id" msprop:Generator_ColumnPropNameInRow="Format_Id" msprop:Generator_ColumnPropNameInTable="Format_IdColumn" msprop:Generator_UserColumnName="Format_Id" type="xs:int" use="prohibited" />
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="Tabelle" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="Tabelle" msprop:Generator_TableClassName="TabelleDataTable" msprop:Generator_TableVarName="tableTabelle" msprop:Generator_TablePropName="Tabelle" msprop:Generator_RowDeletingName="TabelleRowDeleting" msprop:Generator_RowChangingName="TabelleRowChanging" msprop:Generator_RowEvHandlerName="TabelleRowChangeEventHandler" msprop:Generator_RowDeletedName="TabelleRowDeleted" msprop:Generator_UserTableName="Tabelle" msprop:Generator_RowChangedName="TabelleRowChanged" msprop:Generator_RowEvArgName="TabelleRowChangeEvent" msprop:Generator_RowClassName="TabelleRow" minOccurs="0" maxOccurs="unbounded">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="TabellenAttribute" minOccurs="0" maxOccurs="unbounded">
-                            <xs:complexType>
-                              <xs:attribute name="HeaderOben" type="xs:string" />
-                              <xs:attribute name="HeaderUnten" type="xs:string" />
-                              <xs:attribute name="HeaderLanguage" type="xs:string" />
-                              <xs:attribute name="SchriftartZeile" type="xs:string" />
-                              <xs:attribute name="SchriftstilZeile" type="xs:string" />
-                              <xs:attribute name="UnterstrichenZeile" type="xs:string" />
-                              <xs:attribute name="DurchgestrichenZeile" type="xs:string" />
-                              <xs:attribute name="FettZeile" type="xs:string" />
-                              <xs:attribute name="TexthöheZeile" type="xs:string" />
-                              <xs:attribute name="FarbeZeile" type="xs:string" />
-                              <xs:attribute name="KursivZeile" type="xs:string" />
-                              <xs:attribute name="SchriftartKopfZeile" type="xs:string" />
-                              <xs:attribute name="SchriftstilKopfZeile" type="xs:string" />
-                              <xs:attribute name="UnterstrichenKopfZeile" type="xs:string" />
-                              <xs:attribute name="DurchgestrichenKopfZeile" type="xs:string" />
-                              <xs:attribute name="FettKopfZeile" type="xs:string" />
-                              <xs:attribute name="TexthöheKopfZeile" type="xs:string" />
-                              <xs:attribute name="FarbeKopfZeile" type="xs:string" />
-                              <xs:attribute name="KursivKopfZeile" type="xs:string" />
-                              <xs:attribute name="BreiteSpalteMaß" type="xs:string" />
-                              <xs:attribute name="BreiteSpaltePassung" type="xs:string" />
-                              <xs:attribute name="BreiteSpalteMaßePassung" type="xs:string" />
-                              <xs:attribute name="BreiteSpalteToleranz" type="xs:string" />
-                              <xs:attribute name="BreiteSpalteAbmaß" type="xs:string" />
-                              <xs:attribute name="BreiteSpalteAbmaßToleranzMitte" type="xs:string" />
-                              <xs:attribute name="BreiteSpalteVorbearbeitungsAbmaße" type="xs:string" />
-                              <xs:attribute name="BreiteSpalteVorbearbeitungsToleranzMitte" type="xs:string" />
-                              <xs:attribute name="RasterStrichStärke" type="xs:string" />
-                              <xs:attribute name="RahmenStrichStärke" type="xs:string" />
-                              <xs:attribute name="SpaltenBreiteAutomatisch" type="xs:string" />
-			      <xs:attribute name="TabSpalteMaß" type="xs:string" />
-                              <xs:attribute name="TabSpaltePassung" type="xs:string" />
-                              <xs:attribute name="TabSpalteMaßePassung" type="xs:string" />
-                              <xs:attribute name="TabSpalteToleranz" type="xs:string" />
-                              <xs:attribute name="TabSpalteAbmaß" type="xs:string" />
-                              <xs:attribute name="TabSpalteAbmaßToleranzMitte" type="xs:string" />
-                              <xs:attribute name="TabSpalteVorbearbeitungsAbmaße" type="xs:string" />
-                              <xs:attribute name="TabSpalteVorbearbeitungsToleranzMitte" type="xs:string" />
+                          <xs:element name="TabellenAttribute" msprop:Generator_TableClassName="TabellenAttributeDataTable" msprop:Generator_TableVarName="tableTabellenAttribute" msprop:Generator_TablePropName="TabellenAttribute" msprop:Generator_RowDeletingName="TabellenAttributeRowDeleting" msprop:Generator_RowChangingName="TabellenAttributeRowChanging" msprop:Generator_RowEvHandlerName="TabellenAttributeRowChangeEventHandler" msprop:Generator_RowDeletedName="TabellenAttributeRowDeleted" msprop:Generator_UserTableName="TabellenAttribute" msprop:Generator_RowChangedName="TabellenAttributeRowChanged" msprop:Generator_RowEvArgName="TabellenAttributeRowChangeEvent" msprop:Generator_RowClassName="TabellenAttributeRow" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>                             
+                              <xs:attribute name="HeaderOben" msprop:Generator_ColumnVarNameInTable="columnHeaderOben" msprop:Generator_ColumnPropNameInRow="HeaderOben" msprop:Generator_ColumnPropNameInTable="HeaderObenColumn" msprop:Generator_UserColumnName="HeaderOben" type="xs:string" />
+                              <xs:attribute name="HeaderUnten" msprop:Generator_ColumnVarNameInTable="columnHeaderUnten" msprop:Generator_ColumnPropNameInRow="HeaderUnten" msprop:Generator_ColumnPropNameInTable="HeaderUntenColumn" msprop:Generator_UserColumnName="HeaderUnten" type="xs:string" />
+                              <xs:attribute name="HeaderLanguage" msprop:Generator_ColumnVarNameInTable="columnHeaderLanguage" msprop:Generator_ColumnPropNameInRow="HeaderLanguage" msprop:Generator_ColumnPropNameInTable="HeaderLanguageColumn" msprop:Generator_UserColumnName="HeaderLanguage" type="xs:string" />
+                              <xs:attribute name="SchriftartZeile" msprop:Generator_ColumnVarNameInTable="columnSchriftartZeile" msprop:Generator_ColumnPropNameInRow="SchriftartZeile" msprop:Generator_ColumnPropNameInTable="SchriftartZeileColumn" msprop:Generator_UserColumnName="SchriftartZeile" type="xs:string" />
+                              <xs:attribute name="SchriftstilZeile" msprop:Generator_ColumnVarNameInTable="columnSchriftstilZeile" msprop:Generator_ColumnPropNameInRow="SchriftstilZeile" msprop:Generator_ColumnPropNameInTable="SchriftstilZeileColumn" msprop:Generator_UserColumnName="SchriftstilZeile" type="xs:string" />
+                              <xs:attribute name="UnterstrichenZeile" msprop:Generator_ColumnVarNameInTable="columnUnterstrichenZeile" msprop:Generator_ColumnPropNameInRow="UnterstrichenZeile" msprop:Generator_ColumnPropNameInTable="UnterstrichenZeileColumn" msprop:Generator_UserColumnName="UnterstrichenZeile" type="xs:string" />
+                              <xs:attribute name="DurchgestrichenZeile" msprop:Generator_ColumnVarNameInTable="columnDurchgestrichenZeile" msprop:Generator_ColumnPropNameInRow="DurchgestrichenZeile" msprop:Generator_ColumnPropNameInTable="DurchgestrichenZeileColumn" msprop:Generator_UserColumnName="DurchgestrichenZeile" type="xs:string" />
+                              <xs:attribute name="FettZeile" msprop:Generator_ColumnVarNameInTable="columnFettZeile" msprop:Generator_ColumnPropNameInRow="FettZeile" msprop:Generator_ColumnPropNameInTable="FettZeileColumn" msprop:Generator_UserColumnName="FettZeile" type="xs:string" />
+                              <xs:attribute name="TexthöheZeile" msprop:Generator_ColumnVarNameInTable="columnTexthöheZeile" msprop:Generator_ColumnPropNameInRow="TexthöheZeile" msprop:Generator_ColumnPropNameInTable="TexthöheZeileColumn" msprop:Generator_UserColumnName="TexthöheZeile" type="xs:string" />
+                              <xs:attribute name="FarbeZeile" msprop:Generator_ColumnVarNameInTable="columnFarbeZeile" msprop:Generator_ColumnPropNameInRow="FarbeZeile" msprop:Generator_ColumnPropNameInTable="FarbeZeileColumn" msprop:Generator_UserColumnName="FarbeZeile" type="xs:string" />
+                              <xs:attribute name="KursivZeile" msprop:Generator_ColumnVarNameInTable="columnKursivZeile" msprop:Generator_ColumnPropNameInRow="KursivZeile" msprop:Generator_ColumnPropNameInTable="KursivZeileColumn" msprop:Generator_UserColumnName="KursivZeile" type="xs:string" />
+                              <xs:attribute name="SchriftartKopfZeile" msprop:Generator_ColumnVarNameInTable="columnSchriftartKopfZeile" msprop:Generator_ColumnPropNameInRow="SchriftartKopfZeile" msprop:Generator_ColumnPropNameInTable="SchriftartKopfZeileColumn" msprop:Generator_UserColumnName="SchriftartKopfZeile" type="xs:string" />
+                              <xs:attribute name="SchriftstilKopfZeile" msprop:Generator_ColumnVarNameInTable="columnSchriftstilKopfZeile" msprop:Generator_ColumnPropNameInRow="SchriftstilKopfZeile" msprop:Generator_ColumnPropNameInTable="SchriftstilKopfZeileColumn" msprop:Generator_UserColumnName="SchriftstilKopfZeile" type="xs:string" />
+                              <xs:attribute name="UnterstrichenKopfZeile" msprop:Generator_ColumnVarNameInTable="columnUnterstrichenKopfZeile" msprop:Generator_ColumnPropNameInRow="UnterstrichenKopfZeile" msprop:Generator_ColumnPropNameInTable="UnterstrichenKopfZeileColumn" msprop:Generator_UserColumnName="UnterstrichenKopfZeile" type="xs:string" />
+                              <xs:attribute name="DurchgestrichenKopfZeile" msprop:Generator_ColumnVarNameInTable="columnDurchgestrichenKopfZeile" msprop:Generator_ColumnPropNameInRow="DurchgestrichenKopfZeile" msprop:Generator_ColumnPropNameInTable="DurchgestrichenKopfZeileColumn" msprop:Generator_UserColumnName="DurchgestrichenKopfZeile" type="xs:string" />
+                              <xs:attribute name="FettKopfZeile" msprop:Generator_ColumnVarNameInTable="columnFettKopfZeile" msprop:Generator_ColumnPropNameInRow="FettKopfZeile" msprop:Generator_ColumnPropNameInTable="FettKopfZeileColumn" msprop:Generator_UserColumnName="FettKopfZeile" type="xs:string" />
+                              <xs:attribute name="TexthöheKopfZeile" msprop:Generator_ColumnVarNameInTable="columnTexthöheKopfZeile" msprop:Generator_ColumnPropNameInRow="TexthöheKopfZeile" msprop:Generator_ColumnPropNameInTable="TexthöheKopfZeileColumn" msprop:Generator_UserColumnName="TexthöheKopfZeile" type="xs:string" />
+                              <xs:attribute name="FarbeKopfZeile" msprop:Generator_ColumnVarNameInTable="columnFarbeKopfZeile" msprop:Generator_ColumnPropNameInRow="FarbeKopfZeile" msprop:Generator_ColumnPropNameInTable="FarbeKopfZeileColumn" msprop:Generator_UserColumnName="FarbeKopfZeile" type="xs:string" />
+                              <xs:attribute name="KursivKopfZeile" msprop:Generator_ColumnVarNameInTable="columnKursivKopfZeile" msprop:Generator_ColumnPropNameInRow="KursivKopfZeile" msprop:Generator_ColumnPropNameInTable="KursivKopfZeileColumn" msprop:Generator_UserColumnName="KursivKopfZeile" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteMaß" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteMaß" msprop:Generator_ColumnPropNameInRow="BreiteSpalteMaß" msprop:Generator_ColumnPropNameInTable="BreiteSpalteMaßColumn" msprop:Generator_UserColumnName="BreiteSpalteMaß" type="xs:string" />
+                              <xs:attribute name="BreiteSpaltePassung" msprop:Generator_ColumnVarNameInTable="columnBreiteSpaltePassung" msprop:Generator_ColumnPropNameInRow="BreiteSpaltePassung" msprop:Generator_ColumnPropNameInTable="BreiteSpaltePassungColumn" msprop:Generator_UserColumnName="BreiteSpaltePassung" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteMaßePassung" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteMaßePassung" msprop:Generator_ColumnPropNameInRow="BreiteSpalteMaßePassung" msprop:Generator_ColumnPropNameInTable="BreiteSpalteMaßePassungColumn" msprop:Generator_UserColumnName="BreiteSpalteMaßePassung" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteToleranz" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteToleranz" msprop:Generator_ColumnPropNameInRow="BreiteSpalteToleranz" msprop:Generator_ColumnPropNameInTable="BreiteSpalteToleranzColumn" msprop:Generator_UserColumnName="BreiteSpalteToleranz" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteAbmaß" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteAbmaß" msprop:Generator_ColumnPropNameInRow="BreiteSpalteAbmaß" msprop:Generator_ColumnPropNameInTable="BreiteSpalteAbmaßColumn" msprop:Generator_UserColumnName="BreiteSpalteAbmaß" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteAbmaßToleranzMitte" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteAbmaßToleranzMitte" msprop:Generator_ColumnPropNameInRow="BreiteSpalteAbmaßToleranzMitte" msprop:Generator_ColumnPropNameInTable="BreiteSpalteAbmaßToleranzMitteColumn" msprop:Generator_UserColumnName="BreiteSpalteAbmaßToleranzMitte" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteVorbearbeitungsAbmaße" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteVorbearbeitungsAbmaße" msprop:Generator_ColumnPropNameInRow="BreiteSpalteVorbearbeitungsAbmaße" msprop:Generator_ColumnPropNameInTable="BreiteSpalteVorbearbeitungsAbmaßeColumn" msprop:Generator_UserColumnName="BreiteSpalteVorbearbeitungsAbmaße" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteVorbearbeitungsToleranzMitte" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteVorbearbeitungsToleranzMitte" msprop:Generator_ColumnPropNameInRow="BreiteSpalteVorbearbeitungsToleranzMitte" msprop:Generator_ColumnPropNameInTable="BreiteSpalteVorbearbeitungsToleranzMitteColumn" msprop:Generator_UserColumnName="BreiteSpalteVorbearbeitungsToleranzMitte" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteAnzahl" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteAnzahl" msprop:Generator_ColumnPropNameInRow="BreiteSpalteAnzahl" msprop:Generator_ColumnPropNameInTable="BreiteSpalteAnzahl" msprop:Generator_UserColumnName="BreiteSpalteAnzahl" type="xs:string" />
+                              <xs:attribute name="BreiteSpalteZone" msprop:Generator_ColumnVarNameInTable="columnBreiteSpalteZone" msprop:Generator_ColumnPropNameInRow="BreiteSpalteZone" msprop:Generator_ColumnPropNameInTable="BreiteSpalteZone" msprop:Generator_UserColumnName="BreiteSpalteZone" type="xs:string" />
+                              <xs:attribute name="RasterStrichStärke" msprop:Generator_ColumnVarNameInTable="columnRasterStrichStärke" msprop:Generator_ColumnPropNameInRow="RasterStrichStärke" msprop:Generator_ColumnPropNameInTable="RasterStrichStärkeColumn" msprop:Generator_UserColumnName="RasterStrichStärke" type="xs:string" />
+                              <xs:attribute name="RahmenStrichStärke" msprop:Generator_ColumnVarNameInTable="columnRahmenStrichStärke" msprop:Generator_ColumnPropNameInRow="RahmenStrichStärke" msprop:Generator_ColumnPropNameInTable="RahmenStrichStärkeColumn" msprop:Generator_UserColumnName="RahmenStrichStärke" type="xs:string" />
+                              <xs:attribute name="SpaltenBreiteAutomatisch" msprop:Generator_ColumnVarNameInTable="columnSpaltenBreiteAutomatisch" msprop:Generator_ColumnPropNameInRow="SpaltenBreiteAutomatisch" msprop:Generator_ColumnPropNameInTable="SpaltenBreiteAutomatischColumn" msprop:Generator_UserColumnName="SpaltenBreiteAutomatisch" type="xs:string" />
+                              <xs:attribute name="TabSpalteMaß" msprop:Generator_ColumnVarNameInTable="columnTabSpalteMaß" msprop:Generator_ColumnPropNameInRow="TabSpalteMaß" msprop:Generator_ColumnPropNameInTable="TabSpalteMaßColumn" msprop:Generator_UserColumnName="TabSpalteMaß" type="xs:string" />
+                              <xs:attribute name="TabSpaltePassung" msprop:Generator_ColumnVarNameInTable="columnTabSpaltePassung" msprop:Generator_ColumnPropNameInRow="TabSpaltePassung" msprop:Generator_ColumnPropNameInTable="TabSpaltePassungColumn" msprop:Generator_UserColumnName="TabSpaltePassung" type="xs:string" />
+                              <xs:attribute name="TabSpalteMaßePassung" msprop:Generator_ColumnVarNameInTable="columnTabSpalteMaßePassung" msprop:Generator_ColumnPropNameInRow="TabSpalteMaßePassung" msprop:Generator_ColumnPropNameInTable="TabSpalteMaßePassungColumn" msprop:Generator_UserColumnName="TabSpalteMaßePassung" type="xs:string" />
+                              <xs:attribute name="TabSpalteToleranz" msprop:Generator_ColumnVarNameInTable="columnTabSpalteToleranz" msprop:Generator_ColumnPropNameInRow="TabSpalteToleranz" msprop:Generator_ColumnPropNameInTable="TabSpalteToleranzColumn" msprop:Generator_UserColumnName="TabSpalteToleranz" type="xs:string" />
+                              <xs:attribute name="TabSpalteAbmaß" msprop:Generator_ColumnVarNameInTable="columnTabSpalteAbmaß" msprop:Generator_ColumnPropNameInRow="TabSpalteAbmaß" msprop:Generator_ColumnPropNameInTable="TabSpalteAbmaßColumn" msprop:Generator_UserColumnName="TabSpalteAbmaß" type="xs:string" />
+                              <xs:attribute name="TabSpalteAbmaßToleranzMitte" msprop:Generator_ColumnVarNameInTable="columnTabSpalteAbmaßToleranzMitte" msprop:Generator_ColumnPropNameInRow="TabSpalteAbmaßToleranzMitte" msprop:Generator_ColumnPropNameInTable="TabSpalteAbmaßToleranzMitteColumn" msprop:Generator_UserColumnName="TabSpalteAbmaßToleranzMitte" type="xs:string" />
+                              <xs:attribute name="TabSpalteVorbearbeitungsAbmaße" msprop:Generator_ColumnVarNameInTable="columnTabSpalteVorbearbeitungsAbmaße" msprop:Generator_ColumnPropNameInRow="TabSpalteVorbearbeitungsAbmaße" msprop:Generator_ColumnPropNameInTable="TabSpalteVorbearbeitungsAbmaßeColumn" msprop:Generator_UserColumnName="TabSpalteVorbearbeitungsAbmaße" type="xs:string" />
+                              <xs:attribute name="TabSpalteVorbearbeitungsToleranzMitte" msprop:Generator_ColumnVarNameInTable="columnTabSpalteVorbearbeitungsToleranzMitte" msprop:Generator_ColumnPropNameInRow="TabSpalteVorbearbeitungsToleranzMitte" msprop:Generator_ColumnPropNameInTable="TabSpalteVorbearbeitungsToleranzMitteColumn" msprop:Generator_UserColumnName="TabSpalteVorbearbeitungsToleranzMitte" type="xs:string" />
+                              <xs:attribute name="TabSpalteAnzahl" msprop:Generator_ColumnVarNameInTable="columnTabSpalteAnzahl" msprop:Generator_ColumnPropNameInRow="TabSpalteAnzahl" msprop:Generator_ColumnPropNameInTable="TabSpalteAnzahlColumn" msprop:Generator_UserColumnName="TabSpalteAnzahl" type="xs:string" />
+                              <xs:attribute name="TabSpalteZone" msprop:Generator_ColumnVarNameInTable="columnTabSpalteZone" msprop:Generator_ColumnPropNameInRow="TabSpalteZone" msprop:Generator_ColumnPropNameInTable="TabSpalteZoneColumn" msprop:Generator_UserColumnName="TabSpalteZone" type="xs:string" />
+                              <xs:attribute name="Tabelle_Id" msprop:Generator_ColumnVarNameInTable="columnTabelle_Id" msprop:Generator_ColumnPropNameInRow="Tabelle_Id" msprop:Generator_ColumnPropNameInTable="Tabelle_IdColumn" msprop:Generator_UserColumnName="Tabelle_Id" type="xs:int" use="prohibited" />
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
+                        <xs:attribute name="Tabelle_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnTabelle_Id" msprop:Generator_ColumnPropNameInRow="Tabelle_Id" msprop:Generator_ColumnPropNameInTable="Tabelle_IdColumn" msprop:Generator_UserColumnName="Tabelle_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+                        <xs:attribute name="Format_Id" msprop:Generator_ColumnVarNameInTable="columnFormat_Id" msprop:Generator_ColumnPropNameInRow="Format_Id" msprop:Generator_ColumnPropNameInTable="Format_IdColumn" msprop:Generator_UserColumnName="Format_Id" type="xs:int" use="prohibited" />
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="Formatname" type="xs:string" />
+                  <xs:attribute name="Formatname" msprop:Generator_ColumnVarNameInTable="columnFormatname" msprop:Generator_ColumnPropNameInRow="Formatname" msprop:Generator_ColumnPropNameInTable="FormatnameColumn" msprop:Generator_UserColumnName="Formatname" type="xs:string" />
+                  <xs:attribute name="Format_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnFormat_Id" msprop:Generator_ColumnPropNameInRow="Format_Id" msprop:Generator_ColumnPropNameInTable="Format_IdColumn" msprop:Generator_UserColumnName="Format_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+                  <xs:attribute name="Formate_Id" msprop:Generator_ColumnVarNameInTable="columnFormate_Id" msprop:Generator_ColumnPropNameInRow="Formate_Id" msprop:Generator_ColumnPropNameInTable="Formate_IdColumn" msprop:Generator_UserColumnName="Formate_Id" type="xs:int" use="prohibited" />
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Formate_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnFormate_Id" msprop:Generator_ColumnPropNameInRow="Formate_Id" msprop:Generator_ColumnPropNameInTable="Formate_IdColumn" msprop:Generator_UserColumnName="Formate_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Sprachen" />
+      <xs:field xpath="@Sprachen_Id" />
+    </xs:unique>
+    <xs:unique name="Sprachkombinationen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Sprachkombinationen" />
+      <xs:field xpath="@Sprachkombinationen_Id" />
+    </xs:unique>
+    <xs:unique name="Linienarten_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Linienarten" />
+      <xs:field xpath="@Linienarten_Id" />
+    </xs:unique>
+    <xs:unique name="Generell_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Generell" />
+      <xs:field xpath="@Generell_Id" />
+    </xs:unique>
+    <xs:unique name="Übersetzungen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Übersetzungen" />
+      <xs:field xpath="@Übersetzungen_Id" />
+    </xs:unique>
+    <xs:unique name="Tabelle_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Tabelle" />
+      <xs:field xpath="@Tabelle_Id" />
+    </xs:unique>
+    <xs:unique name="Format_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Format" />
+      <xs:field xpath="@Format_Id" />
+    </xs:unique>
+    <xs:unique name="Formate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//Formate" />
+      <xs:field xpath="@Formate_Id" />
+    </xs:unique>
+    <xs:keyref name="Formate_Format" refer="Formate_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Format" msprop:rel_Generator_ChildPropName="GetFormatRows" msprop:rel_Generator_UserRelationName="Formate_Format" msprop:rel_Generator_ParentPropName="FormateRow" msprop:rel_Generator_RelationVarName="relationFormate_Format" msprop:rel_Generator_UserParentTable="Formate">
+      <xs:selector xpath=".//Format" />
+      <xs:field xpath="@Formate_Id" />
+    </xs:keyref>
+    <xs:keyref name="Format_Tabelle" refer="Format_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Tabelle" msprop:rel_Generator_ChildPropName="GetTabelleRows" msprop:rel_Generator_UserRelationName="Format_Tabelle" msprop:rel_Generator_ParentPropName="FormatRow" msprop:rel_Generator_RelationVarName="relationFormat_Tabelle" msprop:rel_Generator_UserParentTable="Format">
+      <xs:selector xpath=".//Tabelle" />
+      <xs:field xpath="@Format_Id" />
+    </xs:keyref>
+    <xs:keyref name="Tabelle_TabellenAttribute" refer="Tabelle_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="TabellenAttribute" msprop:rel_Generator_ChildPropName="GetTabellenAttributeRows" msprop:rel_Generator_UserRelationName="Tabelle_TabellenAttribute" msprop:rel_Generator_ParentPropName="TabelleRow" msprop:rel_Generator_RelationVarName="relationTabelle_TabellenAttribute" msprop:rel_Generator_UserParentTable="Tabelle">
+      <xs:selector xpath=".//TabellenAttribute" />
+      <xs:field xpath="@Tabelle_Id" />
+    </xs:keyref>
+    <xs:keyref name="Format_FormatAttribute" refer="Format_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="FormatAttribute" msprop:rel_Generator_ChildPropName="GetFormatAttributeRows" msprop:rel_Generator_UserRelationName="Format_FormatAttribute" msprop:rel_Generator_ParentPropName="FormatRow" msprop:rel_Generator_RelationVarName="relationFormat_FormatAttribute" msprop:rel_Generator_UserParentTable="Format">
+      <xs:selector xpath=".//FormatAttribute" />
+      <xs:field xpath="@Format_Id" />
+    </xs:keyref>
+    <xs:keyref name="Übersetzungen_Übersetzung" refer="Übersetzungen_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Übersetzung" msprop:rel_Generator_ChildPropName="GetÜbersetzungRows" msprop:rel_Generator_UserRelationName="Übersetzungen_Übersetzung" msprop:rel_Generator_ParentPropName="ÜbersetzungenRow" msprop:rel_Generator_RelationVarName="relationÜbersetzungen_Übersetzung" msprop:rel_Generator_UserParentTable="Übersetzungen">
+      <xs:selector xpath=".//Übersetzung" />
+      <xs:field xpath="@Übersetzungen_Id" />
+    </xs:keyref>
+    <xs:keyref name="Generell_GenerelleAttribute" refer="Generell_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="GenerelleAttribute" msprop:rel_Generator_ChildPropName="GetGenerelleAttributeRows" msprop:rel_Generator_UserRelationName="Generell_GenerelleAttribute" msprop:rel_Generator_ParentPropName="GenerellRow" msprop:rel_Generator_RelationVarName="relationGenerell_GenerelleAttribute" msprop:rel_Generator_UserParentTable="Generell">
+      <xs:selector xpath=".//GenerelleAttribute" />
+      <xs:field xpath="@Generell_Id" />
+    </xs:keyref>
+    <xs:keyref name="Linienarten_Linienart" refer="Linienarten_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Linienart" msprop:rel_Generator_ChildPropName="GetLinienartRows" msprop:rel_Generator_UserRelationName="Linienarten_Linienart" msprop:rel_Generator_ParentPropName="LinienartenRow" msprop:rel_Generator_RelationVarName="relationLinienarten_Linienart" msprop:rel_Generator_UserParentTable="Linienarten">
+      <xs:selector xpath=".//Linienart" />
+      <xs:field xpath="@Linienarten_Id" />
+    </xs:keyref>
+    <xs:keyref name="Sprachkombinationen_Sprachkombination" refer="Sprachkombinationen_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Sprachkombination" msprop:rel_Generator_ChildPropName="GetSprachkombinationRows" msprop:rel_Generator_UserRelationName="Sprachkombinationen_Sprachkombination" msprop:rel_Generator_ParentPropName="SprachkombinationenRow" msprop:rel_Generator_RelationVarName="relationSprachkombinationen_Sprachkombination" msprop:rel_Generator_UserParentTable="Sprachkombinationen">
+      <xs:selector xpath=".//Sprachkombination" />
+      <xs:field xpath="@Sprachkombinationen_Id" />
+    </xs:keyref>
+    <xs:keyref name="Sprachen_Sprache" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Sprache" msprop:rel_Generator_ChildPropName="GetSpracheRows" msprop:rel_Generator_UserRelationName="Sprachen_Sprache" msprop:rel_Generator_ParentPropName="SprachenRow" msprop:rel_Generator_RelationVarName="relationSprachen_Sprache" msprop:rel_Generator_UserParentTable="Sprachen">
+      <xs:selector xpath=".//Sprache" />
+      <xs:field xpath="@Sprachen_Id" />
+    </xs:keyref>
   </xs:element>
 </xs:schema>

@@ -9,8 +9,8 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Passungstabelle")>
 <Assembly: AssemblyDescription("fügt ein Passungstabelle in Zeichnungsblätter ein")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("")>
+<Assembly: AssemblyCompany("nahe")>
+<Assembly: AssemblyProduct("Passungstabelle")>
 <Assembly: AssemblyCopyright("Heinz Navratil")>
 <Assembly: AssemblyTrademark("")>
 
@@ -26,7 +26,7 @@ Imports System.Runtime.InteropServices
 ' You can specify all the values or you can default the Build and Revision Numbers 
 ' by using the '*' as shown below:
 
-<Assembly: AssemblyVersion("8.0.0.3")>
+<Assembly: AssemblyVersion("8.1.0.2")>
 
 <Assembly: ComVisibleAttribute(True)>
-<Assembly: AssemblyFileVersion("8.0.0.3")>
+<Assembly: AssemblyFileVersion("8.1.0.2")>

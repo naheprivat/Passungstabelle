@@ -463,7 +463,7 @@
          AnsichtsTypSkizzen="True"
          AnsichtsTypTeile="True"
          AnsichtsTypBaugruppen="True"
-         LogDatei="False"
+         LogDatei="True"
          SchichtStärke="0"
          SchichtStärkeAbfragen="False"
          SchichtStärkeKeine="True"
@@ -482,7 +482,9 @@
          Abmaß="Abmaß"
          AbmaßToleranzMitte="Toleranzmitte"
          VorbearbeitungsAbmaße="Vorbearbeitung"
-         VorbearbeitungsToleranzMitte="Vorbearbeitung-Toleranzmitte" />
+         VorbearbeitungsToleranzMitte="Vorbearb.-Toleranzmitte"
+         Anzahl="Anzahl"
+         Zone="Zone" />
       <Übersetzung
          Kürzel="EN"
          Maß="dimension"
@@ -492,7 +494,9 @@
          Abmaß="limits"
          AbmaßToleranzMitte="mid tolerance"
          VorbearbeitungsAbmaße="rough dimension"
-         VorbearbeitungsToleranzMitte="rough dim mid tolerance" />
+         VorbearbeitungsToleranzMitte="rough dim mid tolerance"
+         Anzahl="count"
+         Zone="zone" />
    </Übersetzungen>
    <Formate>
       <Format
@@ -523,9 +527,9 @@
                SchriftstilKopfZeile="Standard"
                UnterstrichenKopfZeile="False"
                DurchgestrichenKopfZeile="False"
-               FettKopfZeile="False"
+               FettKopfZeile="True"
                TexthöheKopfZeile="2,5"
-               FarbeKopfZeile="0"
+               FarbeKopfZeile="-16777216"
                KursivKopfZeile="False"
                BreiteSpalteMaß="15"
                BreiteSpaltePassung="15"
@@ -535,6 +539,8 @@
                BreiteSpalteAbmaßToleranzMitte="20"
                BreiteSpalteVorbearbeitungsAbmaße="20"
                BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               BreiteSpalteAnzahl="20"
+               BreiteSpalteZone="20"
                RasterStrichStärke="Dünn"
                RahmenStrichStärke="Dick"
                SpaltenBreiteAutomatisch="True"
@@ -545,7 +551,9 @@
                TabSpalteAbmaß="True"
                TabSpalteAbmaßToleranzMitte="False"
                TabSpalteVorbearbeitungsAbmaße="False"
-               TabSpalteVorbearbeitungsToleranzMitte="False" />
+               TabSpalteVorbearbeitungsToleranzMitte="False"
+               TabSpalteAnzahl="False"
+               TabSpalteZone="False" />
          </Tabelle>
       </Format>
       <Format
@@ -588,6 +596,8 @@
                BreiteSpalteAbmaßToleranzMitte="20"
                BreiteSpalteVorbearbeitungsAbmaße="20"
                BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               BreiteSpalteAnzahl="20"
+               BreiteSpalteZone="20"
                RasterStrichStärke="Dünn"
                RahmenStrichStärke="Dick"
                SpaltenBreiteAutomatisch="True"
@@ -598,7 +608,9 @@
                TabSpalteAbmaß="True"
                TabSpalteAbmaßToleranzMitte="False"
                TabSpalteVorbearbeitungsAbmaße="False"
-               TabSpalteVorbearbeitungsToleranzMitte="False" />
+               TabSpalteVorbearbeitungsToleranzMitte="False"
+               TabSpalteAnzahl="False"
+               TabSpalteZone="False" />
          </Tabelle>
       </Format>
       <Format
@@ -641,6 +653,8 @@
                BreiteSpalteAbmaßToleranzMitte="20"
                BreiteSpalteVorbearbeitungsAbmaße="20"
                BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               BreiteSpalteAnzahl="20"
+               BreiteSpalteZone="20"
                RasterStrichStärke="Dünn"
                RahmenStrichStärke="Dick"
                SpaltenBreiteAutomatisch="True"
@@ -651,7 +665,9 @@
                TabSpalteAbmaß="True"
                TabSpalteAbmaßToleranzMitte="False"
                TabSpalteVorbearbeitungsAbmaße="False"
-               TabSpalteVorbearbeitungsToleranzMitte="False" />
+               TabSpalteVorbearbeitungsToleranzMitte="False"
+               TabSpalteAnzahl="False"
+               TabSpalteZone="False" />
          </Tabelle>
       </Format>
       <Format
@@ -694,6 +710,8 @@
                BreiteSpalteAbmaßToleranzMitte="20"
                BreiteSpalteVorbearbeitungsAbmaße="20"
                BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               BreiteSpalteAnzahl="20"
+               BreiteSpalteZone="20"
                RasterStrichStärke="Dünn"
                RahmenStrichStärke="Dick"
                SpaltenBreiteAutomatisch="True"
@@ -704,7 +722,9 @@
                TabSpalteAbmaß="True"
                TabSpalteAbmaßToleranzMitte="False"
                TabSpalteVorbearbeitungsAbmaße="False"
-               TabSpalteVorbearbeitungsToleranzMitte="False" />
+               TabSpalteVorbearbeitungsToleranzMitte="False"
+               TabSpalteAnzahl="False"
+               TabSpalteZone="False" />
          </Tabelle>
       </Format>
       <Format
@@ -747,6 +767,8 @@
                BreiteSpalteAbmaßToleranzMitte="20"
                BreiteSpalteVorbearbeitungsAbmaße="20"
                BreiteSpalteVorbearbeitungsToleranzMitte="20"
+               BreiteSpalteAnzahl="20"
+               BreiteSpalteZone="20"
                RasterStrichStärke="Dünn"
                RahmenStrichStärke="Dick"
                SpaltenBreiteAutomatisch="True"
@@ -757,7 +779,9 @@
                TabSpalteAbmaß="True"
                TabSpalteAbmaßToleranzMitte="False"
                TabSpalteVorbearbeitungsAbmaße="False"
-               TabSpalteVorbearbeitungsToleranzMitte="False" />
+               TabSpalteVorbearbeitungsToleranzMitte="False"
+               TabSpalteAnzahl="False"
+               TabSpalteZone="False" />
          </Tabelle>
       </Format>
    </Formate>

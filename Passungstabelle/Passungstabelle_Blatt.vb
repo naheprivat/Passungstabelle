@@ -6,11 +6,13 @@ Public Class Passungstabelle_Blatt
 
     ' Was wir alles von den Ansichten wissen wollen
     Structure Ansicht
-        Dim ansichtsName As String      'Ansichtsname
-        Dim ViewRef As View             'Verweis auf Ansicht
-        Dim arefernz As ModelDoc2       'Referenz auf die die Ansicht verweist (Teil, Baugruppe, ...)
-        Dim doctype As Integer          'Dockumenttyp der Ansichtsreferenz
-        Dim holetab As HoleTable        'Bohrungstabelle
+        Dim ansichtsName As String           'Ansichtsname
+        Dim ViewRef As View                  'Verweis auf Ansicht
+        Dim arefernz As ModelDoc2            'Referenz auf die die Ansicht verweist (Teil, Baugruppe, ...)
+        Dim doctype As Integer               'Dockumenttyp der Ansichtsreferenz
+        Dim holetab As List(Of HoleTable)    'Bohrungstabelle
+        Dim HoletableTags As List(Of Dictionary(Of String, List(Of MathPoint))) 'Tags der Ansichten
+        Dim HoletableZones As List(Of Dictionary(Of String, List(Of String)))
 
         'Intialisierungsfuntkion für die Strukur "Ansicht"
         Sub New(iansichtsName As String, iarefernz As ModelDoc2, idoctype As Integer, iViewRef As View)
@@ -19,6 +21,8 @@ Public Class Passungstabelle_Blatt
             arefernz = iarefernz
             doctype = idoctype
             holetab = Nothing
+            HoletableTags = New List(Of Dictionary(Of String, List(Of MathPoint)))
+            Dim HoletableZones = New List(Of Dictionary(Of String, String))
         End Sub
     End Structure
 
@@ -40,7 +44,6 @@ Public Class Passungstabelle_Blatt
     Property AlteTabelleY As Double                 'Y-Positon der alten Tabelle
 
     Property Log As LogFile                         'Verweis auf das Log-Datei Element
-
     Property Swapp As SldWorks                      'Verweis auf SolidWorks
 
     Dim swdraw As DrawingDoc                        'Verweis auf die Zeichnungsdatei
@@ -87,7 +90,7 @@ Public Class Passungstabelle_Blatt
         While Not swView Is Nothing
             'Nur wenn der Dokumenttyp passt dann muss die Ansicht ausgewertet werden
             If (GetDocumentTypeFromRef(swView) And DocType) > 0 Then
-                'Neuer Ansichtrekor
+                'Neuen Ansichtsrekord
                 AnsichtRec = New Ansicht(swView.Name, swView.ReferencedDocument, -1, swView)
                 'Wenn eine Referenz extiert
                 If Not AnsichtRec.arefernz Is Nothing Then
@@ -110,15 +113,139 @@ Public Class Passungstabelle_Blatt
         PassungsTabelleGetViews = True
     End Function
 
+    Function GetHoleTabletags(HoleTab As List(Of HoleTable)) As List(Of Dictionary(Of String, List(Of MathPoint)))
+        Dim tabs As Object
+        Dim PointList As New List(Of MathPoint)
+        Dim temp1 As New List(Of Dictionary(Of String, List(Of MathPoint)))
+
+        For j = 0 To HoleTab.Count - 1
+            tabs = HoleTab(j).GetTableAnnotations
+            Dim temp As New Dictionary(Of String, List(Of MathPoint))
+            'For i = 1 To HoleTab(j).GetTableAnnotationCount
+            For i = 1 To HoleTab(j).GetTableAnnotations(0).RowCount - 1
+                temp(HoleTab(j).HoleTag(i)) = PointList
+            Next
+            temp1.Add(temp)
+        Next
+        GetHoleTabletags = temp1
+    End Function
+
+    Function GetHoleTabletags1(HoleTab As List(Of HoleTable)) As List(Of Dictionary(Of String, List(Of String)))
+        Dim tabs As Object
+        Dim ZoneList As New List(Of String)
+        Dim Zone As String = ""
+        Dim temp1 As New List(Of Dictionary(Of String, List(Of String)))
+
+        For j = 0 To HoleTab.Count - 1
+            tabs = HoleTab(j).GetTableAnnotations
+            Dim temp As New Dictionary(Of String, List(Of String))
+            For i = 1 To HoleTab(j).GetTableAnnotations(0).RowCount - 1
+                temp(HoleTab(j).HoleTag(i)) = ZoneList
+            Next
+            temp1.Add(temp)
+        Next
+
+        GetHoleTabletags1 = temp1
+    End Function
+
+    Function GetHoleTabletagsPosition(swAnsicht As Ansicht) As List(Of Dictionary(Of String, List(Of MathPoint)))
+        Dim Zone As String = ""
+        Dim swviews As Object
+        Dim swview As View
+        Dim ViewNotes As Object
+        Dim swnote As Note
+        Dim notetext As String
+        Dim ip As MathPoint
+        Dim zz As String
+        Dim Tag As Dictionary(Of String, List(Of MathPoint))
+        Dim Tagnew As New Dictionary(Of String, List(Of MathPoint))
+        Dim plist As New List(Of MathPoint)
+        Dim TagList As New List(Of Dictionary(Of String, List(Of MathPoint)))
+        Dim zz1 As Integer = 0
+        Dim i As Integer = 0
+        'swviews = Blatt.GetViews
+        'TagList = swAnsicht.HoletableTags
+
+
+        For Each Tag In swAnsicht.HoletableTags
+            'For i = 0 To UBound(swviews)
+            'swview = swviews(i)
+            swview = swAnsicht.holetab.Item(zz1).GetFeature.GetOwnerFeature.GetSpecificFeature2
+            ViewNotes = swview.GetNotes
+            For j = 0 To UBound(ViewNotes)
+                swnote = ViewNotes(j)
+                notetext = swnote.PropertyLinkedText
+                If Tag.ContainsKey(notetext) Then
+                    If TagList.Count = 0 Then
+                        plist = New List(Of MathPoint)
+                    Else
+                        If i >= TagList.Count Then
+                            plist = New List(Of MathPoint)
+                        Else
+                            plist = TagList.Item(i)(notetext)
+                        End If
+                    End If
+                    ip = swnote.IGetTextPoint2
+                    zz = Blatt.GetDrawingZone(ip.ArrayData(0), ip.ArrayData(1))
+                    plist.Add(ip)
+                    'Tag(notetext).Add(ip)
+                    Tagnew(notetext) = plist
+                    'Tag(notetext) = plist
+                End If
+            Next
+            'Next
+            TagList.Add(Tagnew)
+            Tagnew = New Dictionary(Of String, List(Of MathPoint))
+            i = i + 1
+            zz1 = zz1 + 1
+        Next
+
+        GetHoleTabletagsPosition = TagList
+    End Function
+
+    Function GetHoleTabletagsPosition1(swAnsicht As Ansicht) As List(Of Dictionary(Of String, List(Of String)))
+        Dim temp As New Dictionary(Of String, List(Of String))
+        Dim temp1 As New List(Of Dictionary(Of String, List(Of String)))
+        Dim plist As New List(Of MathPoint)
+        Dim Zone As String = ""
+        Dim zz As String
+        Dim TagList As List(Of Dictionary(Of String, List(Of MathPoint)))
+        Dim Tagnew As New Dictionary(Of String, List(Of String))
+
+        Dim Tag As New Dictionary(Of String, List(Of MathPoint))
+
+        'TagList = swAnsicht.HoletableTags
+
+        'Für jede Tabelle
+        For Each tag In swAnsicht.HoletableTags
+            'Punkteliste
+            Tagnew = New Dictionary(Of String, List(Of String))
+            For Each n In Tag
+                plist = Tag(n.Key)
+                Dim temp2 As New List(Of String)
+                'Für jeden Punkt
+                For Each k In plist
+                    zz = Blatt.GetDrawingZone(k.ArrayData(0), k.ArrayData(1))
+                    temp2.Add(zz)
+                Next
+                'tag(n.Key) = plist
+                Tagnew(n.Key) = temp2
+            Next
+            temp1.Add(Tagnew)
+        Next
+            GetHoleTabletagsPosition1 = temp1
+    End Function
+
     'ermittelt die Passungen für jede Ansicht
     Function PassungsTabelleGetDimensions() As Boolean
         Dim ans As Ansicht
         Dim dokt_setup As Integer = 0
         Dim dokt As Integer = 0
+        Dim tempzone As String
 
         'Falls es noch keine Tabelle gibt, dann eine neue erzeugen
         If Tabelle Is Nothing Then
-            Tabelle = New Passungstabelle_Tabelle(Attr_generell, Attr_Tabelle, Attr_Übersetzungen)
+            Tabelle = New Passungstabelle_Tabelle(Attr_generell, Attr_Tabelle, Attr_Übersetzungen, Blatt)
             Tabelle.Log = Log
         End If
 
@@ -129,18 +256,48 @@ Public Class Passungstabelle_Blatt
             'Passungen in der Ansicht suchen
             Tabelle.GetViewDimension(ans.ViewRef)
 
-            'Wenn eine Bohrungstabelle gefunden wurde, 
-            'dann wir sie untersucht
+            'Wenn Bohrungstabellen gefunden wurde, dann wir sie untersucht
             If Not ans.holetab Is Nothing Then
-                Tabelle.GetHoleTableDimension(ans.holetab)
+                If ans.holetab.Count > 0 Then
+                    ans.HoletableTags = GetHoleTabletags(ans.holetab)
+                    ans.HoletableZones = GetHoleTabletags1(ans.holetab)
+                    ans.HoletableTags = GetHoleTabletagsPosition(ans)
+                    ans.HoletableZones = GetHoleTabletagsPosition1(ans)
+                    Tabelle.GetHoleTableDimension(ans.holetab, ans.ViewRef, ans.HoletableZones)
+                End If
             End If
             'Tabelle.getHoleTableDimension(ans.ViewRef)
         Next
 
         'Einfügepunkt setzen
         Tabelle.Einfügepunkt = Einfügepunkt
+
         'Sortiert die Tabelle und entfernt doppelte Einträge
         Tabelle.SetTabellenzeilenGefiltert()
+
+        'Zonen addieren und für die gefilterten Zeilen setzen
+        For Each gef In Tabelle.TabellenZeilengefiltert
+            tempzone = gef.Zeile("Zone")
+            gef.Zeile("Zone") = ""
+            For Each zeile In Tabelle.TabellenZeilen
+                If zeile.Zeile("Maß").ToString & zeile.Zeile("Passung") = gef.Zeile("Maß").ToString & gef.Zeile("Passung") Then
+                    If gef.Zeile("Zone") = "" Then
+                        gef.Zeile("Zone") = tempzone
+                    Else
+                        gef.Zeile("Zone") = gef.Zeile("Zone") & "/" & zeile.Zeile("Zone")
+                    End If
+                End If
+            Next
+        Next
+
+        'Zonen sortieren
+        Dim stringarray As String()
+        For Each gef In Tabelle.TabellenZeilengefiltert
+            stringarray = gef.Zeile("Zone").Split("/")
+            Array.Sort(stringarray)
+            gef.Zeile("Zone") = String.Join("/", stringarray)
+        Next
+
 
         PassungsTabelleGetDimensions = True
     End Function
@@ -345,10 +502,10 @@ Public Class Passungstabelle_Blatt
     '           prüft ob sich in der übergebenen Ansicht eine Bohrungstabelle befindet
     'Parameter: swView SWX Ansicht
     'Ergebnis:  Bohrungstabelle-Objekt 
-    Function CheckForHoleTable(swView As View) As HoleTable
+    Function CheckForHoleTable(swView As View) As List(Of HoleTable)
         Dim swtable As TableAnnotation
         Dim holtabann As HoleTableAnnotation
-        Dim swholetable As HoleTable = Nothing
+        Dim swholetables As New List(Of HoleTable)
         Dim tabarray As Object
         Dim i As Integer
 
@@ -369,12 +526,10 @@ Public Class Passungstabelle_Blatt
             'Wir gehen davon aus, dass es nur eine Bohrungstabelle in einer Ansicht gibt
             If swtable.Type = swTableAnnotationType_e.swTableAnnotation_HoleChart Then
                 holtabann = swtable
-                swholetable = holtabann.HoleTable
-                CheckForHoleTable = swholetable
-                Exit Function
+                swholetables.Add(holtabann.HoleTable)
             End If
         Next
-        CheckForHoleTable = swholetable
+        CheckForHoleTable = swholetables
     End Function
     'Sub:       SetEinfügepunkt
     '           setzt die Koordinaten des Einfügepunkts der Tabelle an Hand der Setup Einstellungen
@@ -422,6 +577,8 @@ Public Class Passungstabelle_Blatt
         If CBool(Attr_Tabelle("TabSpalteAbmaßToleranzMitte")) Then counter = counter + 1
         If CBool(Attr_Tabelle("TabSpalteVorbearbeitungsAbmaße")) Then counter = counter + 1
         If CBool(Attr_Tabelle("TabSpalteVorbearbeitungsToleranzMitte")) Then counter = counter + 1
+        If CBool(Attr_Tabelle("TabSpalteAnzahl")) Then counter = counter + 1
+        If CBool(Attr_Tabelle("TabSpalteZone")) Then counter = counter + 1
 
         GetColumnsCount = counter
     End Function

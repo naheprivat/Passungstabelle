@@ -992,6 +992,7 @@ Partial Public Class Data
             Me.columnSprachen_Id.AutoIncrement = true
             Me.columnSprachen_Id.AllowDBNull = false
             Me.columnSprachen_Id.Unique = true
+            Me.columnSprachen_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1275,6 +1276,7 @@ Partial Public Class Data
             MyBase.Columns.Add(Me.columnSprachen_Id)
             Me.columnKürzel.Namespace = ""
             Me.columnSprache.Namespace = ""
+            Me.columnSprachen_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1531,6 +1533,7 @@ Partial Public Class Data
             Me.columnSprachkombinationen_Id.AutoIncrement = true
             Me.columnSprachkombinationen_Id.AllowDBNull = false
             Me.columnSprachkombinationen_Id.Unique = true
+            Me.columnSprachkombinationen_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1800,6 +1803,7 @@ Partial Public Class Data
             Me.columnSprachkombinationen_Id = New Global.System.Data.DataColumn("Sprachkombinationen_Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Hidden)
             MyBase.Columns.Add(Me.columnSprachkombinationen_Id)
             Me.columnName.Namespace = ""
+            Me.columnSprachkombinationen_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2056,6 +2060,7 @@ Partial Public Class Data
             Me.columnLinienarten_Id.AutoIncrement = true
             Me.columnLinienarten_Id.AllowDBNull = false
             Me.columnLinienarten_Id.Unique = true
+            Me.columnLinienarten_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2325,6 +2330,7 @@ Partial Public Class Data
             Me.columnLinienarten_Id = New Global.System.Data.DataColumn("Linienarten_Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Hidden)
             MyBase.Columns.Add(Me.columnLinienarten_Id)
             Me.columnName.Namespace = ""
+            Me.columnLinienarten_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2581,6 +2587,7 @@ Partial Public Class Data
             Me.columnGenerell_Id.AutoIncrement = true
             Me.columnGenerell_Id.AllowDBNull = false
             Me.columnGenerell_Id.Unique = true
+            Me.columnGenerell_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3077,6 +3084,7 @@ Partial Public Class Data
             Me.columnFehlermeldung.Namespace = ""
             Me.columnLöschenAufRestlichenBlättern.Namespace = ""
             Me.columnEventgesteuert.Namespace = ""
+            Me.columnGenerell_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3333,6 +3341,7 @@ Partial Public Class Data
             Me.columnÜbersetzungen_Id.AutoIncrement = true
             Me.columnÜbersetzungen_Id.AllowDBNull = false
             Me.columnÜbersetzungen_Id.Unique = true
+            Me.columnÜbersetzungen_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3488,6 +3497,10 @@ Partial Public Class Data
         
         Private columnVorbearbeitungsToleranzMitte As Global.System.Data.DataColumn
         
+        Private columnAnzah As Global.System.Data.DataColumn
+        
+        Private columnZone As Global.System.Data.DataColumn
+        
         Private columnÜbersetzungen_Id As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3599,6 +3612,22 @@ Partial Public Class Data
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property AnzahlColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAnzah
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property ZoneColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnZone
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property Übersetzungen_IdColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnÜbersetzungen_Id
@@ -3642,11 +3671,11 @@ Partial Public Class Data
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddÜbersetzungRow(ByVal Kürzel As String, ByVal Maß As String, ByVal Passung As String, ByVal MaßePassung As String, ByVal Toleranz As String, ByVal Abmaß As String, ByVal AbmaßToleranzMitte As String, ByVal VorbearbeitungsAbmaße As String, ByVal VorbearbeitungsToleranzMitte As String, ByVal parentÜbersetzungenRowByÜbersetzungen_Übersetzung As ÜbersetzungenRow) As ÜbersetzungRow
+        Public Overloads Function AddÜbersetzungRow(ByVal Kürzel As String, ByVal Maß As String, ByVal Passung As String, ByVal MaßePassung As String, ByVal Toleranz As String, ByVal Abmaß As String, ByVal AbmaßToleranzMitte As String, ByVal VorbearbeitungsAbmaße As String, ByVal VorbearbeitungsToleranzMitte As String, ByVal Anzahl As String, ByVal Zone As String, ByVal parentÜbersetzungenRowByÜbersetzungen_Übersetzung As ÜbersetzungenRow) As ÜbersetzungRow
             Dim rowÜbersetzungRow As ÜbersetzungRow = CType(Me.NewRow,ÜbersetzungRow)
-            Dim columnValuesArray() As Object = New Object() {Kürzel, Maß, Passung, MaßePassung, Toleranz, Abmaß, AbmaßToleranzMitte, VorbearbeitungsAbmaße, VorbearbeitungsToleranzMitte, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Kürzel, Maß, Passung, MaßePassung, Toleranz, Abmaß, AbmaßToleranzMitte, VorbearbeitungsAbmaße, VorbearbeitungsToleranzMitte, Anzahl, Zone, Nothing}
             If (Not (parentÜbersetzungenRowByÜbersetzungen_Übersetzung) Is Nothing) Then
-                columnValuesArray(9) = parentÜbersetzungenRowByÜbersetzungen_Übersetzung(0)
+                columnValuesArray(11) = parentÜbersetzungenRowByÜbersetzungen_Übersetzung(0)
             End If
             rowÜbersetzungRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowÜbersetzungRow)
@@ -3679,6 +3708,8 @@ Partial Public Class Data
             Me.columnAbmaßToleranzMitte = MyBase.Columns("AbmaßToleranzMitte")
             Me.columnVorbearbeitungsAbmaße = MyBase.Columns("VorbearbeitungsAbmaße")
             Me.columnVorbearbeitungsToleranzMitte = MyBase.Columns("VorbearbeitungsToleranzMitte")
+            Me.columnAnzah = MyBase.Columns("Anzahl")
+            Me.columnZone = MyBase.Columns("Zone")
             Me.columnÜbersetzungen_Id = MyBase.Columns("Übersetzungen_Id")
         End Sub
         
@@ -3703,6 +3734,12 @@ Partial Public Class Data
             MyBase.Columns.Add(Me.columnVorbearbeitungsAbmaße)
             Me.columnVorbearbeitungsToleranzMitte = New Global.System.Data.DataColumn("VorbearbeitungsToleranzMitte", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
             MyBase.Columns.Add(Me.columnVorbearbeitungsToleranzMitte)
+            Me.columnAnzah = New Global.System.Data.DataColumn("Anzahl", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
+            Me.columnAnzah.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnAnzah")
+            Me.columnAnzah.ExtendedProperties.Add("Generator_UserColumnName", "Anzahl")
+            MyBase.Columns.Add(Me.columnAnzah)
+            Me.columnZone = New Global.System.Data.DataColumn("Zone", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
+            MyBase.Columns.Add(Me.columnZone)
             Me.columnÜbersetzungen_Id = New Global.System.Data.DataColumn("Übersetzungen_Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Hidden)
             MyBase.Columns.Add(Me.columnÜbersetzungen_Id)
             Me.columnKürzel.Namespace = ""
@@ -3714,6 +3751,9 @@ Partial Public Class Data
             Me.columnAbmaßToleranzMitte.Namespace = ""
             Me.columnVorbearbeitungsAbmaße.Namespace = ""
             Me.columnVorbearbeitungsToleranzMitte.Namespace = ""
+            Me.columnAnzah.Namespace = ""
+            Me.columnZone.Namespace = ""
+            Me.columnÜbersetzungen_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3970,6 +4010,7 @@ Partial Public Class Data
             Me.columnFormate_Id.AutoIncrement = true
             Me.columnFormate_Id.AllowDBNull = false
             Me.columnFormate_Id.Unique = true
+            Me.columnFormate_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4256,6 +4297,8 @@ Partial Public Class Data
             Me.columnFormat_Id.AutoIncrement = true
             Me.columnFormat_Id.AllowDBNull = false
             Me.columnFormat_Id.Unique = true
+            Me.columnFormat_Id.Namespace = ""
+            Me.columnFormate_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4623,6 +4666,7 @@ Partial Public Class Data
             Me.columnEinfügepunktRU.Namespace = ""
             Me.columnOffset_X.Namespace = ""
             Me.columnOffset_Y.Namespace = ""
+            Me.columnFormat_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4895,6 +4939,8 @@ Partial Public Class Data
             Me.columnTabelle_Id.AutoIncrement = true
             Me.columnTabelle_Id.AllowDBNull = false
             Me.columnTabelle_Id.Unique = true
+            Me.columnTabelle_Id.Namespace = ""
+            Me.columnFormat_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5086,6 +5132,10 @@ Partial Public Class Data
         
         Private columnBreiteSpalteVorbearbeitungsToleranzMitte As Global.System.Data.DataColumn
         
+        Private columnBreiteSpalteAnzahl As Global.System.Data.DataColumn
+        
+        Private columnBreiteSpalteZone As Global.System.Data.DataColumn
+        
         Private columnRasterStrichStärke As Global.System.Data.DataColumn
         
         Private columnRahmenStrichStärke As Global.System.Data.DataColumn
@@ -5107,6 +5157,10 @@ Partial Public Class Data
         Private columnTabSpalteVorbearbeitungsAbmaße As Global.System.Data.DataColumn
         
         Private columnTabSpalteVorbearbeitungsToleranzMitte As Global.System.Data.DataColumn
+        
+        Private columnTabSpalteAnzahl As Global.System.Data.DataColumn
+        
+        Private columnTabSpalteZone As Global.System.Data.DataColumn
         
         Private columnTabelle_Id As Global.System.Data.DataColumn
         
@@ -5363,6 +5417,22 @@ Partial Public Class Data
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property BreiteSpalteAnzahl() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBreiteSpalteAnzahl
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property BreiteSpalteZone() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBreiteSpalteZone
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property RasterStrichStärkeColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnRasterStrichStärke
@@ -5451,6 +5521,22 @@ Partial Public Class Data
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TabSpalteAnzahlColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTabSpalteAnzahl
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TabSpalteZoneColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTabSpalteZone
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property Tabelle_IdColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnTabelle_Id
@@ -5522,6 +5608,8 @@ Partial Public Class Data
                     ByVal BreiteSpalteAbmaßToleranzMitte As String,  _
                     ByVal BreiteSpalteVorbearbeitungsAbmaße As String,  _
                     ByVal BreiteSpalteVorbearbeitungsToleranzMitte As String,  _
+                    ByVal BreiteSpalteAnzahl As String,  _
+                    ByVal BreiteSpalteZone As String,  _
                     ByVal RasterStrichStärke As String,  _
                     ByVal RahmenStrichStärke As String,  _
                     ByVal SpaltenBreiteAutomatisch As String,  _
@@ -5533,11 +5621,13 @@ Partial Public Class Data
                     ByVal TabSpalteAbmaßToleranzMitte As String,  _
                     ByVal TabSpalteVorbearbeitungsAbmaße As String,  _
                     ByVal TabSpalteVorbearbeitungsToleranzMitte As String,  _
+                    ByVal TabSpalteAnzahl As String,  _
+                    ByVal TabSpalteZone As String,  _
                     ByVal parentTabelleRowByTabelle_TabellenAttribute As TabelleRow) As TabellenAttributeRow
             Dim rowTabellenAttributeRow As TabellenAttributeRow = CType(Me.NewRow,TabellenAttributeRow)
-            Dim columnValuesArray() As Object = New Object() {HeaderOben, HeaderUnten, HeaderLanguage, SchriftartZeile, SchriftstilZeile, UnterstrichenZeile, DurchgestrichenZeile, FettZeile, TexthöheZeile, FarbeZeile, KursivZeile, SchriftartKopfZeile, SchriftstilKopfZeile, UnterstrichenKopfZeile, DurchgestrichenKopfZeile, FettKopfZeile, TexthöheKopfZeile, FarbeKopfZeile, KursivKopfZeile, BreiteSpalteMaß, BreiteSpaltePassung, BreiteSpalteMaßePassung, BreiteSpalteToleranz, BreiteSpalteAbmaß, BreiteSpalteAbmaßToleranzMitte, BreiteSpalteVorbearbeitungsAbmaße, BreiteSpalteVorbearbeitungsToleranzMitte, RasterStrichStärke, RahmenStrichStärke, SpaltenBreiteAutomatisch, TabSpalteMaß, TabSpaltePassung, TabSpalteMaßePassung, TabSpalteToleranz, TabSpalteAbmaß, TabSpalteAbmaßToleranzMitte, TabSpalteVorbearbeitungsAbmaße, TabSpalteVorbearbeitungsToleranzMitte, Nothing}
+            Dim columnValuesArray() As Object = New Object() {HeaderOben, HeaderUnten, HeaderLanguage, SchriftartZeile, SchriftstilZeile, UnterstrichenZeile, DurchgestrichenZeile, FettZeile, TexthöheZeile, FarbeZeile, KursivZeile, SchriftartKopfZeile, SchriftstilKopfZeile, UnterstrichenKopfZeile, DurchgestrichenKopfZeile, FettKopfZeile, TexthöheKopfZeile, FarbeKopfZeile, KursivKopfZeile, BreiteSpalteMaß, BreiteSpaltePassung, BreiteSpalteMaßePassung, BreiteSpalteToleranz, BreiteSpalteAbmaß, BreiteSpalteAbmaßToleranzMitte, BreiteSpalteVorbearbeitungsAbmaße, BreiteSpalteVorbearbeitungsToleranzMitte, BreiteSpalteAnzahl, BreiteSpalteZone, RasterStrichStärke, RahmenStrichStärke, SpaltenBreiteAutomatisch, TabSpalteMaß, TabSpaltePassung, TabSpalteMaßePassung, TabSpalteToleranz, TabSpalteAbmaß, TabSpalteAbmaßToleranzMitte, TabSpalteVorbearbeitungsAbmaße, TabSpalteVorbearbeitungsToleranzMitte, TabSpalteAnzahl, TabSpalteZone, Nothing}
             If (Not (parentTabelleRowByTabelle_TabellenAttribute) Is Nothing) Then
-                columnValuesArray(38) = parentTabelleRowByTabelle_TabellenAttribute(0)
+                columnValuesArray(42) = parentTabelleRowByTabelle_TabellenAttribute(0)
             End If
             rowTabellenAttributeRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTabellenAttributeRow)
@@ -5588,6 +5678,8 @@ Partial Public Class Data
             Me.columnBreiteSpalteAbmaßToleranzMitte = MyBase.Columns("BreiteSpalteAbmaßToleranzMitte")
             Me.columnBreiteSpalteVorbearbeitungsAbmaße = MyBase.Columns("BreiteSpalteVorbearbeitungsAbmaße")
             Me.columnBreiteSpalteVorbearbeitungsToleranzMitte = MyBase.Columns("BreiteSpalteVorbearbeitungsToleranzMitte")
+            Me.columnBreiteSpalteAnzahl = MyBase.Columns("BreiteSpalteAnzahl")
+            Me.columnBreiteSpalteZone = MyBase.Columns("BreiteSpalteZone")
             Me.columnRasterStrichStärke = MyBase.Columns("RasterStrichStärke")
             Me.columnRahmenStrichStärke = MyBase.Columns("RahmenStrichStärke")
             Me.columnSpaltenBreiteAutomatisch = MyBase.Columns("SpaltenBreiteAutomatisch")
@@ -5599,6 +5691,8 @@ Partial Public Class Data
             Me.columnTabSpalteAbmaßToleranzMitte = MyBase.Columns("TabSpalteAbmaßToleranzMitte")
             Me.columnTabSpalteVorbearbeitungsAbmaße = MyBase.Columns("TabSpalteVorbearbeitungsAbmaße")
             Me.columnTabSpalteVorbearbeitungsToleranzMitte = MyBase.Columns("TabSpalteVorbearbeitungsToleranzMitte")
+            Me.columnTabSpalteAnzahl = MyBase.Columns("TabSpalteAnzahl")
+            Me.columnTabSpalteZone = MyBase.Columns("TabSpalteZone")
             Me.columnTabelle_Id = MyBase.Columns("Tabelle_Id")
         End Sub
         
@@ -5659,6 +5753,14 @@ Partial Public Class Data
             MyBase.Columns.Add(Me.columnBreiteSpalteVorbearbeitungsAbmaße)
             Me.columnBreiteSpalteVorbearbeitungsToleranzMitte = New Global.System.Data.DataColumn("BreiteSpalteVorbearbeitungsToleranzMitte", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
             MyBase.Columns.Add(Me.columnBreiteSpalteVorbearbeitungsToleranzMitte)
+            Me.columnBreiteSpalteAnzahl = New Global.System.Data.DataColumn("BreiteSpalteAnzahl", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
+            Me.columnBreiteSpalteAnzahl.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "BreiteSpalteAnzahl")
+            Me.columnBreiteSpalteAnzahl.ExtendedProperties.Add("Generator_UserColumnName", "BreiteSpalteAnzahl")
+            MyBase.Columns.Add(Me.columnBreiteSpalteAnzahl)
+            Me.columnBreiteSpalteZone = New Global.System.Data.DataColumn("BreiteSpalteZone", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
+            Me.columnBreiteSpalteZone.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "BreiteSpalteZone")
+            Me.columnBreiteSpalteZone.ExtendedProperties.Add("Generator_UserColumnName", "BreiteSpalteZone")
+            MyBase.Columns.Add(Me.columnBreiteSpalteZone)
             Me.columnRasterStrichStärke = New Global.System.Data.DataColumn("RasterStrichStärke", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
             MyBase.Columns.Add(Me.columnRasterStrichStärke)
             Me.columnRahmenStrichStärke = New Global.System.Data.DataColumn("RahmenStrichStärke", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
@@ -5681,6 +5783,10 @@ Partial Public Class Data
             MyBase.Columns.Add(Me.columnTabSpalteVorbearbeitungsAbmaße)
             Me.columnTabSpalteVorbearbeitungsToleranzMitte = New Global.System.Data.DataColumn("TabSpalteVorbearbeitungsToleranzMitte", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
             MyBase.Columns.Add(Me.columnTabSpalteVorbearbeitungsToleranzMitte)
+            Me.columnTabSpalteAnzahl = New Global.System.Data.DataColumn("TabSpalteAnzahl", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
+            MyBase.Columns.Add(Me.columnTabSpalteAnzahl)
+            Me.columnTabSpalteZone = New Global.System.Data.DataColumn("TabSpalteZone", GetType(String), Nothing, Global.System.Data.MappingType.Attribute)
+            MyBase.Columns.Add(Me.columnTabSpalteZone)
             Me.columnTabelle_Id = New Global.System.Data.DataColumn("Tabelle_Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Hidden)
             MyBase.Columns.Add(Me.columnTabelle_Id)
             Me.columnHeaderOben.Namespace = ""
@@ -5710,6 +5816,8 @@ Partial Public Class Data
             Me.columnBreiteSpalteAbmaßToleranzMitte.Namespace = ""
             Me.columnBreiteSpalteVorbearbeitungsAbmaße.Namespace = ""
             Me.columnBreiteSpalteVorbearbeitungsToleranzMitte.Namespace = ""
+            Me.columnBreiteSpalteAnzahl.Namespace = ""
+            Me.columnBreiteSpalteZone.Namespace = ""
             Me.columnRasterStrichStärke.Namespace = ""
             Me.columnRahmenStrichStärke.Namespace = ""
             Me.columnSpaltenBreiteAutomatisch.Namespace = ""
@@ -5721,6 +5829,9 @@ Partial Public Class Data
             Me.columnTabSpalteAbmaßToleranzMitte.Namespace = ""
             Me.columnTabSpalteVorbearbeitungsAbmaße.Namespace = ""
             Me.columnTabSpalteVorbearbeitungsToleranzMitte.Namespace = ""
+            Me.columnTabSpalteAnzahl.Namespace = ""
+            Me.columnTabSpalteZone.Namespace = ""
+            Me.columnTabelle_Id.Namespace = ""
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6949,6 +7060,36 @@ Partial Public Class Data
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Anzahl() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableÜbersetzung.AnzahlColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Anzahl in Tabelle Übersetzung ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableÜbersetzung.AnzahlColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Zone() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableÜbersetzung.ZoneColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte Zone in Tabelle Übersetzung ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableÜbersetzung.ZoneColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Übersetzungen_Id() As Integer
             Get
                 Try 
@@ -7079,6 +7220,30 @@ Partial Public Class Data
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetVorbearbeitungsToleranzMitteNull()
             Me(Me.tableÜbersetzung.VorbearbeitungsToleranzMitteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsAnzahlNull() As Boolean
+            Return Me.IsNull(Me.tableÜbersetzung.AnzahlColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetAnzahlNull()
+            Me(Me.tableÜbersetzung.AnzahlColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsZoneNull() As Boolean
+            Return Me.IsNull(Me.tableÜbersetzung.ZoneColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetZoneNull()
+            Me(Me.tableÜbersetzung.ZoneColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8019,6 +8184,36 @@ Partial Public Class Data
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property BreiteSpalteAnzahl() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTabellenAttribute.BreiteSpalteAnzahl),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte BreiteSpalteAnzahl in Tabelle TabellenAttribute ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTabellenAttribute.BreiteSpalteAnzahl) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property BreiteSpalteZone() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTabellenAttribute.BreiteSpalteZone),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte BreiteSpalteZone in Tabelle TabellenAttribute ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTabellenAttribute.BreiteSpalteZone) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property RasterStrichStärke() As String
             Get
                 Try 
@@ -8184,6 +8379,36 @@ Partial Public Class Data
             End Get
             Set
                 Me(Me.tableTabellenAttribute.TabSpalteVorbearbeitungsToleranzMitteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TabSpalteAnzahl() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTabellenAttribute.TabSpalteAnzahlColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte TabSpalteAnzahl in Tabelle TabellenAttribute ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTabellenAttribute.TabSpalteAnzahlColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TabSpalteZone() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTabellenAttribute.TabSpalteZoneColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Der Wert für Spalte TabSpalteZone in Tabelle TabellenAttribute ist DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTabellenAttribute.TabSpalteZoneColumn) = value
             End Set
         End Property
         
@@ -8539,6 +8764,30 @@ Partial Public Class Data
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsBreiteSpalteAnzahlNull() As Boolean
+            Return Me.IsNull(Me.tableTabellenAttribute.BreiteSpalteAnzahl)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetBreiteSpalteAnzahlNull()
+            Me(Me.tableTabellenAttribute.BreiteSpalteAnzahl) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsBreiteSpalteZoneNull() As Boolean
+            Return Me.IsNull(Me.tableTabellenAttribute.BreiteSpalteZone)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetBreiteSpalteZoneNull()
+            Me(Me.tableTabellenAttribute.BreiteSpalteZone) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsRasterStrichStärkeNull() As Boolean
             Return Me.IsNull(Me.tableTabellenAttribute.RasterStrichStärkeColumn)
         End Function
@@ -8667,6 +8916,30 @@ Partial Public Class Data
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetTabSpalteVorbearbeitungsToleranzMitteNull()
             Me(Me.tableTabellenAttribute.TabSpalteVorbearbeitungsToleranzMitteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTabSpalteAnzahlNull() As Boolean
+            Return Me.IsNull(Me.tableTabellenAttribute.TabSpalteAnzahlColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTabSpalteAnzahlNull()
+            Me(Me.tableTabellenAttribute.TabSpalteAnzahlColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTabSpalteZoneNull() As Boolean
+            Return Me.IsNull(Me.tableTabellenAttribute.TabSpalteZoneColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTabSpalteZoneNull()
+            Me(Me.tableTabellenAttribute.TabSpalteZoneColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
