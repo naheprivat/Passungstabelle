@@ -10,8 +10,12 @@
   Dieses Add-In erhebt keinen Anspruch auf Professionalität und die Verwendung erfolgt auf eigene Gefahr
 
 - zum Code
+
   Der Code ist nicht komplett bereinigt und auch nicht durchgehend kommentiert
-  
+  Ein, meiner Meinung nach, guter Ratgeber beim Programmieren ist das Buch
+  [Weniger Schlecht programmieren](https://www.oreilly.de/buecher/120174/9783897215672-weniger-schlecht-programmieren.html)
+  Ihr dürft auch aber keine Programmierbeispiele erwarten. Das Buch ist sehr allgemein gehalten
+  und alles habe ich auch noch nicht umsetzen können  
 
 ## Add-In Hinweise
 Der Pfad zur Setup.XML Datei wird in der Registry gespeichert unter "HKEY_LOCAL_MACHINE\Software\nahe"
