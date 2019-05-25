@@ -32,7 +32,7 @@ und
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\VSI\bin\VsdDialogs\0  
 durch den im Verzeichnis ''SetupDialog Anpassung'' zu ersetzen.  
 Die Zahlen stehen für den Sprache die Ihr für Eure Visual Studio Installation gewählt habt.
-Eine Liste der Sprachcodes findet Ihr z.B. [hier](https://msdn.microsoft.com/de-de/library/windows/hardware/dn898488(v=vs.85).aspx)
+Eine Liste der Sprachcodes findet Ihr z.B. [hier](https://msdn.microsoft.com/de-de/library/windows/hardware/dn898488(v=vs.85).aspx)  
 0 steht scheinbar für eine Systemeinstellung
 ### ACHTUNG: bitte unbedingt vorher die bestehende Datei sichern
 
