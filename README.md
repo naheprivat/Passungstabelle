@@ -25,8 +25,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Common
 durch den im Verzeichnis
 SetupDialog Anpassung
 zu ersetzen.
-### ACHTUNG:
-- bitte unbedingt vorher die bestehende Datei sichern
+### ACHTUNG: bitte unbedingt vorher die bestehende Datei sichern
 
 ## Hilfesystem Hinweise
 Für die Erstellung der Hilfe wurde das Programm [HelpNDoc](https://www.helpndoc.com) verwendet
