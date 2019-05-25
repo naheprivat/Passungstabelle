@@ -43,4 +43,7 @@ Für die Erstellung der Hilfedateien wurde das Programm [HelpNDoc](https://www.h
 bitte postet Anregungen un Kritik zum dem Add-In
 im SolidWorks Forum von [cad.de](https://ww3.cad.de/cgi-bin/ubb/forumdisplay.cgi?action=topics&number=2)
 
-
+## Ausblick
+das Einzige Feature, dass ich noch gerne umsetzen würde, wäre eine mehrsprachige Benutzeroberfläche des Setups.  
+Das man zumindest zwischen Deutsch und Englisch wählen kann,  
+dass wenn die SolidWorks-Sprach-Einstellung eine andere als Deutsch ist, automatisch Englisch verwendet wird
