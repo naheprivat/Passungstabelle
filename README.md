@@ -12,7 +12,7 @@
   Der Code ist nicht komplett bereinigt und auch nicht durchgehend kommentiert.
   Ein, meiner Meinung nach, guter Ratgeber beim Programmieren ist das Buch
   [Weniger Schlecht programmieren](https://www.oreilly.de/buecher/120174/9783897215672-weniger-schlecht-programmieren.html)
-  Ihr dürft auch aber keine Programmierbeispiele erwarten. Das Buch ist sehr allgemein gehalten
+  Ihr dürft aber keine Programmierbeispiele erwarten. Das Buch ist sehr allgemein gehalten
   und alles habe ich auch noch nicht umsetzen können  
 
 ## Add-In Hinweise
@@ -23,7 +23,7 @@ Bei der Installation durch das Setup-Projekt wird dieser Schlüssel automatisch 
 Wird das Add-In debugged, muss der Schlüssel ev. manuell gesetzt werden
 
 ## Setup Hinweise
-um im Installationsdialog zwei Pfade abzufragen muss der Standarddilaog angepasst werden.  
+um im Installationsdialog zwei Pfade abzufragen muss der Standarddialog angepasst werden.  
 Dazu war es in meinem Fall (Verwendung von Visual Studio 2017) notwendig, den bestehenden Dialog  
 "VsdFolderDlg.wid"  
 im Verzechnis   
