@@ -64,16 +64,17 @@ Public Class Definitionen
         Dim co As Int32
     End Structure
 
+    'Definition der im Setup abgebildeten Einstellungen
     Public Structure Strctformat
-        Dim format As String
-        Dim generelle_paramter As Dictionary(Of String, Werte)
-        Dim tabbellen_paramter As Dictionary(Of String, Werte)
-        Dim format_paramter As Dictionary(Of String, Werte)
+        Dim format As String                                    'Formatname
+        Dim generelle_paramter As Dictionary(Of String, Werte)  'Generelle Einstellungen
+        Dim tabbellen_paramter As Dictionary(Of String, Werte)  'Tabellen Einstellungen
+        Dim format_paramter As Dictionary(Of String, Werte)     'Format Einstellungen
     End Structure
 
+    'Struktur für Sprachcodes
     Structure Sprach_Codes
-        Dim Kürzel As String
-        Dim Beschreibung As String
+        Dim Kürzel As String        'Sprachkürzel
+        Dim Beschreibung As String  'Sprache ausgeschrieben
     End Structure
-
 End Class

@@ -1,26 +1,27 @@
 ﻿'Klasse LogFile
 'erledigt die Meldungsanzeige und das Schreiben der Log-Datei
+
 Imports System.Collections.Generic
 Imports System.Environment
 
 Public Class LogFile
-    'Property MacroPfad As String = ""                               'Pfad zur Applikation
-    Property LogPfad As String = ""                                 'Pfad zur Applikation
+    Property LogPfad As String = ""                                 'Pfad zur Log_Datei
     Property Attr_generell As New Dictionary(Of String, String)     'Generelle Attribute
-    Property UserName As String = ""
+    Property UserName As String = ""                                'Benutzername
 
+    'Initialisierung der Klasse mit der Liste der generellen Attribute
     Sub New(attr As Dictionary(Of String, String))
-        'MacroPfad = GetAppPath()
         LogPfad = GetLogPath()
         Attr_generell = attr
         UserName = Environment.UserName
     End Sub
 
+    'Initialisierung der Klasse ohne Attribute
     Sub New()
-        'MacroPfad = GetAppPath()
         LogPfad = GetLogPath()
         UserName = Environment.UserName
     End Sub
+
     'Sub        WriteInfo  
     'Paramter:  Info (welcher Text soll ausgegeben werden
     '           Msg (True es wird auch eine Mledung am Bildschirm ausgegeben, Fals keine Meldung am Bildschirm)
@@ -28,11 +29,13 @@ Public Class LogFile
         Dim tempattr As Boolean
 
         'Versuch das Attribut zu lesen
+        'Wenn das Attribute nicht gelesen werden konnte, dann wird eine Log-Datei geschrieben
         Try
             tempattr = Attr_generell("LogDatei")
         Catch ex As Exception
             tempattr = True
         End Try
+
         'Wenn in die Log-Datei geschrieben werden soll
         If tempattr = True Then
             My.Application.Log.DefaultFileLogWriter.BaseFileName = System.IO.Path.Combine(LogPfad, Definitionen.LOGName)
@@ -64,9 +67,7 @@ Public Class LogFile
     Public Function GetLogPath() As String
         Dim path As String
 
-        'path = My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData
-        'GetLogPath = path
-
+        'normalwerweise gibt SpecialFolder.CommonApplicationData C:\ProgramData zurück
         path = GetFolderPath(SpecialFolder.CommonApplicationData)
 
         path = path & "\" & My.Application.Info.CompanyName

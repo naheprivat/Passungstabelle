@@ -239,13 +239,10 @@ Public Class DrawingEventHandler
     End Function
 
     Overrides Function DetachEventHandlers() As Boolean
-        'RemoveHandler iDrawing.DestroyNotify, AddressOf Me.DrawingDoc_DestroyNotify
-        'RemoveHandler IDrawing.NewSelectionNotify, AddressOf Me.DrawingDoc_NewSelectionNotify
+
         If userAddin.eventgesteuert = True Then
             RemoveHandler IDrawing.RegenPostNotify, AddressOf Me.DrawingDoc_RegenPostNotify
         End If
-        'DisconnectModelViews()
-
         userAddin.DetachModelEventHandler(iDocument)
     End Function
 
@@ -253,13 +250,9 @@ Public Class DrawingEventHandler
         DetachEventHandlers()
     End Function
 
-    'Function DrawingDoc_NewSelectionNotify() As Integer
-
-    'End Function
 
     Function DrawingDoc_RegenPostNotify() As Integer
         Dim Fittable As New Passungstabelle
-        
 
         Fittable.Main(iSwApp, IDrawing)
         Fittable = Nothing
@@ -297,7 +290,5 @@ Public Class DocView
         DetachEventHandlers()
     End Function
 
-    'Function ModelView_RepaintNotify(ByVal repaintTYpe As Integer) As Integer
 
-    'End Function
 End Class

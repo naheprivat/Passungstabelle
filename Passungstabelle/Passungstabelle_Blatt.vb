@@ -242,6 +242,7 @@ Public Class Passungstabelle_Blatt
         Dim dokt_setup As Integer = 0
         Dim dokt As Integer = 0
         Dim tempzone As String
+        Dim MarkerCominedHoleTab As Boolean = False
 
         'Falls es noch keine Tabelle gibt, dann eine neue erzeugen
         If Tabelle Is Nothing Then
@@ -250,6 +251,7 @@ Public Class Passungstabelle_Blatt
         End If
 
         For Each ans In Ansichten
+            MarkerCominedHoleTab = False
             'Ansichtsnamen in Log-Datei schreiben
             Log.WriteInfo(ans.ansichtsName, False)
 
@@ -259,11 +261,20 @@ Public Class Passungstabelle_Blatt
             'Wenn Bohrungstabellen gefunden wurde, dann wir sie untersucht
             If Not ans.holetab Is Nothing Then
                 If ans.holetab.Count > 0 Then
+                    If ans.holetab(0).CombineTags = True Then
+                        MarkerCominedHoleTab = True
+                        ans.holetab(0).GetTableAnnotations(0).getannotation.visible = swAnnotationVisibilityState_e.swAnnotationHidden
+                        ans.holetab(0).CombineTags = False
+                    End If
                     ans.HoletableTags = GetHoleTabletags(ans.holetab)
                     ans.HoletableZones = GetHoleTabletags1(ans.holetab)
                     ans.HoletableTags = GetHoleTabletagsPosition(ans)
                     ans.HoletableZones = GetHoleTabletagsPosition1(ans)
                     Tabelle.GetHoleTableDimension(ans.holetab, ans.ViewRef, ans.HoletableZones)
+                End If
+                If MarkerCominedHoleTab = True Then
+                    ans.holetab(0).CombineTags = True
+                    ans.holetab(0).GetTableAnnotations(0).getannotation.visible = swAnnotationVisibilityState_e.swAnnotationVisible
                 End If
             End If
             'Tabelle.getHoleTableDimension(ans.ViewRef)

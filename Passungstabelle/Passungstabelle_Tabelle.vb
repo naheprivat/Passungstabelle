@@ -88,29 +88,31 @@ Public Class Passungstabelle_Tabelle
             'So lange Bemaßungen gefunden werden
             For i = 0 To counter
                 dispdim = a1(i)
-                'Dimension ermittel
-                'dort befinden sich die Passungsangabe und Toleranzen
-                dimen = dispdim.GetDimension2(0)
-                'Wenn es sich um einen Durchmsser handelt dann wird dem Maß ein Ø Symbol vorangestellt
-                If dispdim.Type2 = swDimensionType_e.swDiameterDimension Or dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix) = "<MOD-DIAM>" Then
-                    prefix = "Ø"
-                Else
-                    prefix = ""
-                End If
+                If dispdim.GetAnnotation.visible = swAnnotationVisibilityState_e.swAnnotationHalfHidden Or dispdim.GetAnnotation.visible = swAnnotationVisibilityState_e.swAnnotationVisible Then
+                    'Dimension ermittel
+                    'dort befinden sich die Passungsangabe und Toleranzen
+                    dimen = dispdim.GetDimension2(0)
+                    'Wenn es sich um einen Durchmsser handelt dann wird dem Maß ein Ø Symbol vorangestellt
+                    If dispdim.Type2 = swDimensionType_e.swDiameterDimension Or dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix) = "<MOD-DIAM>" Then
+                        prefix = "Ø"
+                    Else
+                        prefix = ""
+                    End If
 
-                'Test für Zone ****************
-                zone = GetZoneFromDisplayDimension(dispdim, swView, Blatt)
-                'Test für Zone ****************
+                    'Test für Zone ****************
+                    zone = GetZoneFromDisplayDimension(dispdim, swView, Blatt)
+                    'Test für Zone ****************
 
-                'Passung und Toleranzen ermitteln
-                Gettolfromdim(dimen, prefix, zone)
+                    'Passung und Toleranzen ermitteln
+                    Gettolfromdim(dimen, prefix, zone)
 
-                'Prüfung ob es sich um eine Bohrungsbeschreibung handelt
-                holeVariables = dispdim.GetHoleCalloutVariables
+                    'Prüfung ob es sich um eine Bohrungsbeschreibung handelt
+                    holeVariables = dispdim.GetHoleCalloutVariables
 
-                'Wenn Bohrungs-Beschreibungs-Variablen gefunden wurden
-                If Not holeVariables Is Nothing Then
-                    Gettolfromcalloutvar(prefix, holeVariables, dimen, zone)
+                    'Wenn Bohrungs-Beschreibungs-Variablen gefunden wurden
+                    If Not holeVariables Is Nothing Then
+                        Gettolfromcalloutvar(prefix, holeVariables, dimen, zone)
+                    End If
                 End If
             Next
         End If
@@ -718,20 +720,29 @@ Public Class Passungstabelle_Tabelle
         'Funktioniert nicht mit SWX 2019 Rasterlinien werden nicht angezeigt
         'swTable = swdraw.InsertTableAnnotation2(False, Einfügepunkt(0), Einfügepunkt(1), Einfügepunktposition, "", Tabellenzeilencount * 2 + 1, TabellenSpaltenCount)
 
-        'Rasterlinien funktionieren Funktioniert Position stimmt nicht deshalb Verwendung von SetEinfügepunktSWX2019
+        'Rasterlinien funktionieren, Position stimmt nicht deshalb Verwendung von SetEinfügepunktSWX2019
         swTable = modeldoc.Extension.InsertGeneralTableAnnotation(False, Einfügepunkt(0), Einfügepunkt(1), Einfügepunktposition, "", Tabellenzeilencount * 2 + 1, TabellenSpaltenCount)
 
-        swTable.GetAnnotation.Visible = False
+        ' swTable.GetAnnotation.Visible = False
+        swTable.GetAnnotation.Visible = swAnnotationVisibilityState_e.swAnnotationHidden
+
+        For i = 0 To swTable.ColumnCount - 1
+            swTable.SetColumnWidth(i, 1.0, swTableRowColSizeChangeBehavior_e.swTableRowColChange_TableSizeCanChange)
+        Next
 
         swTable.GetAnnotation.SetName("PASSUNGSTABELLE")
         swTable.Title = "Passungstabelle"
         swTable.GeneralTableFeature.GetFeature.Name = "Passungstabelle-" & swsheet.GetName
 
+        'wegen Bug in SWX2019 
+        '*******************
         'swTable.BorderLineWeightCustom = GetLineWidth("RahmenStrichStärke", modeldoc)
         'swTable.GridLineWeightCustom = GetLineWidth("RasterStrichStärke", modeldoc)
-
+        '*******************
         swTable.BorderLineWeight = GetLineWidth1("RahmenStrichStärke", modeldoc)
         swTable.GridLineWeight = GetLineWidth1("RasterStrichStärke", modeldoc)
+        '*******************
+
 
         SetColors()
 
@@ -746,22 +757,23 @@ Public Class Passungstabelle_Tabelle
 
         InsertRowsText(swTable)
 
-        'For i = 0 To TabellenSpaltenCount - 1
-        ' swTable.SetColumnWidth(i, swsheet.GetProperties2(5), swTableRowColSizeChangeBehavior_e.swTableRowColChange_TableSizeCanChange)
-        ' Next
 
         If Attr_Tabelle("SpaltenBreiteAutomatisch") = True Then
             SetColumnWithAuto(swTable)
+            SetColumnHeightAuto(swTable)
             MergeCells(swTable)
         Else
             SetColumnWithValue(swTable)
+            SetColumnHeightAuto(swTable)
             MergeCells(swTable)
         End If
 
         SetEinfügepunktSWX2019(swTable)
         swTable.GetAnnotation.SetPosition2(Einfügepunkt(0), Einfügepunkt(1), 0)
 
-        swTable.GetAnnotation.Visible = True
+        'swTable.GetAnnotation.Visible = True
+        swTable.GetAnnotation.Visible = swAnnotationVisibilityState_e.swAnnotationVisible
+
     End Sub
     Private Function GetTextStyle(Header As Boolean, swTable As TableAnnotation) As TextFormat
         Dim temp As SolidWorks.Interop.sldworks.TextFormat
@@ -878,7 +890,8 @@ Public Class Passungstabelle_Tabelle
                         swTable.SetColumnTitle(pos, "<FONT color=" & HeadColor & ">" & lang1l(n.Key.Substring(9)))
                         swTable.SetCellTextFormat(rowpos, pos, False, HeadStyle)
                         If lang2l.Count > 0 Then
-                            swTable.SetColumnTitle(pos, swTable.GetColumnTitle2(pos, True) & Chr(13) & lang2l(n.Key.Substring(9)))
+                            'swTable.SetColumnTitle(pos, swTable.GetColumnTitle2(pos, True) & Chr(13) & lang2l(n.Key.Substring(9)))
+                            swTable.SetColumnTitle(pos, swTable.GetColumnTitle(pos) & Chr(13) & lang2l(n.Key.Substring(9)))
                             swTable.SetCellTextFormat(rowpos, pos, False, HeadStyle)
                         End If
                         pos = pos + 1
@@ -1063,9 +1076,9 @@ Public Class Passungstabelle_Tabelle
 
         If Attr_Sprache.Contains("/") Then HeaderZweizeilig = True
 
-        'For i = 0 To swTable.ColumnCount - 1
-        '    swTable.SetColumnWidth(i, 0.1, swTableRowColSizeChangeBehavior_e.swTableRowColChange_TableSizeCanChange)
-        'Next
+        ' For i = 0 To swTable.ColumnCount - 1
+        ' swTable.SetColumnWidth(i, 1.0, swTableRowColSizeChangeBehavior_e.swTableRowColChange_TableSizeCanChange)
+        ' Next
 
         For i = 0 To swTable.ColumnCount - 1
             For j = 0 To swTable.RowCount - 1
@@ -1073,10 +1086,10 @@ Public Class Passungstabelle_Tabelle
                     If swDislplayData.GetTextInBoxWidthAtIndex(index) > TextWidth Then
                         temp = swDislplayData.GetTextInBoxWidthAtIndex(index)
                     End If
-                    If swDislplayData.GetTextInBoxWidthAtIndex(index + 1) > TextWidth Then
+                    If swDislplayData.GetTextInBoxWidthAtIndex(index + 1) > temp Then
                         temp = swDislplayData.GetTextInBoxWidthAtIndex(index + 1)
                     End If
-                    index = index + swTable.ColumnCount * 2
+                    index = index + swTable.ColumnCount * 2 - i
                 Else
                     If swDislplayData.GetTextInBoxWidthAtIndex(index) > TextWidth Then
                         temp = swDislplayData.GetTextInBoxWidthAtIndex(index)
@@ -1093,6 +1106,51 @@ Public Class Passungstabelle_Tabelle
             Else
                 index = i + 1
             End If
+        Next
+        swAnnotation.Visible = True
+    End Sub
+
+    Sub SetColumnHeightAuto(swTable As TableAnnotation)
+        Dim index As Integer = 0
+        Dim swAnnotation As Annotation
+        Dim swDislplayData As DisplayData
+        Dim TextWidth As Double = 0.0
+        Dim HeaderZweizeilig As Boolean = False
+        Dim temp As Double = 0.0
+        Dim höheR As Double = Attr_Tabelle("TexthöheZeile").Replace(".", ",") * 1.5 / 1000.0
+        Dim höheK As Double = 0.0
+
+        If HeaderZweizeilig Then
+            höheK = Attr_Tabelle("TexthöheKopfZeile").Replace(".", ",") * 1.25 / 1000.0
+        Else
+            höheK = Attr_Tabelle("TexthöheKopfZeile").Replace(".", ",") * 1.5 / 1000.0
+        End If
+
+        swAnnotation = swTable.GetAnnotation
+
+        swDislplayData = swAnnotation.GetDisplayData
+
+        If Attr_Sprache.Contains("/") Then HeaderZweizeilig = True
+
+        For i = 0 To swTable.RowCount - 1
+            'For j = 0 To swTable.ColumnCount - 1
+            ' temp = swDislplayData.GetTextInBoxHeightAtIndex(index)
+            'index = index + 1
+            'If temp > TextWidth Then TextWidth = temp
+            'Next
+            If i = 0 And HeaderZweizeilig Then
+                swTable.SetRowHeight(i, höheK * 2, swTableRowColSizeChangeBehavior_e.swTableRowColChange_TableSizeCanChange)
+            Else
+                swTable.SetRowHeight(i, höheR, swTableRowColSizeChangeBehavior_e.swTableRowColChange_TableSizeCanChange)
+            End If
+            swTable.SetRowVerticalGap(i, höheR / 10.0)
+            TextWidth = 0.0
+            temp = 0.0
+            'If HeaderZweizeilig Then
+            ' index = i * 2 + 2
+            ' Else
+            ' index = i + 1
+            ' End If
         Next
         swAnnotation.Visible = True
     End Sub
