@@ -213,6 +213,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_40C21692DBAD4CDE827D109C7A543546"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_42A4FBF5A0F24568ADC30E536BB35E57"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -471,6 +477,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_859B85B341AFEB3CAC1FBCFD82CDED95"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8B7E1A5D23FA474E9696620DFF93C412"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -543,12 +555,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A8063C3FCF5986232C99500D8BCA1E0C"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A8A52D6AFC6748CBA273B560B9F0BEE1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -568,13 +574,13 @@
         "Entry"
         {
         "MsmKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
+        "OwnerKey" = "8:_8C4861609DB3CA1E4538BC95D85DB8FE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
-        "OwnerKey" = "8:_8C4861609DB3CA1E4538BC95D85DB8FE"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -615,6 +621,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C074EA5642BA6F7DAD0083A15BB00E82"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C33505905807468FBC486D6D08B8F403"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -629,12 +641,6 @@
         {
         "MsmKey" = "8:_C552E26C570C4EBE8A16D5A3395B8BE2"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C5B39E0955E490A9EA67A44600E242D0"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -819,12 +825,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FD2403ABFDBCB31B67E09456CF303EF4"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_FE27910AB52F41178A2C658C54B4435B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -844,37 +844,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C5B39E0955E490A9EA67A44600E242D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FD2403ABFDBCB31B67E09456CF303EF4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A8063C3FCF5986232C99500D8BCA1E0C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_19DE4C28ED83DC942287EB76518B9C7A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_51E9B673FE2B05B0440DC701B5795F9D"
+        "OwnerKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -886,7 +856,37 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B2CC4DBA90F29523A0380E52894F38C8"
+        "OwnerKey" = "8:_51E9B673FE2B05B0440DC701B5795F9D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_19DE4C28ED83DC942287EB76518B9C7A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_859B85B341AFEB3CAC1FBCFD82CDED95"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_40C21692DBAD4CDE827D109C7A543546"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C074EA5642BA6F7DAD0083A15BB00E82"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F368A621193C472FA96635BA11CC9C0E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1653,6 +1653,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_40C21692DBAD4CDE827D109C7A543546"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swconst, Version=26.2.0.63, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_40C21692DBAD4CDE827D109C7A543546"
+                    {
+                    "Name" = "8:SolidWorks.Interop.swconst.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SolidWorks.Interop.swconst.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42A4FBF5A0F24568ADC30E536BB35E57"
@@ -2526,6 +2557,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_859B85B341AFEB3CAC1FBCFD82CDED95"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swpublished, Version=26.2.0.63, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_859B85B341AFEB3CAC1FBCFD82CDED95"
+                    {
+                    "Name" = "8:SolidWorks.Interop.swpublished.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SolidWorks.Interop.swpublished.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8B7E1A5D23FA474E9696620DFF93C412"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\bootstrap-3.3.6\\fonts\\glyphicons-halflings-regular.svg"
@@ -2777,32 +2839,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A8063C3FCF5986232C99500D8BCA1E0C"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swpublished, Version=26.2.0.63, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SolidWorks.Interop.swpublished.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A8A52D6AFC6748CBA273B560B9F0BEE1"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\Formateinstellungen.html"
@@ -2994,6 +3030,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C074EA5642BA6F7DAD0083A15BB00E82"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.sldworks, Version=26.2.0.63, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C074EA5642BA6F7DAD0083A15BB00E82"
+                    {
+                    "Name" = "8:SolidWorks.Interop.sldworks.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SolidWorks.Interop.sldworks.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C33505905807468FBC486D6D08B8F403"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\helpndoc-5\\icons\\0.png"
@@ -3052,32 +3119,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C5B39E0955E490A9EA67A44600E242D0"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.sldworks, Version=26.2.0.63, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SolidWorks.Interop.sldworks.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CAA341F6790F45BAA157B0F892BFDEC5"
@@ -3671,32 +3712,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FD2403ABFDBCB31B67E09456CF303EF4"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SolidWorks.Interop.swconst, Version=26.2.0.63, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:SolidWorks.Interop.swconst.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE27910AB52F41178A2C658C54B4435B"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Documents\\HelpNDoc\\Output\\html Dokumentation erstellen\\vendors\\helpndoc-5\\icons\\14.png"
@@ -4042,6 +4057,28 @@
                 {
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_F3012DDF871547F9A52688F240BCEE6C"
+            {
+            "Name" = "8:#1915"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:AppDataFolder"
+                "Folders"
+                {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_32471A98B3CD425A8A9C6D4867613B41"
+                    {
+                    "Name" = "8:nahe"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_3B4FB5CA85644B4DB81DB82CE125A26D"
+                        "Folders"
+                        {
+                        }
+                    }
+                }
+            }
         }
         "LaunchCondition"
         {
@@ -4073,7 +4110,7 @@
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:8.1.03"
+        "ProductVersion" = "8:8.2.00"
         "Manufacturer" = "8:nahe"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -4707,7 +4744,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F368A621193C472FA96635BA11CC9C0E"
             {
-            "SourcePath" = "8:..\\Passungstabelle\\obj\\Debug\\Passungstabellen.dll"
+            "SourcePath" = "8:..\\Passungstabelle\\obj\\Release\\Passungstabellen.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_379DCC0A8A65456991E11B456D84F453"

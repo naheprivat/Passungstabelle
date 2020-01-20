@@ -12,6 +12,9 @@ Imports SolidWorksTools.File
 Imports System.Collections.Generic
 Imports System.Diagnostics
 
+Imports System.Threading
+Imports System.Globalization
+
 <Guid("09a29164-06dc-4670-bfb9-3243404d59ca")>
 <ComVisible(True)>
 <SwAddin(
@@ -405,6 +408,7 @@ Public Class SwAddin
 #Region "UI Callbacks"
     Sub PassungsTabelleSetup()
         Dim setupdlg As New SetupDialog With {.Swapp = SwApp}
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("de-DE")
 
         setupdlg.ShowDialog()
         setupdlg.Close()
@@ -416,6 +420,9 @@ Public Class SwAddin
         Dim p As New Process()
         'Dim psi As New ProcessStartInfo(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location) & "\Help\HtmlHelp\Willkommen.html")
         Dim psi As New ProcessStartInfo(macro_pfad & "\Help\HtmlHelp\Willkommen.html")
+
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("de-DE")
+
         psi.Verb = "open"
         p.StartInfo = psi
         p.Start()
@@ -423,6 +430,9 @@ Public Class SwAddin
 
     Sub ErstelleTabelle()
         Dim Fittable As New Passungstabelle
+
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("de-DE")
+
         Fittable.Main(ISwApp)
         Fittable = Nothing
     End Sub
