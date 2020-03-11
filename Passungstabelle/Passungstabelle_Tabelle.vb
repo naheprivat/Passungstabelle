@@ -93,7 +93,8 @@ Public Class Passungstabelle_Tabelle
                     'dort befinden sich die Passungsangabe und Toleranzen
                     dimen = dispdim.GetDimension2(0)
                     'Wenn es sich um einen Durchmsser handelt dann wird dem Maß ein Ø Symbol vorangestellt
-                    If dispdim.Type2 = swDimensionType_e.swDiameterDimension Or dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix) = "<MOD-DIAM>" Then
+                    'If dispdim.Type2 = swDimensionType_e.swDiameterDimension Or dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix) = "<MOD-DIAM>" Or InStr(dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix), "<MOD-DIAM>") <> 0 Then
+                    If CheckForDiameter(dispdim) = True Then
                         prefix = "Ø"
                     Else
                         prefix = ""
@@ -117,6 +118,33 @@ Public Class Passungstabelle_Tabelle
             Next
         End If
         GetViewDimension = True
+    End Function
+
+    Function CheckForDiameter(dispdim As DisplayDimension) As Boolean
+        Dim temp As String = ""
+
+        If dispdim.Type2 = swDimensionType_e.swDiameterDimension Then
+            CheckForDiameter = True
+            Exit Function
+        End If
+
+        temp = dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix)
+        temp = StrReverse(temp)
+        temp = temp.Trim()
+
+        If Left(temp, 1) = "Ø" Then
+            CheckForDiameter = True
+            Exit Function
+        End If
+
+        'komisch das StrReverse die Zeichen "<>" umdreht
+        If Left(temp, 10).ToUpper = ">MAID-DOM<" Then
+            CheckForDiameter = True
+            Exit Function
+        End If
+
+        CheckForDiameter = False
+
     End Function
 
     ' ermittelt die Passung und Toleranzen aus dem Dimension-Objekt
