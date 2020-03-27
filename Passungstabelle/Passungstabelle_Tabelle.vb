@@ -79,8 +79,9 @@ Public Class Passungstabelle_Tabelle
         Dim holeVariables As Object()
         Dim a1 As Object
         Dim counter As Long
-
+        Dim zz As Integer = 0
         Dim zone As String = ""
+
         a1 = swView.GetDisplayDimensions
 
         If Not (a1 Is Nothing) Then
@@ -88,32 +89,42 @@ Public Class Passungstabelle_Tabelle
             'So lange Bemaßungen gefunden werden
             For i = 0 To counter
                 dispdim = a1(i)
-                If dispdim.GetAnnotation.visible = swAnnotationVisibilityState_e.swAnnotationHalfHidden Or dispdim.GetAnnotation.visible = swAnnotationVisibilityState_e.swAnnotationVisible Then
-                    'Dimension ermittel
-                    'dort befinden sich die Passungsangabe und Toleranzen
-                    dimen = dispdim.GetDimension2(0)
-                    'Wenn es sich um einen Durchmsser handelt dann wird dem Maß ein Ø Symbol vorangestellt
-                    'If dispdim.Type2 = swDimensionType_e.swDiameterDimension Or dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix) = "<MOD-DIAM>" Or InStr(dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix), "<MOD-DIAM>") <> 0 Then
-                    If CheckForDiameter(dispdim) = True Then
-                        prefix = "Ø"
-                    Else
-                        prefix = ""
+
+                'Keine Freistehenden Bemaßungen und Bemaßungen bei denen der Bemaßungswert 0 ist
+                'Bemaßungswert 0 kommt bei abgelösten Zeichnungen vor
+                If dispdim.GetAnnotation.isdangling = False And dispdim.GetDimension2(0).Value <> 0 Then
+                    If dispdim.GetAnnotation.visible = swAnnotationVisibilityState_e.swAnnotationHalfHidden Or dispdim.GetAnnotation.visible = swAnnotationVisibilityState_e.swAnnotationVisible Then
+                        'Dimension ermittel
+                        'dort befinden sich die Passungsangabe und Toleranzen
+                        dimen = dispdim.GetDimension2(0)
+
+                        'Wenn es sich um einen Durchmsser handelt dann wird dem Maß ein Ø Symbol vorangestellt
+                        'If dispdim.Type2 = swDimensionType_e.swDiameterDimension Or dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix) = "<MOD-DIAM>" Or InStr(dispdim.GetText(swDimensionTextParts_e.swDimensionTextPrefix), "<MOD-DIAM>") <> 0 Then
+                        If CheckForDiameter(dispdim) = True Then
+                            prefix = "Ø"
+                        Else
+                            prefix = ""
+                        End If
+
+                        'Test für Zone ****************
+                        zone = GetZoneFromDisplayDimension(dispdim, swView, Blatt)
+                        'Test für Zone ****************
+
+                        'Passung und Toleranzen ermitteln
+                        Gettolfromdim(dimen, prefix, zone)
+
+                        'Prüfung ob es sich um eine Bohrungsbeschreibung handelt
+                        holeVariables = dispdim.GetHoleCalloutVariables
+
+                        'Wenn Bohrungs-Beschreibungs-Variablen gefunden wurden
+                        If Not holeVariables Is Nothing Then
+                            Gettolfromcalloutvar(prefix, holeVariables, dimen, zone)
+                        End If
                     End If
-
-                    'Test für Zone ****************
-                    zone = GetZoneFromDisplayDimension(dispdim, swView, Blatt)
-                    'Test für Zone ****************
-
-                    'Passung und Toleranzen ermitteln
-                    Gettolfromdim(dimen, prefix, zone)
-
-                    'Prüfung ob es sich um eine Bohrungsbeschreibung handelt
-                    holeVariables = dispdim.GetHoleCalloutVariables
-
-                    'Wenn Bohrungs-Beschreibungs-Variablen gefunden wurden
-                    If Not holeVariables Is Nothing Then
-                        Gettolfromcalloutvar(prefix, holeVariables, dimen, zone)
-                    End If
+                ElseIf dispdim.GetAnnotation.isdangling = True Then
+                    Log.WriteInfo("Bemaßung: " & dispdim.GetDimension2(0).FullName & " Maß: " & (dispdim.GetDimension2(0).SystemValue * fac).ToString & Chr(9) & "ist eine freistehende Bemaßung", True)
+                ElseIf dispdim.GetDimension2(0).Value = 0 Then
+                    Log.WriteInfo("Bemaßung: " & dispdim.GetDimension2(0).FullName & " Maß: " & (dispdim.GetDimension2(0).SystemValue * fac).ToString & Chr(9) & "hat den Wert 0", True)
                 End If
             Next
         End If
@@ -169,7 +180,8 @@ Public Class Passungstabelle_Tabelle
             'Prüfung ob auch Passungswerte eingetragen sind
             'Könnte ja auch sein, dass als Toleranzttyp Passung eingestellt ist und keine Passung gewählt wurde
             'Wenn kein Passungswert gefunden wird, dann Abbruch der Funktion
-            If Not CheckForFitValues(tol.GetHoleFitValue, tol.GetShaftFitValue, "Bemaßung: " & dimen.FullName & " Maß: " & dimen.GetSystemValue2("") * fac) Then
+            'If Not CheckForFitValues(tol.GetHoleFitValue, tol.GetShaftFitValue, "Bemaßung: " & dimen.FullName & " Maß: " & dimen.GetSystemValue2("") * fac) Then
+            If Not CheckForFitValues(tol.GetHoleFitValue, tol.GetShaftFitValue, "Bemaßung: " & dimen.FullName & " Maß: " & dimen.SystemValue * fac) Then
                 Gettolfromdim = False
                 Exit Function
             End If
